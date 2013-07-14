@@ -28,6 +28,16 @@
 		D897F93717926BE60077623D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90717926BE50077623D /* Foundation.framework */; };
 		D897F93F17926BE60077623D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D897F93D17926BE60077623D /* InfoPlist.strings */; };
 		D897F94217926BE60077623D /* NetPeriodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D897F94117926BE60077623D /* NetPeriodTests.m */; };
+		D897F94C179281E30077623D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F94B179281E30077623D /* Parse.framework */; };
+		D897F94E179282050077623D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F94D179282050077623D /* AudioToolbox.framework */; };
+		D897F9501792820D0077623D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F94F1792820D0077623D /* CFNetwork.framework */; };
+		D897F952179282190077623D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F951179282190077623D /* CoreLocation.framework */; };
+		D897F954179282230077623D /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F953179282230077623D /* libz.1.1.3.dylib */; };
+		D897F9561792822B0077623D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F9551792822B0077623D /* MobileCoreServices.framework */; };
+		D897F958179282330077623D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F957179282330077623D /* QuartzCore.framework */; };
+		D897F95A179282460077623D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F959179282460077623D /* Security.framework */; };
+		D897F95C1792824D0077623D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F95B1792824D0077623D /* StoreKit.framework */; };
+		D897F95E179282570077623D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F95D179282570077623D /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +79,16 @@
 		D897F93E17926BE60077623D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D897F94017926BE60077623D /* NetPeriodTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetPeriodTests.h; sourceTree = "<group>"; };
 		D897F94117926BE60077623D /* NetPeriodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetPeriodTests.m; sourceTree = "<group>"; };
+		D897F94B179281E30077623D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D897F94D179282050077623D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D897F94F1792820D0077623D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D897F951179282190077623D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D897F953179282230077623D /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		D897F9551792822B0077623D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D897F957179282330077623D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D897F959179282460077623D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D897F95B1792824D0077623D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D897F95D179282570077623D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +96,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D897F95E179282570077623D /* SystemConfiguration.framework in Frameworks */,
+				D897F95C1792824D0077623D /* StoreKit.framework in Frameworks */,
+				D897F95A179282460077623D /* Security.framework in Frameworks */,
+				D897F958179282330077623D /* QuartzCore.framework in Frameworks */,
+				D897F9561792822B0077623D /* MobileCoreServices.framework in Frameworks */,
+				D897F954179282230077623D /* libz.1.1.3.dylib in Frameworks */,
+				D897F952179282190077623D /* CoreLocation.framework in Frameworks */,
+				D897F9501792820D0077623D /* CFNetwork.framework in Frameworks */,
+				D897F94E179282050077623D /* AudioToolbox.framework in Frameworks */,
 				D897F90617926BE50077623D /* UIKit.framework in Frameworks */,
 				D897F90817926BE50077623D /* Foundation.framework in Frameworks */,
 				D897F90A17926BE50077623D /* CoreGraphics.framework in Frameworks */,
+				D897F94C179281E30077623D /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +147,16 @@
 		D897F90417926BE50077623D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D897F94B179281E30077623D /* Parse.framework */,
+				D897F95D179282570077623D /* SystemConfiguration.framework */,
+				D897F95B1792824D0077623D /* StoreKit.framework */,
+				D897F959179282460077623D /* Security.framework */,
+				D897F957179282330077623D /* QuartzCore.framework */,
+				D897F9551792822B0077623D /* MobileCoreServices.framework */,
+				D897F953179282230077623D /* libz.1.1.3.dylib */,
+				D897F951179282190077623D /* CoreLocation.framework */,
+				D897F94F1792820D0077623D /* CFNetwork.framework */,
+				D897F94D179282050077623D /* AudioToolbox.framework */,
 				D897F90517926BE50077623D /* UIKit.framework */,
 				D897F90717926BE50077623D /* Foundation.framework */,
 				D897F90917926BE50077623D /* CoreGraphics.framework */,
@@ -404,6 +444,10 @@
 		D897F94617926BE60077623D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
@@ -415,6 +459,10 @@
 		D897F94717926BE60077623D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
