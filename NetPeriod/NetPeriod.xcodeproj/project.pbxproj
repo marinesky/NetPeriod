@@ -53,6 +53,13 @@
 		D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */; };
 		D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056B1794138200140981 /* messageboard_default_head.png */; };
 		D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056C1794138200140981 /* messageboard_default_head@2x.png */; };
+		D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057117941D1800140981 /* NPIntroductionPanel.m */; };
+		D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057317941D1800140981 /* NPIntroductionView.m */; };
+		D8A4057B17941F3300140981 /* NPRootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057A17941F3300140981 /* NPRootTabViewController.m */; };
+		D8A40580179421D100140981 /* SampleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057C179421D100140981 /* SampleBackground.png */; };
+		D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057D179421D100140981 /* SampleHeaderImage.png */; };
+		D8A40582179421D100140981 /* SampleImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057E179421D100140981 /* SampleImage1.png */; };
+		D8A40583179421D100140981 /* SampleImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057F179421D100140981 /* SampleImage2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,16 @@
 		D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardViewCell.xib; sourceTree = "<group>"; };
 		D8A4056B1794138200140981 /* messageboard_default_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageboard_default_head.png; sourceTree = "<group>"; };
 		D8A4056C1794138200140981 /* messageboard_default_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageboard_default_head@2x.png"; sourceTree = "<group>"; };
+		D8A4057017941D1800140981 /* NPIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPIntroductionPanel.h; sourceTree = "<group>"; };
+		D8A4057117941D1800140981 /* NPIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPIntroductionPanel.m; sourceTree = "<group>"; };
+		D8A4057217941D1800140981 /* NPIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPIntroductionView.h; sourceTree = "<group>"; };
+		D8A4057317941D1800140981 /* NPIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPIntroductionView.m; sourceTree = "<group>"; };
+		D8A4057917941F3300140981 /* NPRootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPRootTabViewController.h; sourceTree = "<group>"; };
+		D8A4057A17941F3300140981 /* NPRootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPRootTabViewController.m; sourceTree = "<group>"; };
+		D8A4057C179421D100140981 /* SampleBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleBackground.png; sourceTree = "<group>"; };
+		D8A4057D179421D100140981 /* SampleHeaderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleHeaderImage.png; sourceTree = "<group>"; };
+		D8A4057E179421D100140981 /* SampleImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleImage1.png; sourceTree = "<group>"; };
+		D8A4057F179421D100140981 /* SampleImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleImage2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,9 +228,12 @@
 			isa = PBXGroup;
 			children = (
 				D8A4055E1793F89C00140981 /* MessageBoard */,
+				D8A4056F17941D1800140981 /* UserGuide */,
 				D8A405401793F3B400140981 /* Vendors */,
 				D897F91417926BE50077623D /* NPAppDelegate.h */,
 				D897F91517926BE50077623D /* NPAppDelegate.m */,
+				D8A4057917941F3300140981 /* NPRootTabViewController.h */,
+				D8A4057A17941F3300140981 /* NPRootTabViewController.m */,
 				D897F91D17926BE60077623D /* MainStoryboard.storyboard */,
 				D897F92017926BE60077623D /* NPFirstViewController.h */,
 				D897F92117926BE60077623D /* NPFirstViewController.m */,
@@ -310,6 +330,21 @@
 			path = MessageBoard;
 			sourceTree = "<group>";
 		};
+		D8A4056F17941D1800140981 /* UserGuide */ = {
+			isa = PBXGroup;
+			children = (
+				D8A4057017941D1800140981 /* NPIntroductionPanel.h */,
+				D8A4057117941D1800140981 /* NPIntroductionPanel.m */,
+				D8A4057217941D1800140981 /* NPIntroductionView.h */,
+				D8A4057317941D1800140981 /* NPIntroductionView.m */,
+				D8A4057C179421D100140981 /* SampleBackground.png */,
+				D8A4057D179421D100140981 /* SampleHeaderImage.png */,
+				D8A4057E179421D100140981 /* SampleImage1.png */,
+				D8A4057F179421D100140981 /* SampleImage2.png */,
+			);
+			path = UserGuide;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -395,6 +430,10 @@
 				D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */,
 				D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */,
 				D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */,
+				D8A40580179421D100140981 /* SampleBackground.png in Resources */,
+				D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */,
+				D8A40582179421D100140981 /* SampleImage1.png in Resources */,
+				D8A40583179421D100140981 /* SampleImage2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +483,9 @@
 				D8A4055D1793F3B400140981 /* UIImageView+AFNetworking.m in Sources */,
 				D8A405621793F8E500140981 /* NPMessageBoardTableViewController.m in Sources */,
 				D8A405661793FEF300140981 /* NPMessageBoardViewCell.m in Sources */,
+				D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */,
+				D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */,
+				D8A4057B17941F3300140981 /* NPRootTabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
