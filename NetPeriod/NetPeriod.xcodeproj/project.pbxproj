@@ -47,6 +47,12 @@
 		D8A4055B1793F3B400140981 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405501793F3B400140981 /* AFURLConnectionOperation.m */; };
 		D8A4055C1793F3B400140981 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405521793F3B400140981 /* AFXMLRequestOperation.m */; };
 		D8A4055D1793F3B400140981 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405541793F3B400140981 /* UIImageView+AFNetworking.m */; };
+		D8A405621793F8E500140981 /* NPMessageBoardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */; };
+		D8A405631793F8E500140981 /* NPMessageBoardTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */; };
+		D8A405661793FEF300140981 /* NPMessageBoardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */; };
+		D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */; };
+		D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056B1794138200140981 /* messageboard_default_head.png */; };
+		D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056C1794138200140981 /* messageboard_default_head@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +123,14 @@
 		D8A405521793F3B400140981 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D8A405531793F3B400140981 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D8A405541793F3B400140981 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D8A4055F1793F8E500140981 /* NPMessageBoardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardTableViewController.h; sourceTree = "<group>"; };
+		D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardTableViewController.m; sourceTree = "<group>"; };
+		D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardTableViewController.xib; sourceTree = "<group>"; };
+		D8A405641793FEF300140981 /* NPMessageBoardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardViewCell.h; sourceTree = "<group>"; };
+		D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardViewCell.m; sourceTree = "<group>"; };
+		D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardViewCell.xib; sourceTree = "<group>"; };
+		D8A4056B1794138200140981 /* messageboard_default_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageboard_default_head.png; sourceTree = "<group>"; };
+		D8A4056C1794138200140981 /* messageboard_default_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageboard_default_head@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +210,7 @@
 		D897F90B17926BE50077623D /* NetPeriod */ = {
 			isa = PBXGroup;
 			children = (
+				D8A4055E1793F89C00140981 /* MessageBoard */,
 				D8A405401793F3B400140981 /* Vendors */,
 				D897F91417926BE50077623D /* NPAppDelegate.h */,
 				D897F91517926BE50077623D /* NPAppDelegate.m */,
@@ -280,6 +295,21 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		D8A4055E1793F89C00140981 /* MessageBoard */ = {
+			isa = PBXGroup;
+			children = (
+				D8A4055F1793F8E500140981 /* NPMessageBoardTableViewController.h */,
+				D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */,
+				D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */,
+				D8A405641793FEF300140981 /* NPMessageBoardViewCell.h */,
+				D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */,
+				D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */,
+				D8A4056B1794138200140981 /* messageboard_default_head.png */,
+				D8A4056C1794138200140981 /* messageboard_default_head@2x.png */,
+			);
+			path = MessageBoard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,6 +391,10 @@
 				D897F92617926BE60077623D /* first@2x.png in Resources */,
 				D897F92B17926BE60077623D /* second.png in Resources */,
 				D897F92D17926BE60077623D /* second@2x.png in Resources */,
+				D8A405631793F8E500140981 /* NPMessageBoardTableViewController.xib in Resources */,
+				D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */,
+				D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */,
+				D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +442,8 @@
 				D8A4055B1793F3B400140981 /* AFURLConnectionOperation.m in Sources */,
 				D8A4055C1793F3B400140981 /* AFXMLRequestOperation.m in Sources */,
 				D8A4055D1793F3B400140981 /* UIImageView+AFNetworking.m in Sources */,
+				D8A405621793F8E500140981 /* NPMessageBoardTableViewController.m in Sources */,
+				D8A405661793FEF300140981 /* NPMessageBoardViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
