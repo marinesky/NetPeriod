@@ -444,6 +444,8 @@
 		D897F94617926BE60077623D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dafeng Jin (CGCSA6UBAG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dafeng Jin (CGCSA6UBAG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -452,6 +454,8 @@
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60934634-3F78-4F67-A81B-EDACE05627AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60934634-3F78-4F67-A81B-EDACE05627AB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -459,6 +463,8 @@
 		D897F94717926BE60077623D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dafeng Jin (CGCSA6UBAG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dafeng Jin (CGCSA6UBAG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -467,6 +473,8 @@
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "60934634-3F78-4F67-A81B-EDACE05627AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60934634-3F78-4F67-A81B-EDACE05627AB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -17,11 +17,13 @@
     
     // ****************************************************************************
     // Uncomment and fill in with your Parse credentials:
-    [Parse setApplicationId:@"8s1WvVOoNPqkPcrlKHSv7VNJyIEYYsHxU75uAUwn" clientKey:@"8s1WvVOoNPqkPcrlKHSv7VNJyIEYYsHxU75uAUwn"];
+    [Parse setApplicationId:@"8s1WvVOoNPqkPcrlKHSv7VNJyIEYYsHxU75uAUwn" clientKey:@"nOV2UAnzYP89bHJ7F4v2Alnr4tBH7QWrZPn83Xah"];
     // ****************************************************************************
     
     // Override point for customization after application launch.
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
 }

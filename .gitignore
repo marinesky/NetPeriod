@@ -4,3 +4,8 @@
 *.xcuserstate
 
 *.xcscheme
+
+*.xcbkptlist
+
+.idea/
+.DS_Store
