@@ -60,6 +60,22 @@
 		D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057D179421D100140981 /* SampleHeaderImage.png */; };
 		D8A40582179421D100140981 /* SampleImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057E179421D100140981 /* SampleImage1.png */; };
 		D8A40583179421D100140981 /* SampleImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4057F179421D100140981 /* SampleImage2.png */; };
+		D8A405A51794DCE600140981 /* IASKAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405871794DCE600140981 /* IASKAppSettingsViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405A61794DCE600140981 /* IASKAppSettingsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405891794DCE600140981 /* IASKAppSettingsWebViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405A71794DCE600140981 /* IASKSpecifierValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4058B1794DCE600140981 /* IASKSpecifierValuesViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405A81794DCE600140981 /* IASKSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4058F1794DCE600140981 /* IASKSettingsReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405A91794DCE600140981 /* IASKSettingsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405911794DCE600140981 /* IASKSettingsStore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AA1794DCE600140981 /* IASKSettingsStoreFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405931794DCE600140981 /* IASKSettingsStoreFile.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AB1794DCE600140981 /* IASKSettingsStoreUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405951794DCE600140981 /* IASKSettingsStoreUserDefaults.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AC1794DCE600140981 /* IASKSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405971794DCE600140981 /* IASKSpecifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AD1794DCE600140981 /* IASKPSSliderSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4059A1794DCE600140981 /* IASKPSSliderSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AE1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4059C1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405AF1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4059E1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405B01794DCE600140981 /* IASKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405A01794DCE600140981 /* IASKSlider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405B11794DCE600140981 /* IASKSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405A21794DCE600140981 /* IASKSwitch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405B21794DCE600140981 /* IASKTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405A41794DCE600140981 /* IASKTextField.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8A405B41794E00D00140981 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A405B31794E00D00140981 /* MessageUI.framework */; };
+		D8A405B61794E37F00140981 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8A405B51794E37F00140981 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +164,37 @@
 		D8A4057D179421D100140981 /* SampleHeaderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleHeaderImage.png; sourceTree = "<group>"; };
 		D8A4057E179421D100140981 /* SampleImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleImage1.png; sourceTree = "<group>"; };
 		D8A4057F179421D100140981 /* SampleImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleImage2.png; sourceTree = "<group>"; };
+		D8A405861794DCE600140981 /* IASKAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsViewController.h; sourceTree = "<group>"; };
+		D8A405871794DCE600140981 /* IASKAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsViewController.m; sourceTree = "<group>"; };
+		D8A405881794DCE600140981 /* IASKAppSettingsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKAppSettingsWebViewController.h; sourceTree = "<group>"; };
+		D8A405891794DCE600140981 /* IASKAppSettingsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKAppSettingsWebViewController.m; sourceTree = "<group>"; };
+		D8A4058A1794DCE600140981 /* IASKSpecifierValuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSpecifierValuesViewController.h; sourceTree = "<group>"; };
+		D8A4058B1794DCE600140981 /* IASKSpecifierValuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSpecifierValuesViewController.m; sourceTree = "<group>"; };
+		D8A4058C1794DCE600140981 /* IASKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKViewController.h; sourceTree = "<group>"; };
+		D8A4058E1794DCE600140981 /* IASKSettingsReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsReader.h; sourceTree = "<group>"; };
+		D8A4058F1794DCE600140981 /* IASKSettingsReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsReader.m; sourceTree = "<group>"; };
+		D8A405901794DCE600140981 /* IASKSettingsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStore.h; sourceTree = "<group>"; };
+		D8A405911794DCE600140981 /* IASKSettingsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStore.m; sourceTree = "<group>"; };
+		D8A405921794DCE600140981 /* IASKSettingsStoreFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStoreFile.h; sourceTree = "<group>"; };
+		D8A405931794DCE600140981 /* IASKSettingsStoreFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStoreFile.m; sourceTree = "<group>"; };
+		D8A405941794DCE600140981 /* IASKSettingsStoreUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSettingsStoreUserDefaults.h; sourceTree = "<group>"; };
+		D8A405951794DCE600140981 /* IASKSettingsStoreUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSettingsStoreUserDefaults.m; sourceTree = "<group>"; };
+		D8A405961794DCE600140981 /* IASKSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSpecifier.h; sourceTree = "<group>"; };
+		D8A405971794DCE600140981 /* IASKSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSpecifier.m; sourceTree = "<group>"; };
+		D8A405991794DCE600140981 /* IASKPSSliderSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSSliderSpecifierViewCell.h; sourceTree = "<group>"; };
+		D8A4059A1794DCE600140981 /* IASKPSSliderSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSSliderSpecifierViewCell.m; sourceTree = "<group>"; };
+		D8A4059B1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTextFieldSpecifierViewCell.h; sourceTree = "<group>"; };
+		D8A4059C1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTextFieldSpecifierViewCell.m; sourceTree = "<group>"; };
+		D8A4059D1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTitleValueSpecifierViewCell.h; sourceTree = "<group>"; };
+		D8A4059E1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTitleValueSpecifierViewCell.m; sourceTree = "<group>"; };
+		D8A4059F1794DCE600140981 /* IASKSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSlider.h; sourceTree = "<group>"; };
+		D8A405A01794DCE600140981 /* IASKSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSlider.m; sourceTree = "<group>"; };
+		D8A405A11794DCE600140981 /* IASKSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKSwitch.h; sourceTree = "<group>"; };
+		D8A405A21794DCE600140981 /* IASKSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKSwitch.m; sourceTree = "<group>"; };
+		D8A405A31794DCE600140981 /* IASKTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTextField.h; sourceTree = "<group>"; };
+		D8A405A41794DCE600140981 /* IASKTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTextField.m; sourceTree = "<group>"; };
+		D8A405B31794E00D00140981 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D8A405B51794E37F00140981 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A405B41794E00D00140981 /* MessageUI.framework in Frameworks */,
 				D897F95E179282570077623D /* SystemConfiguration.framework in Frameworks */,
 				D897F95C1792824D0077623D /* StoreKit.framework in Frameworks */,
 				D897F95A179282460077623D /* Security.framework in Frameworks */,
@@ -206,6 +254,7 @@
 		D897F90417926BE50077623D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8A405B31794E00D00140981 /* MessageUI.framework */,
 				D897F94B179281E30077623D /* Parse.framework */,
 				D897F95D179282570077623D /* SystemConfiguration.framework */,
 				D897F95B1792824D0077623D /* StoreKit.framework */,
@@ -229,6 +278,7 @@
 			children = (
 				D8A4055E1793F89C00140981 /* MessageBoard */,
 				D8A4056F17941D1800140981 /* UserGuide */,
+				D8A405841794DCE600140981 /* Settings */,
 				D8A405401793F3B400140981 /* Vendors */,
 				D897F91417926BE50077623D /* NPAppDelegate.h */,
 				D897F91517926BE50077623D /* NPAppDelegate.m */,
@@ -345,6 +395,67 @@
 			path = UserGuide;
 			sourceTree = "<group>";
 		};
+		D8A405841794DCE600140981 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D8A405851794DCE600140981 /* Controllers */,
+				D8A4058D1794DCE600140981 /* Models */,
+				D8A405981794DCE600140981 /* Views */,
+				D8A405B51794E37F00140981 /* Settings.bundle */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D8A405851794DCE600140981 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8A405861794DCE600140981 /* IASKAppSettingsViewController.h */,
+				D8A405871794DCE600140981 /* IASKAppSettingsViewController.m */,
+				D8A405881794DCE600140981 /* IASKAppSettingsWebViewController.h */,
+				D8A405891794DCE600140981 /* IASKAppSettingsWebViewController.m */,
+				D8A4058A1794DCE600140981 /* IASKSpecifierValuesViewController.h */,
+				D8A4058B1794DCE600140981 /* IASKSpecifierValuesViewController.m */,
+				D8A4058C1794DCE600140981 /* IASKViewController.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D8A4058D1794DCE600140981 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8A4058E1794DCE600140981 /* IASKSettingsReader.h */,
+				D8A4058F1794DCE600140981 /* IASKSettingsReader.m */,
+				D8A405901794DCE600140981 /* IASKSettingsStore.h */,
+				D8A405911794DCE600140981 /* IASKSettingsStore.m */,
+				D8A405921794DCE600140981 /* IASKSettingsStoreFile.h */,
+				D8A405931794DCE600140981 /* IASKSettingsStoreFile.m */,
+				D8A405941794DCE600140981 /* IASKSettingsStoreUserDefaults.h */,
+				D8A405951794DCE600140981 /* IASKSettingsStoreUserDefaults.m */,
+				D8A405961794DCE600140981 /* IASKSpecifier.h */,
+				D8A405971794DCE600140981 /* IASKSpecifier.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D8A405981794DCE600140981 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8A405991794DCE600140981 /* IASKPSSliderSpecifierViewCell.h */,
+				D8A4059A1794DCE600140981 /* IASKPSSliderSpecifierViewCell.m */,
+				D8A4059B1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.h */,
+				D8A4059C1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.m */,
+				D8A4059D1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.h */,
+				D8A4059E1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.m */,
+				D8A4059F1794DCE600140981 /* IASKSlider.h */,
+				D8A405A01794DCE600140981 /* IASKSlider.m */,
+				D8A405A11794DCE600140981 /* IASKSwitch.h */,
+				D8A405A21794DCE600140981 /* IASKSwitch.m */,
+				D8A405A31794DCE600140981 /* IASKTextField.h */,
+				D8A405A41794DCE600140981 /* IASKTextField.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,6 +545,7 @@
 				D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */,
 				D8A40582179421D100140981 /* SampleImage1.png in Resources */,
 				D8A40583179421D100140981 /* SampleImage2.png in Resources */,
+				D8A405B61794E37F00140981 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +598,20 @@
 				D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */,
 				D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */,
 				D8A4057B17941F3300140981 /* NPRootTabViewController.m in Sources */,
+				D8A405A51794DCE600140981 /* IASKAppSettingsViewController.m in Sources */,
+				D8A405A61794DCE600140981 /* IASKAppSettingsWebViewController.m in Sources */,
+				D8A405A71794DCE600140981 /* IASKSpecifierValuesViewController.m in Sources */,
+				D8A405A81794DCE600140981 /* IASKSettingsReader.m in Sources */,
+				D8A405A91794DCE600140981 /* IASKSettingsStore.m in Sources */,
+				D8A405AA1794DCE600140981 /* IASKSettingsStoreFile.m in Sources */,
+				D8A405AB1794DCE600140981 /* IASKSettingsStoreUserDefaults.m in Sources */,
+				D8A405AC1794DCE600140981 /* IASKSpecifier.m in Sources */,
+				D8A405AD1794DCE600140981 /* IASKPSSliderSpecifierViewCell.m in Sources */,
+				D8A405AE1794DCE600140981 /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
+				D8A405AF1794DCE600140981 /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
+				D8A405B01794DCE600140981 /* IASKSlider.m in Sources */,
+				D8A405B11794DCE600140981 /* IASKSwitch.m in Sources */,
+				D8A405B21794DCE600140981 /* IASKTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
