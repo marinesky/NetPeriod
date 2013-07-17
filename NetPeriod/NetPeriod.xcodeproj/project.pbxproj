@@ -77,7 +77,7 @@
 		D8CD043F17956B7300814462 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD043A17956B7300814462 /* right_arrow@2x.png */; };
 		D8CD044217956C6F00814462 /* NPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD044117956C6F00814462 /* NPCalendarViewController.m */; };
 		D8CD044B1796396300814462 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04471796396300814462 /* CHANGELOG.md */; };
-		D8CD044C1796396300814462 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04491796396300814462 /* JSONKit.m */; };
+		D8CD044C1796396300814462 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04491796396300814462 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8CD044D1796396300814462 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD044A1796396300814462 /* README.md */; };
 /* End PBXBuildFile section */
 
