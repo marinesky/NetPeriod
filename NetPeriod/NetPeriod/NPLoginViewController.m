@@ -15,6 +15,8 @@
 @implementation NPLoginViewController
 @synthesize textUsername;
 @synthesize textPassword;
+@synthesize emailInputHint;
+@synthesize passwordInputHint;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,11 +49,29 @@
 - (IBAction)userRestPassword:(UIButton *)sender {
 }
 
+- (BOOL)validateInputEmail:(NSString *)emailAddress {
+    NSString *regexForEmailAddress = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regexForEmailAddress];
+    return [emailValidation evaluateWithObject:emailAddress];
+}
+
+- (BOOL)validateInputPassword:(NSString *)password {
+    return [password length] >= 6;
+}
+
 - (IBAction)backgroundClick:(id)sender {
     [textUsername resignFirstResponder];
+    if (![self validateInputEmail:[textUsername text]] && [sender tag] == 0) {
+            emailInputHint.text = @"请输入合法的邮箱地址";
+    } else {
+        emailInputHint.text = @"";
+    }
     [textPassword resignFirstResponder];
-//    NSLog(@"password:%@", textPassword.text);
-    
+    if (![self validateInputPassword:[textPassword text]] && [sender tag] == 11) {
+        passwordInputHint.text = @"密码长度至少为6";
+    } else {
+        passwordInputHint.text = @"";
+    }
 }
 
 - (IBAction)userGoBackAction:(UIBarButtonItem *)sender {
