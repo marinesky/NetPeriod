@@ -1,8 +1,11 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "NPCalendarViewController.h"
 #import "NPCalendarView.h"
+#import "MBProgressHUD.h"
 
-@interface NPCalendarViewController () <NPCalendarDelegate>
+@interface NPCalendarViewController () <NPCalendarDelegate, MBProgressHUDDelegate> {
+    MBProgressHUD *HUD;
+}
 
 @property (nonatomic, weak) NPCalendarView *calendarView;
 @property (nonatomic, strong) UILabel *dateLabel;
@@ -257,13 +260,34 @@
         if (intervalDays % self.period < 7) {
             self.lastDays = intervalDays % self.period;
             [self.calendarView layoutSubviews];
+        } else {
+            [self showErrorInfo];
         }
     } else if (intervalDays % self.period + 28 < 7) {
         self.lastDays = intervalDays % self.period + 28;
         [self.calendarView layoutSubviews];
     } else {
-        NSLog(@"大姨妈不正常");
+        [self showErrorInfo];
     }
+}
+
+- (void)showErrorInfo {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeText;
+    HUD.delegate = self;
+    HUD.labelText = @"您的大姨妈有点不正常吧";
+    [HUD show:YES];
+    [HUD hide:YES afterDelay:1];
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

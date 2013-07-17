@@ -79,6 +79,7 @@
 		D8CD044B1796396300814462 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04471796396300814462 /* CHANGELOG.md */; };
 		D8CD044C1796396300814462 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04491796396300814462 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8CD044D1796396300814462 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD044A1796396300814462 /* README.md */; };
+		D8CD04511796C0F500814462 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04501796C0F500814462 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,8 @@
 		D8CD04481796396300814462 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		D8CD04491796396300814462 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		D8CD044A1796396300814462 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		D8CD044F1796C0F500814462 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D8CD04501796C0F500814462 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +337,7 @@
 		D8A405401793F3B400140981 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D8CD044E1796C0F500814462 /* MBProgressHud */,
 				D8CD04461796396300814462 /* JSONKit */,
 				D8A405411793F3B400140981 /* AFNetworking */,
 			);
@@ -489,6 +493,15 @@
 				D8CD044A1796396300814462 /* README.md */,
 			);
 			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		D8CD044E1796C0F500814462 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				D8CD044F1796C0F500814462 /* MBProgressHUD.h */,
+				D8CD04501796C0F500814462 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHud;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,6 +663,7 @@
 				D8CD043B17956B7300814462 /* NPCalendarView.m in Sources */,
 				D8CD044217956C6F00814462 /* NPCalendarViewController.m in Sources */,
 				D8CD044C1796396300814462 /* JSONKit.m in Sources */,
+				D8CD04511796C0F500814462 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
