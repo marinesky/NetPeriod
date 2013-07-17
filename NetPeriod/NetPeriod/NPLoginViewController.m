@@ -17,6 +17,7 @@
 @synthesize textPassword;
 @synthesize emailInputHint;
 @synthesize passwordInputHint;
+@synthesize loginOnlyView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +62,7 @@
 
 - (IBAction)backgroundClick:(id)sender {
     [textUsername resignFirstResponder];
-    if (![self validateInputEmail:[textUsername text]] && [sender tag] == 0) {
+    if (![self validateInputEmail:[textUsername text]]  /* && [sender tag] == 0 */) {
             emailInputHint.text = @"请输入合法的邮箱地址";
     } else {
         emailInputHint.text = @"";

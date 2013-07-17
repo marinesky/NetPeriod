@@ -29,6 +29,9 @@
 
 - (IBAction)buttonclicked:(id)sender {
     NPLoginViewController* loginController = [[NPLoginViewController alloc] initWithNibName:@"NPLoginViewController" bundle:Nil];
+    if ([sender tag] == 11) {
+       [loginController.view addSubview:loginController.loginOnlyView];  
+    }
     //    [self.parentViewController addChildViewController:loginController];
     [self presentViewController:loginController animated:YES completion:Nil];
 }
