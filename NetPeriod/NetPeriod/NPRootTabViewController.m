@@ -60,6 +60,9 @@
         [defaults setObject:[NSDate date] forKey:@"firstRun"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+//    NPLoginViewController* loginController = [[NPLoginViewController alloc] initWithNibName:@"NPLoginViewController" bundle:Nil];
+//    [self.parentViewController addChildViewController:loginController];
+//    [self.navigationController presentViewController:loginController animated:YES completion:Nil];
 }
 
 - (void)didReceiveMemoryWarning

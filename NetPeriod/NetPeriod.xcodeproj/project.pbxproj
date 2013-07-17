@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D546F1F01796483000E4EE5B /* NPLoginViewController.m */; };
+		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
 		D897F90617926BE50077623D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90517926BE50077623D /* UIKit.framework */; };
 		D897F90817926BE50077623D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90717926BE50077623D /* Foundation.framework */; };
 		D897F90A17926BE50077623D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90917926BE50077623D /* CoreGraphics.framework */; };
@@ -73,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D546F1EF1796483000E4EE5B /* NPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoginViewController.h; sourceTree = "<group>"; };
+		D546F1F01796483000E4EE5B /* NPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPLoginViewController.m; sourceTree = "<group>"; };
+		D546F1F11796483000E4EE5B /* NPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPLoginViewController.xib; sourceTree = "<group>"; };
 		D897F90217926BE50077623D /* NetPeriod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetPeriod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D897F90517926BE50077623D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D897F90717926BE50077623D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,9 +160,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D897F95A179282460077623D /* Security.framework in Frameworks */,
 				D897F95E179282570077623D /* SystemConfiguration.framework in Frameworks */,
 				D897F95C1792824D0077623D /* StoreKit.framework in Frameworks */,
-				D897F95A179282460077623D /* Security.framework in Frameworks */,
 				D897F958179282330077623D /* QuartzCore.framework in Frameworks */,
 				D897F9561792822B0077623D /* MobileCoreServices.framework in Frameworks */,
 				D897F954179282230077623D /* libz.1.1.3.dylib in Frameworks */,
@@ -184,6 +189,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D546F1EC179642D200E4EE5B /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				D546F1EF1796483000E4EE5B /* NPLoginViewController.h */,
+				D546F1F01796483000E4EE5B /* NPLoginViewController.m */,
+				D546F1F11796483000E4EE5B /* NPLoginViewController.xib */,
+			);
+			name = LoginAndRegister;
+			sourceTree = "<group>";
+		};
 		D897F8F917926BE50077623D = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +242,7 @@
 		D897F90B17926BE50077623D /* NetPeriod */ = {
 			isa = PBXGroup;
 			children = (
+				D546F1EC179642D200E4EE5B /* LoginAndRegister */,
 				D8A4055E1793F89C00140981 /* MessageBoard */,
 				D8A4056F17941D1800140981 /* UserGuide */,
 				D8A405401793F3B400140981 /* Vendors */,
@@ -434,6 +450,7 @@
 				D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */,
 				D8A40582179421D100140981 /* SampleImage1.png in Resources */,
 				D8A40583179421D100140981 /* SampleImage2.png in Resources */,
+				D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +503,7 @@
 				D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */,
 				D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */,
 				D8A4057B17941F3300140981 /* NPRootTabViewController.m in Sources */,
+				D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

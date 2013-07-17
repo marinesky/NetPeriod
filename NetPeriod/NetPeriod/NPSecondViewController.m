@@ -7,6 +7,7 @@
 //
 
 #import "NPSecondViewController.h"
+#import "NPLoginViewController.h"
 
 @interface NPSecondViewController ()
 
@@ -26,4 +27,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonclicked:(id)sender {
+    NPLoginViewController* loginController = [[NPLoginViewController alloc] initWithNibName:@"NPLoginViewController" bundle:Nil];
+    //    [self.parentViewController addChildViewController:loginController];
+    [self presentViewController:loginController animated:YES completion:Nil];
+}
 @end
