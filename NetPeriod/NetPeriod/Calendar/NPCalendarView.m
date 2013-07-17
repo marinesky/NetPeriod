@@ -106,8 +106,6 @@
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong) NSDate *monthShowing;
-@property (nonatomic, strong) NSDate *selectedDate;
-@property (nonatomic, strong) NSCalendar *calendar;
 @property(nonatomic, assign) CGFloat cellWidth;
 
 @end

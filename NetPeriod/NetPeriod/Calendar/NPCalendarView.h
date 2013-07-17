@@ -29,8 +29,9 @@ typedef enum {
 
 @property (nonatomic) NPCalendarStartDay calendarStartDay;
 @property (nonatomic, strong) NSLocale *locale;
-
+@property (nonatomic, strong) NSCalendar *calendar;
 @property (nonatomic, readonly) NSArray *datesShowing;
+@property (nonatomic, strong) NSDate *selectedDate;
 
 @property (nonatomic) BOOL onlyShowCurrentMonth;
 @property (nonatomic) BOOL adaptHeightToNumberOfWeeksInMonth;
