@@ -76,6 +76,9 @@
 		D8CD043E17956B7300814462 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD043917956B7300814462 /* right_arrow.png */; };
 		D8CD043F17956B7300814462 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD043A17956B7300814462 /* right_arrow@2x.png */; };
 		D8CD044217956C6F00814462 /* NPCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD044117956C6F00814462 /* NPCalendarViewController.m */; };
+		D8CD044B1796396300814462 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04471796396300814462 /* CHANGELOG.md */; };
+		D8CD044C1796396300814462 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04491796396300814462 /* JSONKit.m */; };
+		D8CD044D1796396300814462 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD044A1796396300814462 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +198,10 @@
 		D8CD043A17956B7300814462 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D8CD044017956C6F00814462 /* NPCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCalendarViewController.h; sourceTree = "<group>"; };
 		D8CD044117956C6F00814462 /* NPCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCalendarViewController.m; sourceTree = "<group>"; };
+		D8CD04471796396300814462 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		D8CD04481796396300814462 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		D8CD04491796396300814462 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		D8CD044A1796396300814462 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +334,7 @@
 		D8A405401793F3B400140981 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D8CD04461796396300814462 /* JSONKit */,
 				D8A405411793F3B400140981 /* AFNetworking */,
 			);
 			path = Vendors;
@@ -472,6 +480,17 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		D8CD04461796396300814462 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				D8CD04471796396300814462 /* CHANGELOG.md */,
+				D8CD04481796396300814462 /* JSONKit.h */,
+				D8CD04491796396300814462 /* JSONKit.m */,
+				D8CD044A1796396300814462 /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -562,6 +581,8 @@
 				D8CD043D17956B7300814462 /* left_arrow@2x.png in Resources */,
 				D8CD043E17956B7300814462 /* right_arrow.png in Resources */,
 				D8CD043F17956B7300814462 /* right_arrow@2x.png in Resources */,
+				D8CD044B1796396300814462 /* CHANGELOG.md in Resources */,
+				D8CD044D1796396300814462 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +649,7 @@
 				D8A405B21794DCE600140981 /* IASKTextField.m in Sources */,
 				D8CD043B17956B7300814462 /* NPCalendarView.m in Sources */,
 				D8CD044217956C6F00814462 /* NPCalendarViewController.m in Sources */,
+				D8CD044C1796396300814462 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
