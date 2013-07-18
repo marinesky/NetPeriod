@@ -53,7 +53,6 @@
 }
 
 - (IBAction)userRestPassword:(UIButton *)sender {
-    
 }
 
 - (BOOL)validateInputEmail:(NSString *)emailAddress {
@@ -68,7 +67,7 @@
 
 - (IBAction)backgroundClick:(id)sender {
     [textUsername resignFirstResponder];
-    if (![self validateInputEmail:[textUsername text]]  /* && [sender tag] == 0 */) {
+    if (![self validateInputEmail:[textUsername text]]   && [sender tag] == 0 ) {
             emailInputHint.text = @"请输入合法的邮箱地址";
             emailLoginOnlyInputHint.text = @"请输入合法的邮箱地址";
     } else {

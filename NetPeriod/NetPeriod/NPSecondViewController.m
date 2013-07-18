@@ -30,8 +30,12 @@
 - (IBAction)buttonclicked:(id)sender {
     NPLoginViewController* loginController = [[NPLoginViewController alloc] initWithNibName:@"NPLoginViewController" bundle:Nil];
     if ([sender tag] == 11) {
-        [loginController.view viewWithTag:1];
-        // [loginController.view addSubview:loginController.loginOnlyView];
+//        [loginController.view viewWithTag:1];
+//        loginController.view.hidden = YES;
+        [loginController.view addSubview:loginController.loginOnlyView];
+        loginController.loginAndRegisterUsernameTextField.hidden = YES;
+        loginController.loginAndRegisterPasswordTextField.hidden = YES;
+        
     }
     //    [self.parentViewController addChildViewController:loginController];
     [self presentViewController:loginController animated:YES completion:Nil];

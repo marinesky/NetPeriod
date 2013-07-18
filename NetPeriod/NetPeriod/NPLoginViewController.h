@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface NPLoginViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *loginAndRegisterPasswordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *loginAndRegisterUsernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *textUsername;
 @property (weak, nonatomic) IBOutlet UITextField *textPassword;
 @property (weak, nonatomic) IBOutlet UILabel *emailInputHint;

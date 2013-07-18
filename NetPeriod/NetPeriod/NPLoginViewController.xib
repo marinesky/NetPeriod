@@ -5076,6 +5076,22 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<int key="connectionID">233</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">loginAndRegisterUsernameTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="597736259"/>
+					</object>
+					<int key="connectionID">235</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">loginAndRegisterPasswordTextField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="270509067"/>
+					</object>
+					<int key="connectionID">236</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">backgroundClick:</string>
 						<reference key="source" ref="270509067"/>
@@ -5157,6 +5173,15 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">backgroundClick:</string>
+						<reference key="source" ref="371978200"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">20</int>
+					</object>
+					<int key="connectionID">237</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">userLoginAction:</string>
 						<reference key="source" ref="516098625"/>
 						<reference key="destination" ref="372490531"/>
@@ -5225,7 +5250,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="178160386"/>
 							<reference ref="512394383"/>
-							<reference ref="270509067"/>
 							<reference ref="16122711"/>
 							<reference ref="766848411"/>
 							<reference ref="139832980"/>
@@ -5233,6 +5257,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<reference ref="701792179"/>
 							<reference ref="414386746"/>
 							<reference ref="599893715"/>
+							<reference ref="270509067"/>
 							<reference ref="597736259"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -5436,7 +5461,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">234</int>
+			<int key="maxID">237</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5475,6 +5500,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="emailInputHint">UILabel</string>
 						<string key="emailLoginOnlyInputHint">UILabel</string>
+						<string key="loginAndRegisterPasswordTextField">UITextField</string>
+						<string key="loginAndRegisterUsernameTextField">UITextField</string>
 						<string key="loginOnlyView">UIView</string>
 						<string key="passwordInputHint">UILabel</string>
 						<string key="passwordLoginOnlyInputHint">UILabel</string>
@@ -5489,6 +5516,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="emailLoginOnlyInputHint">
 							<string key="name">emailLoginOnlyInputHint</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loginAndRegisterPasswordTextField">
+							<string key="name">loginAndRegisterPasswordTextField</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="loginAndRegisterUsernameTextField">
+							<string key="name">loginAndRegisterUsernameTextField</string>
+							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="loginOnlyView">
 							<string key="name">loginOnlyView</string>
