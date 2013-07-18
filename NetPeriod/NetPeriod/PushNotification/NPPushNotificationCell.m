@@ -1,14 +1,14 @@
 //
-//  NPMessageBoardView.m
+//  NPPushNotificationCell.m
 //  NetPeriod
 //
-//  Created by Dafeng Jin on 13-7-15.
+//  Created by Dafeng Jin on 13-7-18.
 //  Copyright (c) 2013年 NetEase. All rights reserved.
 //
 
-#import "NPMessageBoardViewCell.h"
+#import "NPPushNotificationCell.h"
 
-@implementation NPMessageBoardViewCell
+@implementation NPPushNotificationCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,13 +22,13 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
 
 + (id)cellFromNib
 {
-	NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"NPMessageBoardViewCell" owner:nil options:nil];
+	NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"NPPushNotificationCell" owner:nil options:nil];
 	return [nibs objectAtIndex:0];
 }
 

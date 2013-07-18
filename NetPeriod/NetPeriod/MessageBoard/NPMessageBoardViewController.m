@@ -6,18 +6,23 @@
 //  Copyright (c) 2013年 NetEase. All rights reserved.
 //
 
-#import "NPMessageBoardTableViewController.h"
+#import "NPMessageBoardViewController.h"
 #import "NPMessageBoardViewCell.h"
+#import "NPComposeViewController.h"
 
-@interface NPMessageBoardTableViewController ()
+@interface NPMessageBoardViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *forumButton;
+@property (weak, nonatomic) IBOutlet UIButton *myArticleButton;
+
 
 @end
 
-@implementation NPMessageBoardTableViewController
+@implementation NPMessageBoardViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -27,12 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +70,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    return 72;
 }
 /*
 // Override to support conditional editing of the table view.
@@ -123,5 +123,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+#pragma mark - Actions
+
+- (IBAction)forumButtonClicked:(id)sender {
+}
+
+- (IBAction)myArticleButtonClicked:(id)sender {
+}
+
+
 
 @end

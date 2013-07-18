@@ -41,12 +41,9 @@
 		D8A4055B1793F3B400140981 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405501793F3B400140981 /* AFURLConnectionOperation.m */; };
 		D8A4055C1793F3B400140981 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405521793F3B400140981 /* AFXMLRequestOperation.m */; };
 		D8A4055D1793F3B400140981 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405541793F3B400140981 /* UIImageView+AFNetworking.m */; };
-		D8A405621793F8E500140981 /* NPMessageBoardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */; };
-		D8A405631793F8E500140981 /* NPMessageBoardTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */; };
+		D8A405621793F8E500140981 /* NPMessageBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405601793F8E500140981 /* NPMessageBoardViewController.m */; };
 		D8A405661793FEF300140981 /* NPMessageBoardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */; };
 		D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */; };
-		D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056B1794138200140981 /* messageboard_default_head.png */; };
-		D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A4056C1794138200140981 /* messageboard_default_head@2x.png */; };
 		D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057117941D1800140981 /* NPIntroductionPanel.m */; };
 		D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057317941D1800140981 /* NPIntroductionView.m */; };
 		D8A4057B17941F3300140981 /* NPRootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A4057A17941F3300140981 /* NPRootTabViewController.m */; };
@@ -80,6 +77,11 @@
 		D8CD044C1796396300814462 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04491796396300814462 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D8CD044D1796396300814462 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8CD044A1796396300814462 /* README.md */; };
 		D8CD04511796C0F500814462 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04501796C0F500814462 /* MBProgressHUD.m */; };
+		D8CD04551797818900814462 /* NPPushNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04541797818900814462 /* NPPushNotificationViewController.m */; };
+		D8CD0458179781B600814462 /* NPPushNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD0457179781B600814462 /* NPPushNotificationCell.m */; };
+		D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04591797820C00814462 /* NPPushNotificationCell.xib */; };
+		D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD045C1798128B00814462 /* NPComposeViewController.m */; };
+		D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,14 +144,11 @@
 		D8A405521793F3B400140981 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D8A405531793F3B400140981 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D8A405541793F3B400140981 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		D8A4055F1793F8E500140981 /* NPMessageBoardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardTableViewController.h; sourceTree = "<group>"; };
-		D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardTableViewController.m; sourceTree = "<group>"; };
-		D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardTableViewController.xib; sourceTree = "<group>"; };
+		D8A4055F1793F8E500140981 /* NPMessageBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardViewController.h; sourceTree = "<group>"; };
+		D8A405601793F8E500140981 /* NPMessageBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardViewController.m; sourceTree = "<group>"; };
 		D8A405641793FEF300140981 /* NPMessageBoardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardViewCell.h; sourceTree = "<group>"; };
 		D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardViewCell.m; sourceTree = "<group>"; };
 		D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardViewCell.xib; sourceTree = "<group>"; };
-		D8A4056B1794138200140981 /* messageboard_default_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageboard_default_head.png; sourceTree = "<group>"; };
-		D8A4056C1794138200140981 /* messageboard_default_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageboard_default_head@2x.png"; sourceTree = "<group>"; };
 		D8A4057017941D1800140981 /* NPIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPIntroductionPanel.h; sourceTree = "<group>"; };
 		D8A4057117941D1800140981 /* NPIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPIntroductionPanel.m; sourceTree = "<group>"; };
 		D8A4057217941D1800140981 /* NPIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPIntroductionView.h; sourceTree = "<group>"; };
@@ -205,6 +204,15 @@
 		D8CD044A1796396300814462 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8CD044F1796C0F500814462 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D8CD04501796C0F500814462 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D8CD04531797818900814462 /* NPPushNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPPushNotificationViewController.h; sourceTree = "<group>"; };
+		D8CD04541797818900814462 /* NPPushNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPPushNotificationViewController.m; sourceTree = "<group>"; };
+		D8CD0456179781B600814462 /* NPPushNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPPushNotificationCell.h; sourceTree = "<group>"; };
+		D8CD0457179781B600814462 /* NPPushNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPPushNotificationCell.m; sourceTree = "<group>"; };
+		D8CD04591797820C00814462 /* NPPushNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPPushNotificationCell.xib; sourceTree = "<group>"; };
+		D8CD045B1798128B00814462 /* NPComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPComposeViewController.h; sourceTree = "<group>"; };
+		D8CD045C1798128B00814462 /* NPComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPComposeViewController.m; sourceTree = "<group>"; };
+		D8CD0460179819D900814462 /* NPMessageBoardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardDetailViewController.h; sourceTree = "<group>"; };
+		D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +294,7 @@
 		D897F90B17926BE50077623D /* NetPeriod */ = {
 			isa = PBXGroup;
 			children = (
+				D8CD04521797816300814462 /* PushNotification */,
 				D8A4055E1793F89C00140981 /* MessageBoard */,
 				D8A4056F17941D1800140981 /* UserGuide */,
 				D8A405841794DCE600140981 /* Settings */,
@@ -373,14 +382,15 @@
 		D8A4055E1793F89C00140981 /* MessageBoard */ = {
 			isa = PBXGroup;
 			children = (
-				D8A4055F1793F8E500140981 /* NPMessageBoardTableViewController.h */,
-				D8A405601793F8E500140981 /* NPMessageBoardTableViewController.m */,
-				D8A405611793F8E500140981 /* NPMessageBoardTableViewController.xib */,
+				D8A4055F1793F8E500140981 /* NPMessageBoardViewController.h */,
+				D8A405601793F8E500140981 /* NPMessageBoardViewController.m */,
 				D8A405641793FEF300140981 /* NPMessageBoardViewCell.h */,
 				D8A405651793FEF300140981 /* NPMessageBoardViewCell.m */,
 				D8A405691793FF2A00140981 /* NPMessageBoardViewCell.xib */,
-				D8A4056B1794138200140981 /* messageboard_default_head.png */,
-				D8A4056C1794138200140981 /* messageboard_default_head@2x.png */,
+				D8CD045B1798128B00814462 /* NPComposeViewController.h */,
+				D8CD045C1798128B00814462 /* NPComposeViewController.m */,
+				D8CD0460179819D900814462 /* NPMessageBoardDetailViewController.h */,
+				D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */,
 			);
 			path = MessageBoard;
 			sourceTree = "<group>";
@@ -504,6 +514,18 @@
 			path = MBProgressHud;
 			sourceTree = "<group>";
 		};
+		D8CD04521797816300814462 /* PushNotification */ = {
+			isa = PBXGroup;
+			children = (
+				D8CD04531797818900814462 /* NPPushNotificationViewController.h */,
+				D8CD04541797818900814462 /* NPPushNotificationViewController.m */,
+				D8CD0456179781B600814462 /* NPPushNotificationCell.h */,
+				D8CD0457179781B600814462 /* NPPushNotificationCell.m */,
+				D8CD04591797820C00814462 /* NPPushNotificationCell.xib */,
+			);
+			path = PushNotification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -581,10 +603,7 @@
 				D897F91A17926BE50077623D /* Default@2x.png in Resources */,
 				D897F91C17926BE60077623D /* Default-568h@2x.png in Resources */,
 				D897F91F17926BE60077623D /* MainStoryboard.storyboard in Resources */,
-				D8A405631793F8E500140981 /* NPMessageBoardTableViewController.xib in Resources */,
 				D8A4056A1793FF2A00140981 /* NPMessageBoardViewCell.xib in Resources */,
-				D8A4056D1794138200140981 /* messageboard_default_head.png in Resources */,
-				D8A4056E1794138200140981 /* messageboard_default_head@2x.png in Resources */,
 				D8A40580179421D100140981 /* SampleBackground.png in Resources */,
 				D8A40581179421D100140981 /* SampleHeaderImage.png in Resources */,
 				D8A40582179421D100140981 /* SampleImage1.png in Resources */,
@@ -596,6 +615,7 @@
 				D8CD043F17956B7300814462 /* right_arrow@2x.png in Resources */,
 				D8CD044B1796396300814462 /* CHANGELOG.md in Resources */,
 				D8CD044D1796396300814462 /* README.md in Resources */,
+				D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +661,7 @@
 				D8A4055B1793F3B400140981 /* AFURLConnectionOperation.m in Sources */,
 				D8A4055C1793F3B400140981 /* AFXMLRequestOperation.m in Sources */,
 				D8A4055D1793F3B400140981 /* UIImageView+AFNetworking.m in Sources */,
-				D8A405621793F8E500140981 /* NPMessageBoardTableViewController.m in Sources */,
+				D8A405621793F8E500140981 /* NPMessageBoardViewController.m in Sources */,
 				D8A405661793FEF300140981 /* NPMessageBoardViewCell.m in Sources */,
 				D8A4057417941D1800140981 /* NPIntroductionPanel.m in Sources */,
 				D8A4057517941D1800140981 /* NPIntroductionView.m in Sources */,
@@ -664,6 +684,10 @@
 				D8CD044217956C6F00814462 /* NPCalendarViewController.m in Sources */,
 				D8CD044C1796396300814462 /* JSONKit.m in Sources */,
 				D8CD04511796C0F500814462 /* MBProgressHUD.m in Sources */,
+				D8CD04551797818900814462 /* NPPushNotificationViewController.m in Sources */,
+				D8CD0458179781B600814462 /* NPPushNotificationCell.m in Sources */,
+				D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */,
+				D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
