@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailInputHint;
 @property (weak, nonatomic) IBOutlet UILabel *passwordInputHint;
 @property (weak, nonatomic) IBOutlet UIView *loginOnlyView;
+@property (weak, nonatomic) IBOutlet UILabel *emailLoginOnlyInputHint;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLoginOnlyInputHint;
 - (IBAction)userRegisterAction:(UIButton *)sender;
 - (IBAction)userLoginAction:(UIButton *)sender;
 - (IBAction)userRestPassword:(UIButton *)sender;

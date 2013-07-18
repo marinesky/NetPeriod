@@ -18,6 +18,8 @@
 @synthesize emailInputHint;
 @synthesize passwordInputHint;
 @synthesize loginOnlyView;
+@synthesize emailLoginOnlyInputHint;
+@synthesize passwordLoginOnlyInputHint;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,12 +44,16 @@
 }
 
 - (IBAction)userRegisterAction:(UIButton *)sender {
+    if ([self validateInputEmail:[textUsername text]] && [self validateInputPassword:[textPassword text]]) {
+        ;
+    }
 }
 
 - (IBAction)userLoginAction:(UIButton *)sender {
 }
 
 - (IBAction)userRestPassword:(UIButton *)sender {
+    
 }
 
 - (BOOL)validateInputEmail:(NSString *)emailAddress {
@@ -64,12 +70,14 @@
     [textUsername resignFirstResponder];
     if (![self validateInputEmail:[textUsername text]]  /* && [sender tag] == 0 */) {
             emailInputHint.text = @"请输入合法的邮箱地址";
+            emailLoginOnlyInputHint.text = @"请输入合法的邮箱地址";
     } else {
         emailInputHint.text = @"";
     }
     [textPassword resignFirstResponder];
     if (![self validateInputPassword:[textPassword text]] && [sender tag] == 11) {
         passwordInputHint.text = @"密码长度至少为6";
+        passwordLoginOnlyInputHint.text = @"密码长度至少为6";
     } else {
         passwordInputHint.text = @"";
     }
