@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D503A2CD179907570080B054 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = D503A2CC179907570080B054 /* public_key.der */; };
+		D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D546F1F01796483000E4EE5B /* NPLoginViewController.m */; };
+		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
+		D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DF3F901797DDCC00CC75EB /* RSA.m */; };
 		D897F90617926BE50077623D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90517926BE50077623D /* UIKit.framework */; };
 		D897F90817926BE50077623D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90717926BE50077623D /* Foundation.framework */; };
 		D897F90A17926BE50077623D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90917926BE50077623D /* CoreGraphics.framework */; };
@@ -98,6 +102,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D503A2CC179907570080B054 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		D546F1EF1796483000E4EE5B /* NPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoginViewController.h; sourceTree = "<group>"; };
+		D546F1F01796483000E4EE5B /* NPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPLoginViewController.m; sourceTree = "<group>"; };
+		D546F1F11796483000E4EE5B /* NPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPLoginViewController.xib; sourceTree = "<group>"; };
+		D5DF3F8F1797DDCC00CC75EB /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		D5DF3F901797DDCC00CC75EB /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		D897F90217926BE50077623D /* NetPeriod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetPeriod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D897F90517926BE50077623D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D897F90717926BE50077623D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,9 +239,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8A405B41794E00D00140981 /* MessageUI.framework in Frameworks */,
+				D897F95A179282460077623D /* Security.framework in Frameworks */,
 				D897F95E179282570077623D /* SystemConfiguration.framework in Frameworks */,
 				D897F95C1792824D0077623D /* StoreKit.framework in Frameworks */,
-				D897F95A179282460077623D /* Security.framework in Frameworks */,
 				D897F958179282330077623D /* QuartzCore.framework in Frameworks */,
 				D897F9561792822B0077623D /* MobileCoreServices.framework in Frameworks */,
 				D897F954179282230077623D /* libz.1.1.3.dylib in Frameworks */,
@@ -258,6 +268,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D546F1EC179642D200E4EE5B /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				D546F1EF1796483000E4EE5B /* NPLoginViewController.h */,
+				D546F1F01796483000E4EE5B /* NPLoginViewController.m */,
+				D546F1F11796483000E4EE5B /* NPLoginViewController.xib */,
+			);
+			name = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		D5DF3F8E1797DCE000CC75EB /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				D503A2CC179907570080B054 /* public_key.der */,
+				D5DF3F8F1797DDCC00CC75EB /* RSA.h */,
+				D5DF3F901797DDCC00CC75EB /* RSA.m */,
+			);
+			name = RSA;
+			sourceTree = "<group>";
+		};
 		D897F8F917926BE50077623D = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				D8CD04521797816300814462 /* PushNotification */,
+				D5DF3F8E1797DCE000CC75EB /* RSA */,
+				D546F1EC179642D200E4EE5B /* LoginAndRegister */,
 				D8A4055E1793F89C00140981 /* MessageBoard */,
 				D8A4056F17941D1800140981 /* UserGuide */,
 				D8A405841794DCE600140981 /* Settings */,
@@ -631,6 +663,8 @@
 				D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */,
 				D8CD04641798CC0600814462 /* NPMessageBoardDetailViewController.xib in Resources */,
 				D8CD04691798D0F200814462 /* NPMessageBoardCommentCell.xib in Resources */,
+				D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */,
+				D503A2CD179907570080B054 /* public_key.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +738,8 @@
 				D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */,
 				D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */,
 				D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */,
+				D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */,
+				D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

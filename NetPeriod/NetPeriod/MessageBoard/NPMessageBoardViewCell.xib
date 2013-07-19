@@ -107,6 +107,78 @@
 						<reference key="NSSuperview" ref="14320355"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
+					<object class="IBUIImageView" id="741092409">
+						<reference key="NSNextResponder" ref="944444259"/>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrame">{{10, 10}, {48, 48}}</string>
+						<reference key="NSSuperview" ref="944444259"/>
+						<reference key="NSNextKeyView" ref="77450902"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">messageboard_default_head.png</string>
+						</object>
+					</object>
+					<object class="IBUILabel" id="77450902">
+						<reference key="NSNextResponder" ref="944444259"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{66, 10}, {244, 21}}</string>
+						<reference key="NSSuperview" ref="944444259"/>
+						<reference key="NSNextKeyView" ref="511859792"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">这是一个标题</string>
+						<object class="NSColor" key="IBUITextColor" id="835830936">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+							<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+						</object>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="654175789">
+							<int key="type">1</int>
+							<double key="pointSize">17</double>
+						</object>
+						<object class="NSFont" key="IBUIFont" id="27702899">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">17</double>
+							<int key="NSfFlags">16</int>
+						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+					</object>
+					<object class="IBUILabel" id="511859792">
+						<reference key="NSNextResponder" ref="944444259"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{237, 37}, {73, 21}}</string>
+						<reference key="NSSuperview" ref="944444259"/>
+						<reference key="NSNextKeyView" ref="40730369"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<int key="IBUIContentMode">7</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<string key="IBUIText">7月1日</string>
+						<reference key="IBUITextColor" ref="835830936"/>
+						<nil key="IBUIHighlightedColor"/>
+						<int key="IBUIBaselineAdjustment">0</int>
+						<int key="IBUITextAlignment">2</int>
+						<reference key="IBUIFontDescription" ref="654175789"/>
+						<reference key="IBUIFont" ref="27702899"/>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+					</object>
+					<object class="IBUITextView" id="40730369">
+						<reference key="NSNextResponder" ref="944444259"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{66, 66}, {244, 102}}</string>
+						<reference key="NSSuperview" ref="944444259"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -122,6 +194,7 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="783896909"/>
+				<reference key="NSNextKeyView" ref="741092409"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="783896909"/>
