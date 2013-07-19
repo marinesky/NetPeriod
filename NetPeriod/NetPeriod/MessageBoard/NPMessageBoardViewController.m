@@ -9,12 +9,12 @@
 #import "NPMessageBoardViewController.h"
 #import "NPMessageBoardViewCell.h"
 #import "NPComposeViewController.h"
+#import "NPMessageBoardDetailViewController.h"
 
 @interface NPMessageBoardViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *forumButton;
 @property (weak, nonatomic) IBOutlet UIButton *myArticleButton;
-
 
 @end
 
@@ -122,6 +122,8 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    NPMessageBoardDetailViewController *detailViewController = [[NPMessageBoardDetailViewController alloc] initWithNibName:@"NPMessageBoardDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - Actions

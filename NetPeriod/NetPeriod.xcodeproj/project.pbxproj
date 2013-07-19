@@ -82,6 +82,9 @@
 		D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04591797820C00814462 /* NPPushNotificationCell.xib */; };
 		D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD045C1798128B00814462 /* NPComposeViewController.m */; };
 		D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */; };
+		D8CD04641798CC0600814462 /* NPMessageBoardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04631798CC0600814462 /* NPMessageBoardDetailViewController.xib */; };
+		D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */; };
+		D8CD04691798D0F200814462 /* NPMessageBoardCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +216,11 @@
 		D8CD045C1798128B00814462 /* NPComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPComposeViewController.m; sourceTree = "<group>"; };
 		D8CD0460179819D900814462 /* NPMessageBoardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardDetailViewController.h; sourceTree = "<group>"; };
 		D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardDetailViewController.m; sourceTree = "<group>"; };
+		D8CD04631798CC0600814462 /* NPMessageBoardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardDetailViewController.xib; sourceTree = "<group>"; };
+		D8CD04651798D0C300814462 /* NPMessageBoardCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPMessageBoardCommentCell.h; sourceTree = "<group>"; };
+		D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardCommentCell.m; sourceTree = "<group>"; };
+		D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardCommentCell.xib; sourceTree = "<group>"; };
+		D8CD046A17990B8300814462 /* CommonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +310,7 @@
 				D8A405401793F3B400140981 /* Vendors */,
 				D897F91417926BE50077623D /* NPAppDelegate.h */,
 				D897F91517926BE50077623D /* NPAppDelegate.m */,
+				D8CD046A17990B8300814462 /* CommonData.h */,
 				D8A4057917941F3300140981 /* NPRootTabViewController.h */,
 				D8A4057A17941F3300140981 /* NPRootTabViewController.m */,
 				D897F91D17926BE60077623D /* MainStoryboard.storyboard */,
@@ -391,6 +400,10 @@
 				D8CD045C1798128B00814462 /* NPComposeViewController.m */,
 				D8CD0460179819D900814462 /* NPMessageBoardDetailViewController.h */,
 				D8CD0461179819D900814462 /* NPMessageBoardDetailViewController.m */,
+				D8CD04631798CC0600814462 /* NPMessageBoardDetailViewController.xib */,
+				D8CD04651798D0C300814462 /* NPMessageBoardCommentCell.h */,
+				D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */,
+				D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */,
 			);
 			path = MessageBoard;
 			sourceTree = "<group>";
@@ -616,6 +629,8 @@
 				D8CD044B1796396300814462 /* CHANGELOG.md in Resources */,
 				D8CD044D1796396300814462 /* README.md in Resources */,
 				D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */,
+				D8CD04641798CC0600814462 /* NPMessageBoardDetailViewController.xib in Resources */,
+				D8CD04691798D0F200814462 /* NPMessageBoardCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +703,7 @@
 				D8CD0458179781B600814462 /* NPPushNotificationCell.m in Sources */,
 				D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */,
 				D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */,
+				D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

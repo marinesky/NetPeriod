@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NPMessageBoardDetailViewController : UIViewController
+@interface NPMessageBoardDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
