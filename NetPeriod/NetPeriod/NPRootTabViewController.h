@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NPIntroductionView.h"
-
+#import "NPLoginViewController.h"
 @interface NPRootTabViewController : UITabBarController <NPIntroductionDelegate>
 
 @end
