@@ -35,6 +35,8 @@
         [loginController.view addSubview:loginController.loginOnlyView];
         loginController.loginAndRegisterUsernameTextField.hidden = YES;
         loginController.loginAndRegisterPasswordTextField.hidden = YES;
+//        loginController.view = loginController.loginOnlyView;
+//        [loginController.view layoutSubviews];
         
     }
     //    [self.parentViewController addChildViewController:loginController];

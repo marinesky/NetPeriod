@@ -5092,6 +5092,22 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<int key="connectionID">236</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">textLoginOnlyPassword</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="653706756"/>
+					</object>
+					<int key="connectionID">239</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">textLoginOnlyUsername</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="371978200"/>
+					</object>
+					<int key="connectionID">240</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">backgroundClick:</string>
 						<reference key="source" ref="270509067"/>
@@ -5461,7 +5477,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">237</int>
+			<int key="maxID">240</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5505,6 +5521,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<string key="loginOnlyView">UIView</string>
 						<string key="passwordInputHint">UILabel</string>
 						<string key="passwordLoginOnlyInputHint">UILabel</string>
+						<string key="textLoginOnlyPassword">UITextField</string>
+						<string key="textLoginOnlyUsername">UITextField</string>
 						<string key="textPassword">UITextField</string>
 						<string key="textUsername">UITextField</string>
 					</dictionary>
@@ -5536,6 +5554,14 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="IBToOneOutletInfo" key="passwordLoginOnlyInputHint">
 							<string key="name">passwordLoginOnlyInputHint</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textLoginOnlyPassword">
+							<string key="name">textLoginOnlyPassword</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textLoginOnlyUsername">
+							<string key="name">textLoginOnlyUsername</string>
+							<string key="candidateClassName">UITextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="textPassword">
 							<string key="name">textPassword</string>
