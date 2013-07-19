@@ -85,6 +85,16 @@
 		D8CD04641798CC0600814462 /* NPMessageBoardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04631798CC0600814462 /* NPMessageBoardDetailViewController.xib */; };
 		D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */; };
 		D8CD04691798D0F200814462 /* NPMessageBoardCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */; };
+		D8CD0470179928C300814462 /* NPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD046D179928C300814462 /* NPGrowingTextView.m */; };
+		D8CD0471179928C300814462 /* NPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD046F179928C300814462 /* NPTextViewInternal.m */; };
+		D8CD047A179929D500814462 /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0472179929D500814462 /* MessageEntryBackground.png */; };
+		D8CD047B179929D500814462 /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0473179929D500814462 /* MessageEntryBackground@2x.png */; };
+		D8CD047C179929D500814462 /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0474179929D500814462 /* MessageEntryInputField.png */; };
+		D8CD047D179929D500814462 /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0475179929D500814462 /* MessageEntryInputField@2x.png */; };
+		D8CD047E179929D500814462 /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0476179929D500814462 /* MessageEntrySendButton.png */; };
+		D8CD047F179929D500814462 /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0477179929D500814462 /* MessageEntrySendButton@2x.png */; };
+		D8CD0480179929D500814462 /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0478179929D500814462 /* MessageEntrySendButtonPressed.png */; };
+		D8CD0481179929D500814462 /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD0479179929D500814462 /* MessageEntrySendButtonPressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +231,18 @@
 		D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPMessageBoardCommentCell.m; sourceTree = "<group>"; };
 		D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPMessageBoardCommentCell.xib; sourceTree = "<group>"; };
 		D8CD046A17990B8300814462 /* CommonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonData.h; sourceTree = "<group>"; };
+		D8CD046C179928C300814462 /* NPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPGrowingTextView.h; sourceTree = "<group>"; };
+		D8CD046D179928C300814462 /* NPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPGrowingTextView.m; sourceTree = "<group>"; };
+		D8CD046E179928C300814462 /* NPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPTextViewInternal.h; sourceTree = "<group>"; };
+		D8CD046F179928C300814462 /* NPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPTextViewInternal.m; sourceTree = "<group>"; };
+		D8CD0472179929D500814462 /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		D8CD0473179929D500814462 /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		D8CD0474179929D500814462 /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		D8CD0475179929D500814462 /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		D8CD0476179929D500814462 /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		D8CD0477179929D500814462 /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		D8CD0478179929D500814462 /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		D8CD0479179929D500814462 /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +426,7 @@
 				D8CD04651798D0C300814462 /* NPMessageBoardCommentCell.h */,
 				D8CD04661798D0C300814462 /* NPMessageBoardCommentCell.m */,
 				D8CD04681798D0F200814462 /* NPMessageBoardCommentCell.xib */,
+				D8CD046B179928C300814462 /* GrowingTextView */,
 			);
 			path = MessageBoard;
 			sourceTree = "<group>";
@@ -539,6 +562,25 @@
 			path = PushNotification;
 			sourceTree = "<group>";
 		};
+		D8CD046B179928C300814462 /* GrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D8CD046C179928C300814462 /* NPGrowingTextView.h */,
+				D8CD046D179928C300814462 /* NPGrowingTextView.m */,
+				D8CD046E179928C300814462 /* NPTextViewInternal.h */,
+				D8CD046F179928C300814462 /* NPTextViewInternal.m */,
+				D8CD0472179929D500814462 /* MessageEntryBackground.png */,
+				D8CD0473179929D500814462 /* MessageEntryBackground@2x.png */,
+				D8CD0474179929D500814462 /* MessageEntryInputField.png */,
+				D8CD0475179929D500814462 /* MessageEntryInputField@2x.png */,
+				D8CD0476179929D500814462 /* MessageEntrySendButton.png */,
+				D8CD0477179929D500814462 /* MessageEntrySendButton@2x.png */,
+				D8CD0478179929D500814462 /* MessageEntrySendButtonPressed.png */,
+				D8CD0479179929D500814462 /* MessageEntrySendButtonPressed@2x.png */,
+			);
+			path = GrowingTextView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -631,6 +673,14 @@
 				D8CD045A1797820C00814462 /* NPPushNotificationCell.xib in Resources */,
 				D8CD04641798CC0600814462 /* NPMessageBoardDetailViewController.xib in Resources */,
 				D8CD04691798D0F200814462 /* NPMessageBoardCommentCell.xib in Resources */,
+				D8CD047A179929D500814462 /* MessageEntryBackground.png in Resources */,
+				D8CD047B179929D500814462 /* MessageEntryBackground@2x.png in Resources */,
+				D8CD047C179929D500814462 /* MessageEntryInputField.png in Resources */,
+				D8CD047D179929D500814462 /* MessageEntryInputField@2x.png in Resources */,
+				D8CD047E179929D500814462 /* MessageEntrySendButton.png in Resources */,
+				D8CD047F179929D500814462 /* MessageEntrySendButton@2x.png in Resources */,
+				D8CD0480179929D500814462 /* MessageEntrySendButtonPressed.png in Resources */,
+				D8CD0481179929D500814462 /* MessageEntrySendButtonPressed@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +754,8 @@
 				D8CD045E1798128B00814462 /* NPComposeViewController.m in Sources */,
 				D8CD0462179819D900814462 /* NPMessageBoardDetailViewController.m in Sources */,
 				D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */,
+				D8CD0470179928C300814462 /* NPGrowingTextView.m in Sources */,
+				D8CD0471179928C300814462 /* NPTextViewInternal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +873,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60934634-3F78-4F67-A81B-EDACE05627AB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60934634-3F78-4F67-A81B-EDACE05627AB";
@@ -840,6 +893,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NetPeriod/NetPeriod-Prefix.pch";
 				INFOPLIST_FILE = "NetPeriod/NetPeriod-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60934634-3F78-4F67-A81B-EDACE05627AB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60934634-3F78-4F67-A81B-EDACE05627AB";
