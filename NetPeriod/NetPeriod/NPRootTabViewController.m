@@ -32,10 +32,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NPChooseGenderViewController *chooseGenderVC = [[NPChooseGenderViewController alloc] initWithNibName:@"NPChooseGenderViewController" bundle:nil];
-	UINavigationController *userGuideNav = [[UINavigationController alloc] initWithRootViewController:chooseGenderVC];
-//    [self.view addSubview:userGuideNav.view];
-    [self presentViewController:userGuideNav animated:NO completion:nil];
+//    NPChooseGenderViewController *chooseGenderVC = [[NPChooseGenderViewController alloc] initWithNibName:@"NPChooseGenderViewController" bundle:nil];
+//	UINavigationController *userGuideNav = [[UINavigationController alloc] initWithRootViewController:chooseGenderVC];
+////    [self.view addSubview:userGuideNav.view];
+//    [self presentViewController:userGuideNav animated:NO completion:nil];
 }
 
 //-(void)viewDidAppear:(BOOL)animated{
