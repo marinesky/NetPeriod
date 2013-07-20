@@ -10,7 +10,6 @@
 #import "NPMessageBoardCommentCell.h"
 
 @interface NPMessageBoardDetailViewController () {
-    BOOL isComposingComment;
     UIView *containerView;
     NPGrowingTextView *textView;
 }
