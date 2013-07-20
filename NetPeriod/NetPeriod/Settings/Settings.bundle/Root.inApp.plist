@@ -10,11 +10,35 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
-			<string></string>
+			<string>个人资料设置</string>
+			<key>File</key>
+			<string>PersonalInfo</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>经期设置</string>
+			<key>File</key>
+			<string>PeriodSetting</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>提醒设置</string>
+			<key>File</key>
+			<string>NotificationSetting</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>IASKButtonSpecifier</string>
 			<key>Key</key>
-			<string></string>
+			<string>ToggleLoginAction</string>
+			<key>Title</key>
+			<string>登录注册</string>
 		</dict>
 	</array>
 </dict>

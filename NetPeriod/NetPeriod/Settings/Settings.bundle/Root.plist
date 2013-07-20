@@ -7,15 +7,6 @@
 	<key>StringsTable</key>
 	<string>Root</string>
 	<key>PreferenceSpecifiers</key>
-	<array>
-		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string></string>
-			<key>Key</key>
-			<string></string>
-		</dict>
-	</array>
+	<array/>
 </dict>
 </plist>
