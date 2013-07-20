@@ -37,16 +37,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)userButtonClicked:(UIButton *)sender {
-    NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
-    if (sender.tag == 11) {
-        [loginViewController.view addSubview:loginViewController.loginOnlyView];
-        loginViewController.loginAndRegisterUsernameTextField.hidden = YES;
-        loginViewController.loginAndRegisterPasswordTextField.hidden = YES;
-    }
-    [self presentViewController:loginViewController animated:YES completion:Nil];
-    
-}
 
 #pragma mark - Table view data source
 

@@ -32,10 +32,16 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    NPChooseGenderViewController *chooseGenderVC = [[NPChooseGenderViewController alloc] initWithNibName:@"NPChooseGenderViewController" bundle:nil];
-//	UINavigationController *userGuideNav = [[UINavigationController alloc] initWithRootViewController:chooseGenderVC];
-////    [self.view addSubview:userGuideNav.view];
-//    [self presentViewController:userGuideNav animated:NO completion:nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults objectForKey:@"firstRun"]){
+        NPChooseGenderViewController *chooseGenderVC = [[NPChooseGenderViewController alloc] initWithNibName:@"NPChooseGenderViewController" bundle:nil];
+        UINavigationController *userGuideNav = [[UINavigationController alloc] initWithRootViewController:chooseGenderVC];
+    //    [self.view addSubview:userGuideNav.view];
+        [self presentViewController:userGuideNav animated:NO completion:^() {
+            [defaults setObject:[NSDate date] forKey:@"firstRun"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }];
+    }
 }
 
 //-(void)viewDidAppear:(BOOL)animated{
@@ -81,22 +87,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - IntroductionView Delegate Methods
+#pragma mark - NPLoginViewController Delegate Methods
 
--(void)introductionDidFinishWithType:(NPFinishType)finishType{
-    if (finishType == NPFinishTypeSkipButton) {
-        NSLog(@"Did Finish Introduction By Skipping It");
-    }
-    else if (finishType == NPFinishTypeSwipeOut){
-        NSLog(@"Did Finish Introduction By Swiping Out");
-    }
-    
-    //One might consider making the introductionview a class variable and releasing it here.
-    // I didn't do this to keep things simple for the sake of example.
+- (void)didLoginFromUserGuide
+{
+    [self dismissViewControllerAnimated:YES completion:Nil];
 }
-
--(void)introductionDidChangeToPanel:(NPIntroductionPanel *)panel withIndex:(NSInteger)panelIndex{
-    NSLog(@"%@ \nPanelIndex: %d", panel.Description, panelIndex);
-}
-
 @end

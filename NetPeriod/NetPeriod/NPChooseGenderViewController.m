@@ -9,6 +9,8 @@
 #import "NPChooseGenderViewController.h"
 #import "NPSettingPeriodViewController.h"
 #import "NPUser.h"
+#import "NPRootTabViewController.h"
+#import "NPLoginViewController.h"
 
 @interface NPChooseGenderViewController ()
 
@@ -54,7 +56,13 @@
 }
 
 - (IBAction)login:(id)sender {
-    
+    NPLoginViewController *loginVC = [[NPLoginViewController alloc] init];
+    loginVC.redirectType = LoginRedirectFromUserGuide;
+    loginVC.delegate = (NPRootTabViewController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    [loginVC.view addSubview:loginVC.loginOnlyView];
+    loginVC.loginAndRegisterUsernameTextField.hidden = YES;
+    loginVC.loginAndRegisterPasswordTextField.hidden = YES;
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 @end
