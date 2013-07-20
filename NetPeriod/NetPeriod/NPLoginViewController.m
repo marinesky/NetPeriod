@@ -87,6 +87,8 @@
                 KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
                 [keychain setObject:username forKey:(id)CFBridgingRelease(kSecAttrAccount)];
                 [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
+                [[NSUserDefaults standardUserDefaults] setObject:@"退出" forKey:@"ToggleLoginAction"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedin"];
                 if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
                 {
                     ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
@@ -145,6 +147,8 @@
                 KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
                 [keychain setObject:username forKey:(id)CFBridgingRelease(kSecAttrAccount)];
                 [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
+                [[NSUserDefaults standardUserDefaults] setObject:@"退出" forKey:@"ToggleLoginAction"];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedin"];
                 if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
                 {
                         ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;

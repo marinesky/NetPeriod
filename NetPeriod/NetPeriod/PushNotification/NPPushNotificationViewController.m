@@ -40,7 +40,7 @@
     NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
     if (sender.tag == 11) {
         [loginViewController.view addSubview:loginViewController.loginOnlyView];
-        loginViewController.loginAndRegisterUsernameTextField.hidden =YES;
+        loginViewController.loginAndRegisterUsernameTextField.hidden = YES;
         loginViewController.loginAndRegisterPasswordTextField.hidden = YES;
     }
     [self presentViewController:loginViewController animated:YES completion:Nil];
@@ -78,6 +78,7 @@
 {
     return 72;
 }
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

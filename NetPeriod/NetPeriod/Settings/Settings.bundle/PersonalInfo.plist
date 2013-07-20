@@ -10,6 +10,12 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>IASKCustomViewSpecifier</string>
+			<key>Key</key>
+			<string>headerPicture</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Key</key>
 			<string>nickname</string>

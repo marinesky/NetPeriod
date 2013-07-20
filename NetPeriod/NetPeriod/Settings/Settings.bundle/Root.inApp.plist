@@ -10,11 +10,29 @@
 	<array>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
 			<string>个人资料设置</string>
 			<key>File</key>
 			<string>PersonalInfo</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>IASKCustomViewSpecifier</string>
+			<key>Key</key>
+			<string>lovers</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -26,11 +44,19 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
 			<string>提醒设置</string>
 			<key>File</key>
 			<string>NotificationSetting</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>Type</key>

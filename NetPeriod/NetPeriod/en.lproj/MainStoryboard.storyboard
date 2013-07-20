@@ -500,10 +500,10 @@
             </objects>
             <point key="canvasLocation" x="2243" y="1213"/>
         </scene>
-        <!--App Settings View Controller - Root View Controller-->
+        <!--Setting View Controller - Root View Controller-->
         <scene sceneID="fpc-0e-wxQ">
             <objects>
-                <tableViewController id="A8J-mn-vld" customClass="IASKAppSettingsViewController" sceneMemberID="viewController">
+                <tableViewController id="A8J-mn-vld" customClass="NPSettingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="AAr-ta-ZOp">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -602,6 +602,9 @@
         </class>
         <class className="NPRootTabViewController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NPRootTabViewController.h"/>
+        </class>
+        <class className="NPSettingViewController" superclassName="IASKAppSettingsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPSettingViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
