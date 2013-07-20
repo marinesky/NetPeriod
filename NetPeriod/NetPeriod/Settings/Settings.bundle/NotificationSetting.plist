@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Title</key>
+	<string>WhereTo</string>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Key</key>
+			<string>acceptNewsToggleSwitch</string>
+			<key>Title</key>
+			<string>接受新消息通知</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Key</key>
+			<string>soundNoificationToggleSwitch</string>
+			<key>Title</key>
+			<string>声音</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Key</key>
+			<string>vibrateNotificationToggleSwitch</string>
+			<key>Title</key>
+			<string>振动</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+	</array>
+</dict>
+</plist>
