@@ -149,11 +149,22 @@
                 [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
                 [[NSUserDefaults standardUserDefaults] setObject:@"退出" forKey:@"ToggleLoginAction"];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedin"];
-                if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
-                {
+                if (self.redirectType == LoginRedirectFromSetting) {
+                    if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
+                    {
                         ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
+                    }
+                    [self dismissViewControllerAnimated:YES completion:Nil];
+                } else if (self.redirectType == LoginRedirectFromUserGuide) {
+                    [self.delegate didLoginFromUserGuide];
+                } else {
+                    if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
+                    {
+                        ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
+                    }
+                    [self dismissViewControllerAnimated:YES completion:Nil];
                 }
-                [self dismissViewControllerAnimated:YES completion:Nil];
+                
             }
             KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
             NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);

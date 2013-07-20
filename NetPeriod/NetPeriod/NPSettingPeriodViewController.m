@@ -9,7 +9,9 @@
 #import "NPSettingPeriodViewController.h"
 #import "AFNetworking.h"
 #import "NPUser.h"
+#import <Parse/Parse.h>
 #import "UIView+FindAndResignFirstResponder.h"
+#import "Md5.h"
 
 @interface NPSettingPeriodViewController () {
     BOOL isDatePickerShowing;
@@ -58,21 +60,22 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
     //User默认值
     
     self.theUser.birthday = @"1990-07-01";
     self.theUser.startMenses = @"2013-07-18";
     self.theUser.mensesPeriod = @"4";
     self.theUser.totalPeriod = @"28";
+    self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
     
     self.datePicker.datePickerMode = UIDatePickerModeDate;
     self.birthdayTextFiled.inputView = self.datePicker;
     self.lastMensesTextField.inputView = self.datePicker;
     self.mensesPeriodTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.totalPeriodTextField.keyboardType = UIKeyboardTypeDecimalPad;
-    
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,7 +88,12 @@
 
 - (IBAction)finishSettingButtonClicked:(id)sender {
     [self sendUserBasicInfo];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation.channels = @[[NSString stringWithFormat:@"no%@", [Md5 encode:self.theUser.username]]];
+    [currentInstallation saveInBackground];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)datePickerValueChanged:(id)sender {
@@ -120,12 +128,21 @@
 
 - (void)sendUserBasicInfo
 {
-    self.theUser.birthday = self.birthdayTextFiled.text;
-    self.theUser.startMenses = self.lastMensesTextField.text;
-    self.theUser.mensesPeriod = self.mensesPeriodTextField.text;
+    if (![self.birthdayTextFiled.text isEqualToString:@""]) {
+        self.theUser.birthday = self.birthdayTextFiled.text;
+    }
+    if (![self.lastMensesTextField.text isEqualToString:@""]) {
+        self.theUser.startMenses = self.lastMensesTextField.text;
+    }
+    if (![self.mensesPeriodTextField.text isEqualToString:@""]) {
+        self.theUser.mensesPeriod = self.mensesPeriodTextField.text;
+    }
+    if (![self.totalPeriodTextField.text isEqualToString:@""]) {
+        self.theUser.totalPeriod = self.totalPeriodTextField.text;
+    }
+    
     self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
-    self.theUser.totalPeriod = self.totalPeriodTextField.text;
-    self.theUser.username = [NSString stringWithFormat:@"no_%d@163.com", anonymousCount];
+    self.theUser.username = [NSString stringWithFormat:@"no_%d@163com", anonymousCount];
     
     anonymousCount++;
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];

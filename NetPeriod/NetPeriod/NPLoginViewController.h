@@ -10,6 +10,19 @@
 #import "AFNetworking.h"
 #import "RSA.h"
 
+typedef enum
+{
+    LoginRedirectFromUserGuide = 0,
+    LoginRedirectFromSetting
+}LoginRedirectType;
+
+@protocol NPLoginViewControllerDelegate <NSObject>
+
+@optional
+- (void)didLoginFromUserGuide;
+
+@end
+
 @interface NPLoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *loginAndRegisterPasswordTextField;
 
@@ -32,6 +45,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLoginOnlyInputHint;
 
 @property (weak, nonatomic) IBOutlet UILabel *passwordLoginOnlyInputHint;
+
+@property (nonatomic, assign) id<NPLoginViewControllerDelegate> delegate;
+@property (nonatomic, assign) LoginRedirectType redirectType;
 
 - (IBAction)userRegisterAction:(UIButton *)sender;
 - (IBAction)userLoginAction:(UIButton *)sender;

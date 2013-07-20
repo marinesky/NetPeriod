@@ -59,6 +59,7 @@
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"登录注册"]) {
         //NSLog(@"Login button pressed!");
         NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
+            loginViewController.redirectType = LoginRedirectFromSetting;
         //[loginViewController.view addSubview:loginViewController.loginOnlyView];
         //loginViewController.loginAndRegisterUsernameTextField.hidden =YES;
         //loginViewController.loginAndRegisterPasswordTextField.hidden = YES;
