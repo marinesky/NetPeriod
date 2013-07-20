@@ -7,7 +7,8 @@
 //
 
 #import "NPLoginViewController.h"
-
+#import "CommonData.h"
+#import "KeychainItemWrapper.h"
 @interface NPLoginViewController ()
 
 @end
@@ -67,18 +68,37 @@
         RSA *rsa = [[RSA alloc] init];
         NSLog(@"rsa encrypted password:%@", [rsa encryptToString:password]);
         password = [rsa encryptToString:password];
-        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BaseWebServerUrl]];
         [httpClient setParameterEncoding:AFFormURLParameterEncoding];
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                                path:@"http://10.242.8.72:8080/np-web/register"
+                                                                path:@"/np-web/register"
                                                           parameters:@{@"email":username, @"password":password, @"gender":userGender}];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             // Print the response body in text
-            NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            //NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            id payload = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            NSLog(@"Fetched: %@", payload);
+            if ([payload[@"status"] isEqualToString:@"Error"]){
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"错误" message:@"您的邮箱已被注册！" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+            [message show];
+            } else { //register ok!
+                KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
+                [keychain setObject:username forKey:(id)CFBridgingRelease(kSecAttrAccount)];
+                [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
+                if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
+                {
+                    ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
+                }
+                [self dismissViewControllerAnimated:YES completion:Nil];
+            }
+            KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
+            NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+            [message show];
         }];
         [operation start];
     }
@@ -105,16 +125,34 @@
         RSA *rsa = [[RSA alloc] init];
         NSLog(@"rsa encrypted password:%@", [rsa encryptToString:password]);
         password = [rsa encryptToString:password];
-        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BaseWebServerUrl]];
         [httpClient setParameterEncoding:AFFormURLParameterEncoding];
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                                path:@"http://10.242.8.72:8080/np-web/login"
+                                                                path:@"/np-web/login"
                                                           parameters:@{@"email":username, @"password":password}];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             // Print the response body in text
-            NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            //NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            id payload = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            NSLog(@"Fetched: %@", payload);
+            if ([payload[@"status"] isEqualToString:@"Error"]){
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"错误" message:@"帐号密码错误！" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+                [message show];
+            }
+            else { //login ok
+                KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
+                [keychain setObject:username forKey:(id)CFBridgingRelease(kSecAttrAccount)];
+                [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
+                if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
+                {
+                        ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
+                }
+                [self dismissViewControllerAnimated:YES completion:Nil];
+            }
+            KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
+            NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];

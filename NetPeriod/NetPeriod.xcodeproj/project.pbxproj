@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D503A2CD179907570080B054 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = D503A2CC179907570080B054 /* public_key.der */; };
+		D53D8E4F179952B800BA0361 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */; };
 		D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D546F1F01796483000E4EE5B /* NPLoginViewController.m */; };
 		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
 		D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DF3F901797DDCC00CC75EB /* RSA.m */; };
@@ -103,6 +104,8 @@
 
 /* Begin PBXFileReference section */
 		D503A2CC179907570080B054 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
+		D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		D53D8E4E179952B800BA0361 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		D546F1EF1796483000E4EE5B /* NPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoginViewController.h; sourceTree = "<group>"; };
 		D546F1F01796483000E4EE5B /* NPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPLoginViewController.m; sourceTree = "<group>"; };
 		D546F1F11796483000E4EE5B /* NPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPLoginViewController.xib; sourceTree = "<group>"; };
@@ -268,9 +271,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D53D8E4C1799527F00BA0361 /* KeyChainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */,
+				D53D8E4E179952B800BA0361 /* KeychainItemWrapper.h */,
+			);
+			name = KeyChainWrapper;
+			sourceTree = "<group>";
+		};
 		D546F1EC179642D200E4EE5B /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
+				D53D8E4C1799527F00BA0361 /* KeyChainWrapper */,
 				D546F1EF1796483000E4EE5B /* NPLoginViewController.h */,
 				D546F1F01796483000E4EE5B /* NPLoginViewController.m */,
 				D546F1F11796483000E4EE5B /* NPLoginViewController.xib */,
@@ -740,6 +753,7 @@
 				D8CD04671798D0C300814462 /* NPMessageBoardCommentCell.m in Sources */,
 				D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */,
 				D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */,
+				D53D8E4F179952B800BA0361 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
