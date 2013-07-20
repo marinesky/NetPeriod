@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NPGrowingTextView.h"
 
-@interface NPMessageBoardDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface NPMessageBoardDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NPGrowingTextViewDelegate>
 
 @end
