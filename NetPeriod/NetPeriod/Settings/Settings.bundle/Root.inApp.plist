@@ -65,6 +65,8 @@
 			<string>ToggleLoginAction</string>
 			<key>Title</key>
 			<string>登录注册</string>
+			<key>Value</key>
+			<string>登录注册</string>
 		</dict>
 	</array>
 </dict>

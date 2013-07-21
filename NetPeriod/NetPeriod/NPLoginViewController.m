@@ -38,6 +38,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    emailInputHint.textColor = [UIColor redColor];
+    emailLoginOnlyInputHint.textColor = [UIColor redColor];
+    passwordInputHint.textColor = [UIColor redColor];
+    passwordLoginOnlyInputHint.textColor = [UIColor redColor];
+
+    
 }
 
 - (void)didReceiveMemoryWarning

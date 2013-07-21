@@ -62,9 +62,12 @@
 }
 
 - (void)settingsViewController:(IASKAppSettingsViewController*)sender buttonTappedForSpecifier:(IASKSpecifier*)specifier {
+//    NSLog(specifier.key);
 	if ([specifier.key isEqualToString:@"ToggleLoginAction"]) {
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"登录注册"]) {
-        //NSLog(@"Login button pressed!");
+//         NSLog([[NSUserDefaults standardUserDefaults] objectForKey:specifier.key]);
+         NSDictionary *defaults = [NSUserDefaults standardUserDefaults].dictionaryRepresentation;
+        if (![[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"退出"]) {
+        NSLog(@"Login button pressed!");
         NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
             loginViewController.redirectType = LoginRedirectFromSetting;
         //[loginViewController.view addSubview:loginViewController.loginOnlyView];
@@ -78,12 +81,10 @@
             [[NSUserDefaults standardUserDefaults] setBool:NO  forKey:@"loggedin"];
             [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
             [sender.tableView reloadData];
+            NSDictionary *defaults = [NSUserDefaults standardUserDefaults].dictionaryRepresentation;
         }
 		
-	} else if ([specifier.key isEqualToString:@"ButtonDemoAction2"]) {
-		NSString *newTitle = [[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"Logout"] ? @"Login" : @"Logout";
-		[[NSUserDefaults standardUserDefaults] setObject:newTitle forKey:specifier.key];
-	}
+	} 
 }
 
 #pragma mark -
@@ -160,14 +161,14 @@
             switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
                 case hasnolover:
                 case addinglover: {
-//                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
-//                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
-//                    break;
+                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
+                    break;
                 }
                 case hasinvitation: {
-//                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
-//                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
-//                    break;
+                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
+                    break;
                 }
                 case addedlover: {
                     NPLoverDetialViewController *loverDetialVC = [[NPLoverDetialViewController alloc] initWithNibName:@"NPLoverDetialViewController" bundle:Nil];
