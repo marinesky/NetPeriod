@@ -10,6 +10,7 @@
 #import "NPMessageBoardViewCell.h"
 #import "NPComposeViewController.h"
 #import "NPMessageBoardDetailViewController.h"
+#import "AFNetworking.h"
 
 @interface NPMessageBoardViewController ()
 
@@ -130,11 +131,35 @@
 #pragma mark - Actions
 
 - (IBAction)forumButtonClicked:(id)sender {
+    [self getArticlesWithType:@"0"];
 }
 
 - (IBAction)myArticleButtonClicked:(id)sender {
 }
 
+- (void)getArticlesWithType:(NSString *)type
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"http://10.242.8.72:8080/np-web/queryTopicsByRange"
+                                                      parameters:@{
+                                    @"startId":@"0",
+                                    @"endId":@"0",
+                                    @"type":@"0",
+                                    @"email":@"aa@163.com",
+                                    @"uid":@"fdssfsfsdsad"
+                                    }];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
 
+}
 
 @end
