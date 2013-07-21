@@ -13,6 +13,10 @@
 		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
 		D5C8BC69179BCC3700FB1300 /* NPInvitationRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */; };
 		D5C8BC6A179BCC3700FB1300 /* NPInvitationRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C8BC68179BCC3700FB1300 /* NPInvitationRequestViewController.xib */; };
+		D5C8BC6E179BE61B00FB1300 /* NPLoverDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C8BC6C179BE61A00FB1300 /* NPLoverDetialViewController.m */; };
+		D5C8BC6F179BE61B00FB1300 /* NPLoverDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C8BC6D179BE61A00FB1300 /* NPLoverDetialViewController.xib */; };
+		D5C8BC72179BEA1400FB1300 /* love@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5C8BC70179BEA1400FB1300 /* love@2x.png */; };
+		D5C8BC73179BEA1400FB1300 /* love.png in Resources */ = {isa = PBXBuildFile; fileRef = D5C8BC71179BEA1400FB1300 /* love.png */; };
 		D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DF3F901797DDCC00CC75EB /* RSA.m */; };
 		D5E24916179A72AE00B6B758 /* NPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E24915179A72AE00B6B758 /* NPSettingViewController.m */; };
 		D5E2491E179AA0B100B6B758 /* M.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D5E2491C179AA0B100B6B758 /* M.bmp */; };
@@ -136,6 +140,11 @@
 		D5C8BC66179BCC3700FB1300 /* NPInvitationRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPInvitationRequestViewController.h; sourceTree = "<group>"; };
 		D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPInvitationRequestViewController.m; sourceTree = "<group>"; };
 		D5C8BC68179BCC3700FB1300 /* NPInvitationRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPInvitationRequestViewController.xib; sourceTree = "<group>"; };
+		D5C8BC6B179BE61A00FB1300 /* NPLoverDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoverDetialViewController.h; sourceTree = "<group>"; };
+		D5C8BC6C179BE61A00FB1300 /* NPLoverDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPLoverDetialViewController.m; sourceTree = "<group>"; };
+		D5C8BC6D179BE61A00FB1300 /* NPLoverDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPLoverDetialViewController.xib; sourceTree = "<group>"; };
+		D5C8BC70179BEA1400FB1300 /* love@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love@2x.png"; sourceTree = "<group>"; };
+		D5C8BC71179BEA1400FB1300 /* love.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = love.png; sourceTree = "<group>"; };
 		D5DF3F8F1797DDCC00CC75EB /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		D5DF3F901797DDCC00CC75EB /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		D5E24914179A72AE00B6B758 /* NPSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPSettingViewController.h; sourceTree = "<group>"; };
@@ -362,6 +371,8 @@
 		D5E24917179A9F0400B6B758 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D5C8BC70179BEA1400FB1300 /* love@2x.png */,
+				D5C8BC71179BEA1400FB1300 /* love.png */,
 				D5E2491C179AA0B100B6B758 /* M.bmp */,
 				D5E2491D179AA0B100B6B758 /* F.bmp */,
 			);
@@ -554,6 +565,9 @@
 				D8A405981794DCE600140981 /* Views */,
 				D8A405B51794E37F00140981 /* Settings.bundle */,
 				D5E24914179A72AE00B6B758 /* NPSettingViewController.h */,
+				D5C8BC6B179BE61A00FB1300 /* NPLoverDetialViewController.h */,
+				D5C8BC6C179BE61A00FB1300 /* NPLoverDetialViewController.m */,
+				D5C8BC6D179BE61A00FB1300 /* NPLoverDetialViewController.xib */,
 				D5E24915179A72AE00B6B758 /* NPSettingViewController.m */,
 				D5C8BC66179BCC3700FB1300 /* NPInvitationRequestViewController.h */,
 				D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */,
@@ -824,6 +838,9 @@
 				D8B72DEF179A7A2F0073AA9C /* NPSettingPeriodViewController.xib in Resources */,
 				D5E24924179AC6A100B6B758 /* NPaddLoversViewController.xib in Resources */,
 				D5C8BC6A179BCC3700FB1300 /* NPInvitationRequestViewController.xib in Resources */,
+				D5C8BC6F179BE61B00FB1300 /* NPLoverDetialViewController.xib in Resources */,
+				D5C8BC72179BEA1400FB1300 /* love@2x.png in Resources */,
+				D5C8BC73179BEA1400FB1300 /* love.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +927,7 @@
 				D5E24923179AC6A100B6B758 /* NPaddLoversViewController.m in Sources */,
 				D8B72DFB179AC7310073AA9C /* Md5.m in Sources */,
 				D5C8BC69179BCC3700FB1300 /* NPInvitationRequestViewController.m in Sources */,
+				D5C8BC6E179BE61B00FB1300 /* NPLoverDetialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
