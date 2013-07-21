@@ -11,6 +11,7 @@
 #import "NPaddLoversViewController.h"
 #import "NPInvitationRequestViewController.h"
 #import "CommonData.h"
+#import "NPLoverDetialViewController.h"
 
 @interface NPSettingViewController ()
 
@@ -159,17 +160,19 @@
             switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
                 case hasnolover:
                 case addinglover: {
-                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
-                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
-                    break;
+//                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
+//                    break;
                 }
                 case hasinvitation: {
-                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
-                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
-                    break;
+//                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
+//                    break;
                 }
                 case addedlover: {
-                    
+                    NPLoverDetialViewController *loverDetialVC = [[NPLoverDetialViewController alloc] initWithNibName:@"NPLoverDetialViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:loverDetialVC animated:YES];
+                    break;
                 }
                 default:
                     break;

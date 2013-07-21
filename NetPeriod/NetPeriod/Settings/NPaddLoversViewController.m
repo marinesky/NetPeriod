@@ -63,6 +63,7 @@
     NSString *regexForEmailAddress = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regexForEmailAddress];
     if ([emailValidation evaluateWithObject:[textLoverEmail text]] ){
+        [sender setEnabled:NO];
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BaseWebServerUrl]];
         [httpClient setParameterEncoding:AFFormURLParameterEncoding];
         KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
@@ -106,10 +107,12 @@
                 [navController popViewControllerAnimated:YES];
                 //NSLog(@"added request success!");
             }
-           
+         [sender setEnabled:YES];
+         
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             [self showResponseInfo:@"和服务器的交互发生错误"];
+            [sender setEnabled:YES];
         }];
         [operation start];
     } else {
