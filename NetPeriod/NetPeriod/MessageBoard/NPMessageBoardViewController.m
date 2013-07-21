@@ -10,11 +10,13 @@
 #import "NPMessageBoardViewCell.h"
 #import "NPComposeViewController.h"
 #import "NPMessageBoardDetailViewController.h"
+#import "AFNetworking.h"
+#import "SVSegmentedControl.h"
 
-@interface NPMessageBoardViewController ()
-
-@property (weak, nonatomic) IBOutlet UIButton *forumButton;
-@property (weak, nonatomic) IBOutlet UIButton *myArticleButton;
+@interface NPMessageBoardViewController () <SVSegmentedControlDelegate>
+{
+    SVSegmentedControl *navSC;
+}
 
 @end
 
@@ -33,7 +35,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"论坛";
+    
+    navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"论坛", @"我的帖子", nil]];
+    navSC.thumb.tintColor = [UIColor colorWithRed:0 green:0.5 blue:0.1 alpha:1];
+    [navSC addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
+	navSC.center = CGPointMake(160, 22);
+    [self.navigationController.navigationBar addSubview:navSC];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];    
+    navSC.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +71,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        static NSString *CellIdentifier = @"NPImageViewCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
+        imageView.backgroundColor = [UIColor redColor];
+        [cell.contentView addSubview:imageView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
     static NSString *CellIdentifier = @"NPMessageBoardViewCell";
     NPMessageBoardViewCell *cell = (NPMessageBoardViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -65,12 +91,16 @@
     }
 
     // Configure the cell...
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        return 150;
+    }
     return 72;
 }
 /*
@@ -124,17 +154,59 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     NPMessageBoardDetailViewController *detailViewController = [[NPMessageBoardDetailViewController alloc] initWithNibName:@"NPMessageBoardDetailViewController" bundle:nil];
+    navSC.hidden = YES;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-#pragma mark - Actions
+- (void)getArticlesWithType:(NSString *)type
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"http://10.242.8.72:8080/np-web/queryTopicsByRange"
+                                                      parameters:@{
+                                    @"startId":@"0",
+                                    @"endId":@"0",
+                                    @"type":@"0",
+                                    @"email":@"aa@163.com",
+                                    @"uid":@"fdssfsfsdsad"
+                                    }];
+//    AFJSONRequestOperation *operation = [AFJSONRequestOperation
+//                                        JSONRequestOperationWithRequest:
+//                                        request
+//                                        success:
+//                                        ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+//                                        {
+//                                            NSLog(@"JSON : %@",JSON);
+//                                        }
+//                                        failure:
+//                                         ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+//                                        {
+//                                            NSLog(@"Failed %@",error);
+//                                        }];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 
-- (IBAction)forumButtonClicked:(id)sender {
+    [operation start];
+
 }
 
-- (IBAction)myArticleButtonClicked:(id)sender {
+#pragma mark - UIControlEventValueChanged
+
+- (void)segmentedControlChangedValue:(SVSegmentedControl*)segmentedControl {
+	NSLog(@"segmentedControl %i did select index %i (via UIControl method)", segmentedControl.tag, segmentedControl.selectedSegmentIndex);
 }
 
+#pragma mark - SVSegmentController Delegate
 
-
+- (void)segmentedControl:(SVSegmentedControl*)segmentedControl didSelectIndex:(NSUInteger)index
+{
+    
+}
 @end

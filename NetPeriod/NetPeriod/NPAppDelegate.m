@@ -14,7 +14,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navi_bar.png"] forBarMetrics:UIBarMetricsDefault];
+    UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar"]
+                              resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UITabBar appearance] setBackgroundImage:tabBackground];
+//    [[UITabBar appearance] setSelectionIndicatorImage:
+//     [UIImage imageNamed:@"tab_select_indicator"]];
     
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:29.0/255.0 green:196.0/255.0 blue:135.0/255.0 alpha:1.0]];
     // ****************************************************************************
     // Uncomment and fill in with your Parse credentials:
     [Parse setApplicationId:@"8s1WvVOoNPqkPcrlKHSv7VNJyIEYYsHxU75uAUwn" clientKey:@"nOV2UAnzYP89bHJ7F4v2Alnr4tBH7QWrZPn83Xah"];

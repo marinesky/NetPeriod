@@ -90,6 +90,12 @@
 		D8B72DF3179AA55F0073AA9C /* NPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B72DF2179AA55F0073AA9C /* NPUser.m */; };
 		D8B72DF7179AAE6B0073AA9C /* UIView+FindAndResignFirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B72DF6179AAE6B0073AA9C /* UIView+FindAndResignFirstResponder.m */; };
 		D8B72DFB179AC7310073AA9C /* Md5.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B72DFA179AC7310073AA9C /* Md5.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D8B72DFE179B879D0073AA9C /* navi_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B72DFC179B879C0073AA9C /* navi_bar.png */; };
+		D8B72DFF179B879D0073AA9C /* navi_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B72DFD179B879C0073AA9C /* navi_bar@2x.png */; };
+		D8B72E02179B8BC50073AA9C /* tab_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B72E00179B8BC50073AA9C /* tab_bar.png */; };
+		D8B72E03179B8BC50073AA9C /* tab_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8B72E01179B8BC50073AA9C /* tab_bar@2x.png */; };
+		D8B72E09179BA5230073AA9C /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B72E06179BA5230073AA9C /* SVSegmentedControl.m */; };
+		D8B72E0A179BA5230073AA9C /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B72E08179BA5230073AA9C /* SVSegmentedThumb.m */; };
 		D8CD043B17956B7300814462 /* NPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD043517956B7300814462 /* NPCalendarView.m */; };
 		D8CD043C17956B7300814462 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD043717956B7300814462 /* left_arrow.png */; };
 		D8CD043D17956B7300814462 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CD043817956B7300814462 /* left_arrow@2x.png */; };
@@ -261,6 +267,14 @@
 		D8B72DF6179AAE6B0073AA9C /* UIView+FindAndResignFirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindAndResignFirstResponder.m"; sourceTree = "<group>"; };
 		D8B72DF9179AC7310073AA9C /* Md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5.h; sourceTree = "<group>"; };
 		D8B72DFA179AC7310073AA9C /* Md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Md5.m; sourceTree = "<group>"; };
+		D8B72DFC179B879C0073AA9C /* navi_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi_bar.png; sourceTree = "<group>"; };
+		D8B72DFD179B879C0073AA9C /* navi_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_bar@2x.png"; sourceTree = "<group>"; };
+		D8B72E00179B8BC50073AA9C /* tab_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bar.png; sourceTree = "<group>"; };
+		D8B72E01179B8BC50073AA9C /* tab_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_bar@2x.png"; sourceTree = "<group>"; };
+		D8B72E05179BA5230073AA9C /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		D8B72E06179BA5230073AA9C /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		D8B72E07179BA5230073AA9C /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		D8B72E08179BA5230073AA9C /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
 		D8CD043417956B7300814462 /* NPCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCalendarView.h; sourceTree = "<group>"; };
 		D8CD043517956B7300814462 /* NPCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCalendarView.m; sourceTree = "<group>"; };
 		D8CD043717956B7300814462 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -446,6 +460,11 @@
 				D8B72DEB179A7A2F0073AA9C /* NPSettingPeriodViewController.h */,
 				D8B72DEC179A7A2F0073AA9C /* NPSettingPeriodViewController.m */,
 				D8B72DED179A7A2F0073AA9C /* NPSettingPeriodViewController.xib */,
+				D897F91D17926BE60077623D /* MainStoryboard.storyboard */,
+				D8B72DFC179B879C0073AA9C /* navi_bar.png */,
+				D8B72DFD179B879C0073AA9C /* navi_bar@2x.png */,
+				D8B72E00179B8BC50073AA9C /* tab_bar.png */,
+				D8B72E01179B8BC50073AA9C /* tab_bar@2x.png */,
 				D897F90C17926BE50077623D /* Supporting Files */,
 			);
 			path = NetPeriod;
@@ -487,6 +506,7 @@
 		D8A405401793F3B400140981 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				D8B72E04179BA5230073AA9C /* SVSegmentedControl */,
 				D8CD044E1796C0F500814462 /* MBProgressHud */,
 				D8CD04461796396300814462 /* JSONKit */,
 				D8A405411793F3B400140981 /* AFNetworking */,
@@ -654,6 +674,17 @@
 				D8B72DFA179AC7310073AA9C /* Md5.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D8B72E04179BA5230073AA9C /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				D8B72E05179BA5230073AA9C /* SVSegmentedControl.h */,
+				D8B72E06179BA5230073AA9C /* SVSegmentedControl.m */,
+				D8B72E07179BA5230073AA9C /* SVSegmentedThumb.h */,
+				D8B72E08179BA5230073AA9C /* SVSegmentedThumb.m */,
+			);
+			path = SVSegmentedControl;
 			sourceTree = "<group>";
 		};
 		D8CD043317956B7300814462 /* Calendar */ = {
@@ -836,6 +867,10 @@
 				D5E2491F179AA0B100B6B758 /* F.bmp in Resources */,
 				D8B72DEA179A79EF0073AA9C /* NPChooseGenderViewController.xib in Resources */,
 				D8B72DEF179A7A2F0073AA9C /* NPSettingPeriodViewController.xib in Resources */,
+				D8B72DFE179B879D0073AA9C /* navi_bar.png in Resources */,
+				D8B72DFF179B879D0073AA9C /* navi_bar@2x.png in Resources */,
+				D8B72E02179B8BC50073AA9C /* tab_bar.png in Resources */,
+				D8B72E03179B8BC50073AA9C /* tab_bar@2x.png in Resources */,
 				D5E24924179AC6A100B6B758 /* NPaddLoversViewController.xib in Resources */,
 				D5C8BC6A179BCC3700FB1300 /* NPInvitationRequestViewController.xib in Resources */,
 				D5C8BC6F179BE61B00FB1300 /* NPLoverDetialViewController.xib in Resources */,
@@ -928,6 +963,8 @@
 				D8B72DFB179AC7310073AA9C /* Md5.m in Sources */,
 				D5C8BC69179BCC3700FB1300 /* NPInvitationRequestViewController.m in Sources */,
 				D5C8BC6E179BE61B00FB1300 /* NPLoverDetialViewController.m in Sources */,
+				D8B72E09179BA5230073AA9C /* SVSegmentedControl.m in Sources */,
+				D8B72E0A179BA5230073AA9C /* SVSegmentedThumb.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
