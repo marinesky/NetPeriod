@@ -8,6 +8,7 @@
 
 #import "NPSettingViewController.h"
 #import "NPLoginViewController.h"
+#import "NPaddLoversViewController.h"
 
 @interface NPSettingViewController ()
 
@@ -68,6 +69,7 @@
              UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"信息" message:@"退出成功" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
             [message show];
             [[NSUserDefaults standardUserDefaults] setObject:@"登录注册" forKey:specifier.key];
+            [[NSUserDefaults standardUserDefaults] setBool:NO  forKey:@"loggedin"];
         }
 		
 	} else if ([specifier.key isEqualToString:@"ButtonDemoAction2"]) {
@@ -127,6 +129,10 @@
         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"loggedin"]){ //user has not logged in
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"信息" message:@"您还未登录，请先登录或者注册再添加伴侣" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
             [message show];
+        }
+        else if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hasLovers"]) { //user does not hava a lover
+            NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+            [sender.navigationController pushViewController:addLoverViewController animated:YES];
         }
     }
 }
