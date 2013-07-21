@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NPaddLoversViewController : UIViewController
+
+@interface NPaddLoversViewController : UIViewController {
+}
 - (IBAction)userSendAddLoverAction:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textLoverEmail;
 @property (weak, nonatomic) IBOutlet UILabel *userEmailHint;
+@property (weak, nonatomic) IBOutlet UILabel *addedPartnerInfo;
+@property (weak, nonatomic) IBOutlet UIButton *userAddedActionButton;
 
 - (IBAction)backgroundClick:(id)sender;
 

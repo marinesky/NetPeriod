@@ -11,6 +11,8 @@
 		D53D8E4F179952B800BA0361 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */; };
 		D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D546F1F01796483000E4EE5B /* NPLoginViewController.m */; };
 		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
+		D5C8BC69179BCC3700FB1300 /* NPInvitationRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */; };
+		D5C8BC6A179BCC3700FB1300 /* NPInvitationRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5C8BC68179BCC3700FB1300 /* NPInvitationRequestViewController.xib */; };
 		D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DF3F901797DDCC00CC75EB /* RSA.m */; };
 		D5E24916179A72AE00B6B758 /* NPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E24915179A72AE00B6B758 /* NPSettingViewController.m */; };
 		D5E2491E179AA0B100B6B758 /* M.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D5E2491C179AA0B100B6B758 /* M.bmp */; };
@@ -131,6 +133,9 @@
 		D546F1EF1796483000E4EE5B /* NPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoginViewController.h; sourceTree = "<group>"; };
 		D546F1F01796483000E4EE5B /* NPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPLoginViewController.m; sourceTree = "<group>"; };
 		D546F1F11796483000E4EE5B /* NPLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPLoginViewController.xib; sourceTree = "<group>"; };
+		D5C8BC66179BCC3700FB1300 /* NPInvitationRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPInvitationRequestViewController.h; sourceTree = "<group>"; };
+		D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPInvitationRequestViewController.m; sourceTree = "<group>"; };
+		D5C8BC68179BCC3700FB1300 /* NPInvitationRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPInvitationRequestViewController.xib; sourceTree = "<group>"; };
 		D5DF3F8F1797DDCC00CC75EB /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		D5DF3F901797DDCC00CC75EB /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		D5E24914179A72AE00B6B758 /* NPSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPSettingViewController.h; sourceTree = "<group>"; };
@@ -368,6 +373,7 @@
 			children = (
 				D897F90B17926BE50077623D /* NetPeriod */,
 				D897F93A17926BE60077623D /* NetPeriodTests */,
+				D897F91D17926BE60077623D /* MainStoryboard.storyboard */,
 				D897F90417926BE50077623D /* Frameworks */,
 				D897F90317926BE50077623D /* Products */,
 			);
@@ -429,7 +435,6 @@
 				D8B72DEB179A7A2F0073AA9C /* NPSettingPeriodViewController.h */,
 				D8B72DEC179A7A2F0073AA9C /* NPSettingPeriodViewController.m */,
 				D8B72DED179A7A2F0073AA9C /* NPSettingPeriodViewController.xib */,
-				D897F91D17926BE60077623D /* MainStoryboard.storyboard */,
 				D897F90C17926BE50077623D /* Supporting Files */,
 			);
 			path = NetPeriod;
@@ -550,6 +555,9 @@
 				D8A405B51794E37F00140981 /* Settings.bundle */,
 				D5E24914179A72AE00B6B758 /* NPSettingViewController.h */,
 				D5E24915179A72AE00B6B758 /* NPSettingViewController.m */,
+				D5C8BC66179BCC3700FB1300 /* NPInvitationRequestViewController.h */,
+				D5C8BC67179BCC3700FB1300 /* NPInvitationRequestViewController.m */,
+				D5C8BC68179BCC3700FB1300 /* NPInvitationRequestViewController.xib */,
 				D5E24920179AC6A100B6B758 /* NPaddLoversViewController.h */,
 				D5E24921179AC6A100B6B758 /* NPaddLoversViewController.m */,
 				D5E24922179AC6A100B6B758 /* NPaddLoversViewController.xib */,
@@ -815,6 +823,7 @@
 				D8B72DEA179A79EF0073AA9C /* NPChooseGenderViewController.xib in Resources */,
 				D8B72DEF179A7A2F0073AA9C /* NPSettingPeriodViewController.xib in Resources */,
 				D5E24924179AC6A100B6B758 /* NPaddLoversViewController.xib in Resources */,
+				D5C8BC6A179BCC3700FB1300 /* NPInvitationRequestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +909,7 @@
 				D8B72DF7179AAE6B0073AA9C /* UIView+FindAndResignFirstResponder.m in Sources */,
 				D5E24923179AC6A100B6B758 /* NPaddLoversViewController.m in Sources */,
 				D8B72DFB179AC7310073AA9C /* Md5.m in Sources */,
+				D5C8BC69179BCC3700FB1300 /* NPInvitationRequestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,6 +946,7 @@
 				D897F91E17926BE60077623D /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			path = NetPeriod;
 			sourceTree = "<group>";
 		};
 		D897F93D17926BE60077623D /* InfoPlist.strings */ = {

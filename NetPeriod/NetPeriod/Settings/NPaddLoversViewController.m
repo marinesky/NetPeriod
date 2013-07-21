@@ -19,12 +19,14 @@
 @implementation NPaddLoversViewController
 @synthesize textLoverEmail;
 @synthesize userEmailHint;
+@synthesize addedPartnerInfo;
+@synthesize userAddedActionButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // Custom initialization           
     }
     return self;
 }
@@ -33,6 +35,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
+        case addinglover:{
+            NSString *loverEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"loverEmail"];
+            addedPartnerInfo.text = [NSString stringWithFormat:@"您已经向%@发送请求，请等待确定。",loverEmail];
+            addedPartnerInfo.numberOfLines = 0;
+//            addedPartnerInfo.frame = CGRectMake(20,20,200,800);
+            [addedPartnerInfo sizeToFit];
+            [userAddedActionButton setTitle:@"重新添加" forState:UIControlStateNormal];
+            [userAddedActionButton setTitle:@"重新添加" forState:UIControlStateSelected];
+            [userAddedActionButton sizeToFit];
+            userAddedActionButton.frame = CGRectMake(self.view.frame.size.width/2 - userAddedActionButton.frame.size.width/2,  userAddedActionButton.frame.origin.y, userAddedActionButton.frame.size.width, userAddedActionButton.frame.size.height);//fir to origin center.
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +68,11 @@
         KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
         NSString * username = [keychain objectForKey:(id)CFBridgingRelease(kSecAttrAccount)];
         NSString * uid = [keychain objectForKey:(id)CFBridgingRelease(kSecValueData)];
+        if ([username isEqualToString:[textLoverEmail text]]) {
+            [self showResponseInfo:@"您要添加自己为伴侣？"];
+            return ;
+        }
+        NSLog(@"username:%@, uid:%@, email:%@",username, uid,[textLoverEmail text]);
         NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                                 path:@"/np-web/addpartner"
                                                           parameters:@{@"email":username, @"uid":uid, @"partneremail":[textLoverEmail text]}];
@@ -60,7 +83,15 @@
             //NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
             id payload = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
             NSLog(@"Fetched: %@", payload);
-            if ([payload[@"status"] isEqualToString:@"Error"]){
+            if ([payload[@"status"] isEqualToString:@"Error"]){ //邀请失败
+                if([payload[@"code"] isEqualToString:@"404"]) {
+                    [self showResponseInfo:@"用户未注册，请向ta推荐本APP"];
+                } else if([payload[@"code"] isEqualToString:@"500"]) {
+                    [self showResponseInfo:@"抱歉，该用户已有伴侣"];
+                } else {
+                     [self showResponseInfo:@"用户未注册，请向ta推荐本APP"];
+                }
+                
             }
             else { // ok
     //            if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
@@ -68,12 +99,16 @@
     //                ((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).selectedIndex = 3;
     //            }
     //            [self dismissViewControllerAnimated:YES completion:Nil];
-                [self.navigationController popViewControllerAnimated:YES];
+                [self showResponseInfo:[[NSString alloc] initWithFormat:@"已向%@发送添加请求，请等待确认.",[textLoverEmail text]]];
+                [[NSUserDefaults standardUserDefaults] setInteger:addinglover forKey:@"loverStatus"];
+                [[NSUserDefaults standardUserDefaults] setObject:[textLoverEmail text] forKey:@"loverEmail"];
+                UINavigationController *navController = self.navigationController;
+                [navController popViewControllerAnimated:YES];
                 //NSLog(@"added request success!");
             }
            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Error: %@", error);
+            NSLog(@"Error: %@", error);
             [self showResponseInfo:@"和服务器的交互发生错误"];
         }];
         [operation start];
@@ -94,6 +129,8 @@
 - (void)viewDidUnload {
     [self setTextLoverEmail:nil];
     [self setUserEmailHint:nil];
+    [self setAddedPartnerInfo:nil];
+    [self setUserAddedActionButton:nil];
     [super viewDidUnload];
 }
 - (IBAction)backgroundClick:(id)sender {
