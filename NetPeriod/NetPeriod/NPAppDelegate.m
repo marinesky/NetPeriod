@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "NPPushNotificationViewController.h"
 #import "NPSettingViewController.h"
+#import "NPRootTabViewController.h"
 
 @implementation NPAppDelegate
 
@@ -105,9 +106,15 @@ void uncaughtExceptionHandler(NSException *exception) {
         NPPushNotificationViewController *pushVC = (NPPushNotificationViewController *)nav.topViewController;
         [pushVC handlePushNotification:userInfo];
     } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"1"]) {
-        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];
-        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
+        NPRootTabViewController *tab = (NPRootTabViewController *)application.keyWindow.rootViewController;
+        if (!tab) {
+            UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            tab = [sb instantiateViewControllerWithIdentifier:@"tabBarController"];
+        }
+        tab.selectedIndex = 3;
+        UINavigationController *nav = tab.viewControllers[3];
         NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
+        NSLog(@"Class: %@", [nav.topViewController class]);
         [settingVC didReceiveRequest:@"1" email:[userInfo objectForKey:@"sender"]];
     } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"2"]) {
         UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];

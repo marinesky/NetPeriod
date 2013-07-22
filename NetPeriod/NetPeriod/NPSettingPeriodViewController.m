@@ -91,12 +91,16 @@
 #pragma mark - Actions
 
 - (IBAction)finishSettingButtonClicked:(id)sender {
-//    [self sendUserBasicInfo];
-//    
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    NSLog(@"User %@, %@", self.theUser.username, [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
-//    currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
-//    [currentInstallation saveInBackground];
+    [self sendUserBasicInfo];
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSLog(@"User %@, %@", self.theUser.username, [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
+    currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
+    [currentInstallation saveInBackground];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -128,6 +132,8 @@
                        dateByAddingComponents:dateComponents
                        toDate:dateFromString options:0];
     
+    NSLog(@"Original date: %@", [dateFormatter stringFromDate:dateFromString]);
+    NSLog(@"New date: %@", [dateFormatter stringFromDate:newDate]);
     return [dateFormatter stringFromDate:newDate];
 }
 
@@ -151,14 +157,18 @@
 //        return;
 //    }
     
+    NSString *str = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
     self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
+    NSLog(@"endtime:%@ %@", self.theUser.endMenses, str);
     self.theUser.username = [NSString stringWithFormat:@"no_%d@163.com", anonymousCount];
     
+    
+    
     anonymousCount++;
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                            path:@"http://10.242.8.72:8080/np-web/sync"
+                                                            path:@"http://192.168.130.50:8080/np-web/sync"
                                                       parameters:@{
                                                                 @"email":self.theUser.username,
                                                                 @"gender":self.theUser.gender,

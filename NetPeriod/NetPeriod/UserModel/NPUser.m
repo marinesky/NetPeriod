@@ -114,7 +114,7 @@
     return [defaults valueForKey:@"endMense"];
 }
 
-- (void) setendMenses:(NSString *)endMensesValue {
+- (void) setEndMenses:(NSString *)endMensesValue {
     [defaults setObject:endMensesValue forKey:@"endMense"];
 }
 @end

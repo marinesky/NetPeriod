@@ -287,10 +287,10 @@
 
 - (void)pullAndRefreshArticles
 {
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@"http://10.240.34.43:8080/np-web/maxTopicId"
+                                                            path:@"http://192.168.130.50:8080/np-web/maxTopicId"
                                                       parameters:nil];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -319,10 +319,10 @@
 
 - (void)checkAndGetLastArticles
 {
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                    path:@"http://10.240.34.43:8080/np-web/maxTopicId"
+                    path:@"http://192.168.130.50:8080/np-web/maxTopicId"
                 parameters:nil];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -348,10 +348,10 @@
 
 - (void)getArticlesWithType:(NSString *)type startId:(NSString *)startId endId:(NSString *)endId
 {
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                    path:@"http://10.240.34.43:8080/np-web/queryTopicsByRange"
+                    path:@"http://192.168.130.50:8080/np-web/queryTopicsByRange"
                     parameters:@{
                                     @"startId":startId,
                                     @"endId":endId,

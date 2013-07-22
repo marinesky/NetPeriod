@@ -99,10 +99,10 @@
 
 - (void)getCommentsWithTopicId:(NSString *)topicId
 {
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@"http://10.240.34.43:8080/np-web/queryReplysByTopicId"
+                                                            path:@"http://192.168.130.50:8080/np-web/queryReplysByTopicId"
                                                       parameters:@{
                                     @"topicId":topicId,
                                     @"email":@"aa@163.com",
@@ -357,10 +357,10 @@
     if ([textView.text isEqualToString:@""]) {
         return;
     }
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                            path:@"http://10.240.34.43:8080/np-web/addReply"
+                                                            path:@"http://192.168.130.50:8080/np-web/addReply"
                                                       parameters:@{
                                     @"topicId":self.article.topicId,
                                     @"email":@"aa@163.com",

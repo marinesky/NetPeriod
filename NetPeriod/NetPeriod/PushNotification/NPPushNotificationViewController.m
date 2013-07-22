@@ -152,10 +152,10 @@
 
 - (void)getLastestNotifications
 {
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@"http://10.242.8.72:8080/np-web/getNotification"
+                                                            path:@"http://192.168.130.50:8080/np-web/getNotification"
                                                       parameters:@{
                                     @"email":@"no_10000@163.com",
                                     @"uid":@"dfdsfsdf"}];

@@ -42,7 +42,7 @@
 							<object class="IBUILabel" id="263557920">
 								<reference key="NSNextResponder" ref="783896909"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{5, 5}, {233, 20}}</string>
+								<string key="NSFrame">{{10, 10}, {225, 21}}</string>
 								<reference key="NSSuperview" ref="783896909"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1037452088"/>
@@ -77,7 +77,7 @@
 							<object class="IBUILabel" id="230916117">
 								<reference key="NSNextResponder" ref="783896909"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{5, 30}, {310, 36}}</string>
+								<string key="NSFrame">{{10, 32}, {300, 36}}</string>
 								<reference key="NSSuperview" ref="783896909"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="275407176"/>
@@ -102,12 +102,12 @@
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-								<double key="preferredMaxLayoutWidth">310</double>
+								<double key="preferredMaxLayoutWidth">300</double>
 							</object>
 							<object class="IBUILabel" id="1037452088">
 								<reference key="NSNextResponder" ref="783896909"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{246, 10}, {69, 15}}</string>
+								<string key="NSFrame">{{246, 15}, {64, 15}}</string>
 								<reference key="NSSuperview" ref="783896909"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="230916117"/>
@@ -132,9 +132,10 @@
 							<object class="IBUILabel" id="275407176">
 								<reference key="NSNextResponder" ref="783896909"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{272, 66}, {43, 16}}</string>
+								<string key="NSFrame">{{272, 65}, {43, 16}}</string>
 								<reference key="NSSuperview" ref="783896909"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>

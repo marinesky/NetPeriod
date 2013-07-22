@@ -462,7 +462,7 @@
         <!--Navigation Controller - 设置-->
         <scene sceneID="DKU-Nt-YWF">
             <objects>
-                <navigationController definesPresentationContext="YES" id="2mZ-sK-EHm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settingNav" definesPresentationContext="YES" id="2mZ-sK-EHm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="设置" image="np_setting.png" id="LDk-uK-HS2">
                         <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
                     </tabBarItem>
@@ -480,7 +480,7 @@
         <!--Root Tab View Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController id="4" customClass="NPRootTabViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="4" customClass="NPRootTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>

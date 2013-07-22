@@ -44,10 +44,15 @@
 #pragma mark - Actions
 
 - (IBAction)chooseMale:(id)sender {
-    NPSettingPeriodViewController *settingPeriodVC = [[NPSettingPeriodViewController alloc] initWithNibName:@"NPSettingPeriodViewController" bundle:nil];
-    settingPeriodVC.theUser = [[NPUser alloc] init];
-    settingPeriodVC.theUser.gender = @"m";
-    [self.navigationController pushViewController:settingPeriodVC animated:YES];
+    NPUser *user = [[NPUser alloc] init];
+    user.gender = @"m";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:@"firstRun"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    ((UITabBarItem *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).tabBar.items[1]).enabled = NO;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)chooseFemale:(id)sender {

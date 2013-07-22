@@ -186,6 +186,12 @@
     }
 }
 
+//男方同步女方数据后调用
+- (void)enableCalendar
+{
+    ((UITabBarItem *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).tabBar.items[1]).enabled = YES;
+}
+
 - (void)didReceiveRequest:(NSString *)type email:(NSString *)email {
     
     if([type isEqualToString:@"1"]) {//invite

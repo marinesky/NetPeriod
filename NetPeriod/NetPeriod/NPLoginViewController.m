@@ -187,6 +187,11 @@
             PFInstallation *currentInstallation = [PFInstallation currentInstallation];
             currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:username]]];
             [currentInstallation saveInBackground];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:[NSDate date] forKey:@"firstRun"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
