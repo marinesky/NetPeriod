@@ -12,11 +12,24 @@
 #import "NPMessageBoardDetailViewController.h"
 #import "AFNetworking.h"
 #import "SVSegmentedControl.h"
+#import "JSONKit.h"
+#import "ODRefreshControl.h"
+#import "NPArticle.h"
 
 @interface NPMessageBoardViewController () <SVSegmentedControlDelegate>
 {
     SVSegmentedControl *navSC;
+    ODRefreshControl *refreshControl;
+    
+    NSMutableArray *articles;
+    NSInteger maxArticleId;
+    NSInteger minArticleId;
+    NSString *articleType;
+    
+    BOOL isPullingUp;
 }
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -36,11 +49,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    articles = [NSMutableArray array];
+    articleType = @"0";
+    
     navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"论坛", @"我的帖子", nil]];
     navSC.thumb.tintColor = [UIColor colorWithRed:0 green:0.5 blue:0.1 alpha:1];
     [navSC addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
 	navSC.center = CGPointMake(160, 22);
     [self.navigationController.navigationBar addSubview:navSC];
+    
+    refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    
+    [self checkAndGetLastArticles];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [articles count] + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,9 +99,45 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
-        imageView.backgroundColor = [UIColor redColor];
+        imageView.image = [UIImage imageNamed:@"banner"];
         [cell.contentView addSubview:imageView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.row == [articles count] + 1) {
+        if (minArticleId <= 1) {
+            static NSString *CellIdentifier = @"NPLoadFinishCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
+            
+            cell.textLabel.text = @"已经加载全部帖子";
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.textLabel.font = [UIFont systemFontOfSize:16];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+        static NSString *CellIdentifier = @"NPLoadMoreCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        indicator.center = CGPointMake(96, 22);
+        [cell.contentView addSubview:indicator];
+        [indicator startAnimating];
+        cell.textLabel.text = @"正在加载更多";
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        NSString *theEndId = @"1";
+        if (minArticleId > 10) {
+            theEndId = [NSString stringWithFormat:@"%d", minArticleId - 9];
+        }
+        [self getArticlesWithType:articleType startId:[NSString stringWithFormat:@"%d", minArticleId] endId:theEndId];
         return cell;
     }
     
@@ -90,6 +147,11 @@
         cell = [NPMessageBoardViewCell cellFromNib];
     }
 
+    NSDictionary *dic = [articles objectAtIndex:indexPath.row - 1];
+    cell.titleLabel.text = [dic objectForKey:@"title"];
+    cell.dateLabel.text = [dic objectForKey:@"addtime"];
+    cell.articleLabel.text = [dic objectForKey:@"content"];
+    cell.commentLabel.text = [NSString stringWithFormat:@"%@条评论",(NSString *)[dic objectForKey:@"count"]];
     // Configure the cell...
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -100,8 +162,10 @@
 {
     if (indexPath.row == 0) {
         return 150;
+    } if (indexPath.row == [articles count] + 1) {
+        return 44;
     }
-    return 72;
+    return 84;
 }
 /*
 // Override to support conditional editing of the table view.
@@ -153,42 +217,142 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    if (indexPath.row == 0) {
+        return;
+    }
+    if (indexPath.row == [articles count] + 1) {
+        return;
+    }
+    
     NPMessageBoardDetailViewController *detailViewController = [[NPMessageBoardDetailViewController alloc] initWithNibName:@"NPMessageBoardDetailViewController" bundle:nil];
+    
+    NSDictionary *dic = [articles objectAtIndex:indexPath.row - 1];
+    NPArticle *article = [[NPArticle alloc] init];
+    article.title = [dic objectForKey:@"title"];
+    article.date = [dic objectForKey:@"addtime"];
+    article.content = [dic objectForKey:@"content"];
+    article.commentNum = [dic objectForKey:@"count"];
+    article.topicId = [dic objectForKey:@"pkid"];
+    detailViewController.article = article;
+    
     navSC.hidden = YES;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-- (void)getArticlesWithType:(NSString *)type
+#pragma mark - Actions
+
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    
+//    double delayInSeconds = 3.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [refreshControl endRefreshing];
+//    });
+    isPullingUp = YES;
+    [self pullAndRefreshArticles];
+}
+
+- (void)pullAndRefreshArticles
 {
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@"http://10.242.8.72:8080/np-web/queryTopicsByRange"
-                                                      parameters:@{
-                                    @"startId":@"0",
-                                    @"endId":@"0",
-                                    @"type":@"0",
+                                                            path:@"http://10.240.34.43:8080/np-web/maxTopicId"
+                                                      parameters:nil];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSDictionary *result = [[JSONDecoder decoder] objectWithData:responseObject];
+        NSString *maxId = [result objectForKey:@"maxId"];
+        if ([maxId intValue] == maxArticleId) {
+            [refreshControl endRefreshing];
+            return;
+        } else if ([maxId intValue] - maxArticleId >= 10) {
+            [articles removeAllObjects];
+        }
+        NSString *theEndId = [NSString stringWithFormat:@"%d", maxArticleId + 1];
+        maxArticleId = [maxId intValue];
+        NSLog(@"Max %d", maxArticleId);
+        [self getArticlesWithType:articleType startId:maxId endId:theEndId];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
+}
+
+- (void)checkAndGetLastArticles
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                    path:@"http://10.240.34.43:8080/np-web/maxTopicId"
+                parameters:nil];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSDictionary *result = [[JSONDecoder decoder] objectWithData:responseObject];
+        NSString *maxId = [result objectForKey:@"maxId"];
+        NSString *theEndId = @"1";
+        if ([maxId intValue] > 10) {
+            theEndId = [NSString stringWithFormat:@"%d", [maxId intValue] - 9];
+        }
+        maxArticleId = [maxId intValue];
+        NSLog(@"Max %d", maxArticleId);
+        [self getArticlesWithType:articleType startId:maxId endId:theEndId];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
+}
+
+- (void)getArticlesWithType:(NSString *)type startId:(NSString *)startId endId:(NSString *)endId
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                    path:@"http://10.240.34.43:8080/np-web/queryTopicsByRange"
+                    parameters:@{
+                                    @"startId":startId,
+                                    @"endId":endId,
+                                    @"type":type,
                                     @"email":@"aa@163.com",
                                     @"uid":@"fdssfsfsdsad"
                                     }];
-//    AFJSONRequestOperation *operation = [AFJSONRequestOperation
-//                                        JSONRequestOperationWithRequest:
-//                                        request
-//                                        success:
-//                                        ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
-//                                        {
-//                                            NSLog(@"JSON : %@",JSON);
-//                                        }
-//                                        failure:
-//                                         ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
-//                                        {
-//                                            NSLog(@"Failed %@",error);
-//                                        }];
+
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Print the response body in text
         NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
+        
+        if (isPullingUp) {
+            NSArray *arr = [dic objectForKey:@"topics"];
+            NSRange range = NSMakeRange(0, [arr count]);
+            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+            [articles insertObjects:arr atIndexes:indexSet];
+            [self.tableView reloadData];
+            [refreshControl endRefreshing];
+            isPullingUp = NO;
+            return;
+        }
+        minArticleId = [endId intValue];
+        NSLog(@"Min %d", minArticleId);
+        if ([[dic objectForKey:@"topics"] isKindOfClass:[NSArray class]]) {
+            NSArray *arr = [dic objectForKey:@"topics"];
+            [articles addObjectsFromArray:arr];
+        }
+        [self.tableView reloadData];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -201,6 +365,12 @@
 
 - (void)segmentedControlChangedValue:(SVSegmentedControl*)segmentedControl {
 	NSLog(@"segmentedControl %i did select index %i (via UIControl method)", segmentedControl.tag, segmentedControl.selectedSegmentIndex);
+    maxArticleId = 0;
+    minArticleId = 0;
+    articleType = [NSString stringWithFormat:@"%d", segmentedControl.selectedSegmentIndex];
+    [articles removeAllObjects];
+    [self.tableView reloadData];
+    [self checkAndGetLastArticles];
 }
 
 #pragma mark - SVSegmentController Delegate
@@ -208,5 +378,9 @@
 - (void)segmentedControl:(SVSegmentedControl*)segmentedControl didSelectIndex:(NSUInteger)index
 {
     
+}
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [super viewDidUnload];
 }
 @end

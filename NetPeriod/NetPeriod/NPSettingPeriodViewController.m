@@ -43,6 +43,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"设置";
     [self customSubviews];
 }
 
@@ -90,7 +91,8 @@
     [self sendUserBasicInfo];
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    currentInstallation.channels = @[[NSString stringWithFormat:@"no%@", [Md5 encode:self.theUser.username]]];
+    NSLog(@"%@", [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
+    currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
     [currentInstallation saveInBackground];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -142,7 +144,7 @@
     }
     
     self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
-    self.theUser.username = [NSString stringWithFormat:@"no_%d@163com", anonymousCount];
+    self.theUser.username = [NSString stringWithFormat:@"no_%d@163.com", anonymousCount];
     
     anonymousCount++;
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
@@ -155,7 +157,8 @@
                                                                 @"birthday":self.theUser.birthday,
                                                                 @"starttime":self.theUser.startMenses,
                                                                 @"endtime":self.theUser.endMenses,
-                                                                @"period":self.theUser.totalPeriod}];
+                                                                @"period":self.theUser.totalPeriod,
+                                                                @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]}];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -32,4 +32,8 @@
 	return [nibs objectAtIndex:0];
 }
 
+- (void)initCellWithTitle:(NSString *)aTitle date:(NSString *)aDate article:(NSString *)aArticle comment:(NSString *)comment
+{
+    
+}
 @end

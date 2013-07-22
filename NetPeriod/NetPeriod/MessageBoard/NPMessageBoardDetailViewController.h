@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "NPGrowingTextView.h"
+#import "NPArticle.h"
 
 @interface NPMessageBoardDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NPGrowingTextViewDelegate>
+
+@property (retain, nonatomic) NPArticle *article;
 
 @end

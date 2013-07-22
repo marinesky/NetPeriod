@@ -8,6 +8,12 @@
 
 #import "NPMessageBoardCommentCell.h"
 
+@interface NPMessageBoardCommentCell ()
+
+
+
+@end
+
 @implementation NPMessageBoardCommentCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
