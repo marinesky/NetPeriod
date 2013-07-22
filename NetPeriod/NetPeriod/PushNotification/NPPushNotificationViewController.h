@@ -10,4 +10,6 @@
 
 @interface NPPushNotificationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+- (void)handlePushNotification:(NSDictionary *)userInfo;
+
 @end

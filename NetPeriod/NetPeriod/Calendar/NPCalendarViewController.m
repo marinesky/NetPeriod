@@ -258,14 +258,14 @@
 - (IBAction)yimaleave:(id)sender {
     NSInteger intervalDays = [self.calendarView.selectedDate timeIntervalSinceDate:self.startDate] / 86400 ;
     if (intervalDays % self.period >= 0) {
-        if (intervalDays % self.period < 7) {
-            self.lastDays = intervalDays % self.period;
+        if (intervalDays % self.period <= 7 && intervalDays % self.period >= 3) {
+            self.lastDays = intervalDays % self.period + 1;
             [self.calendarView layoutSubviews];
         } else {
             [self showErrorInfo];
         }
     } else if (intervalDays % self.period + 28 < 7) {
-        self.lastDays = intervalDays % self.period + 28;
+        self.lastDays = intervalDays % self.period + 29;
         [self.calendarView layoutSubviews];
     } else {
         [self showErrorInfo];

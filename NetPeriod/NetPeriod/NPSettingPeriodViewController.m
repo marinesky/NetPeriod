@@ -12,12 +12,15 @@
 #import <Parse/Parse.h>
 #import "UIView+FindAndResignFirstResponder.h"
 #import "Md5.h"
+#import "MBProgressHUD.h"
 
-@interface NPSettingPeriodViewController () {
+@interface NPSettingPeriodViewController () <MBProgressHUDDelegate>{
     BOOL isDatePickerShowing;
     BOOL isKeyboardShowing;
     NSInteger anonymousCount;
     NSDateFormatter* dateFormatter;
+    
+    MBProgressHUD *HUD;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *birthdayTextFiled;
@@ -143,6 +146,11 @@
         self.theUser.totalPeriod = self.totalPeriodTextField.text;
     }
     
+    if ([self.mensesPeriodTextField.text intValue] < 4 || [self.mensesPeriodTextField.text intValue] > 8 || [self.totalPeriodTextField.text intValue] < 25 || [self.totalPeriodTextField.text intValue] > 30) {
+        [self showErrorInfo:@"周期不正常，谢谢！"];
+        return;
+    }
+    
     self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
     self.theUser.username = [NSString stringWithFormat:@"no_%d@163.com", anonymousCount];
     
@@ -178,6 +186,25 @@
     [self setTotalPeriodTextField:nil];
     [self setDatePicker:nil];
     [super viewDidUnload];
+}
+
+- (void)showErrorInfo:(NSString *)errStr {
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeText;
+    HUD.delegate = self;
+    HUD.labelText = errStr;
+    [HUD show:YES];
+    [HUD hide:YES afterDelay:1];
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

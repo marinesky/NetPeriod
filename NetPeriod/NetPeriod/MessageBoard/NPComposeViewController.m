@@ -9,8 +9,11 @@
 #import "NPComposeViewController.h"
 #import "AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MBProgressHUD.h"
 
-@interface NPComposeViewController ()
+@interface NPComposeViewController () <MBProgressHUDDelegate>{
+    MBProgressHUD *HUD;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextfield;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -79,7 +82,29 @@
 }
 
 - (IBAction)postButtonClicked:(id)sender {
+    if ([self.titleTextfield.text isEqualToString:@""] || [self.contentTextView.text isEqualToString:@""]) {
+        [self showErrorInfo];
+    }
     [self postArticle];
+}
+
+- (void)showErrorInfo {
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeText;
+    HUD.delegate = self;
+    HUD.labelText = @"标题和内容都不能为空，谢谢！";
+    [HUD show:YES];
+    [HUD hide:YES afterDelay:1];
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 - (void)viewDidUnload {

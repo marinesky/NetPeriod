@@ -9,8 +9,13 @@
 #import "NPPushNotificationViewController.h"
 #import "NPPushNotificationCell.h"
 #import "NPLoginViewController.h"
+#import "JSONKit.h"
 
-@interface NPPushNotificationViewController ()
+@interface NPPushNotificationViewController () {
+    NSMutableArray *notifications;
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *pushTableView;
 
 @end
 
@@ -30,12 +35,25 @@
     [super viewDidLoad];
     self.title = @"提醒";
 	// Do any additional setup after loading the view.
+    notifications = [NSMutableArray array];
+    [self updateViewHeight];
+    [self getLastestNotifications];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateViewHeight
+{
+    CGRect frame = self.pushTableView.frame;
+    frame.size.height = [notifications count] * 72;
+    self.pushTableView.frame = frame;
+    
+    UIScrollView *scrollView = (UIScrollView *)self.view;
+    [scrollView setContentSize:CGSizeMake(320, frame.origin.y + frame.size.height + 20)];
 }
 
 #pragma mark - Table view data source
@@ -49,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [notifications count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,6 +79,10 @@
     }
     
     // Configure the cell...
+    NSDictionary *dic = [notifications objectAtIndex:indexPath.row];
+    cell.content.text = [dic objectForKey:@"content"];
+    cell.date.text = [dic objectForKey:@"date"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -122,4 +144,43 @@
      */
 }
 
+- (void)handlePushNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"In the Push");
+    [self getLastestNotifications];
+}
+
+- (void)getLastestNotifications
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"http://10.242.8.72:8080/np-web/getNotification"
+                                                      parameters:@{
+                                    @"email":@"no_10000@163.com",
+                                    @"uid":@"dfdsfsdf"}];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", str);
+        if ([[[JSONDecoder decoder] objectWithData:responseObject] isKindOfClass:[NSArray class]]) {
+            NSArray *arr = [[JSONDecoder decoder] objectWithData:responseObject];
+            [notifications setArray:arr];
+            [self.pushTableView reloadData];
+            [self updateViewHeight];
+        }
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
+}
+
+- (void)viewDidUnload {
+    [self setPushTableView:nil];
+    [super viewDidUnload];
+}
 @end

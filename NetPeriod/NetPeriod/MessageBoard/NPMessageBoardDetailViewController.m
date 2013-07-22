@@ -111,10 +111,12 @@
         NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
         NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@", str);
-        NSArray *arr = [dic objectForKey:@"replies"];
-        [comments setArray:arr];
-        [self.commentTableView reloadData];
-        [self customSubviews];
+        if ([[dic objectForKey:@"replies"] isKindOfClass:[NSArray class]]) {
+            NSArray *arr = [dic objectForKey:@"replies"];
+            [comments setArray:arr];
+            [self.commentTableView reloadData];
+            [self customSubviews];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

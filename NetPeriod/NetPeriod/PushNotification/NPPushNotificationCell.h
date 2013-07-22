@@ -10,6 +10,9 @@
 
 @interface NPPushNotificationCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *content;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+
 + (id)cellFromNib;
 
 @end

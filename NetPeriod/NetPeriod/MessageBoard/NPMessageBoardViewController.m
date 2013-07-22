@@ -99,7 +99,12 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
-        imageView.image = [UIImage imageNamed:@"banner"];
+        if ([articleType intValue] == 0) {
+            imageView.image = [UIImage imageNamed:@"banner"];
+        } else {
+            imageView.image = [UIImage imageNamed:@"np_my_banner"];
+        }
+        
         [cell.contentView addSubview:imageView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

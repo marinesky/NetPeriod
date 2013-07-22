@@ -8,12 +8,20 @@
 
 #import "NPAppDelegate.h"
 #import <Parse/Parse.h>
-#import "Md5.h"
+#import "NPPushNotificationViewController.h"
+#import "NPSettingViewController.h"
 
 @implementation NPAppDelegate
 
+void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 //    NSLog(@"%@", [Md5 encode:@"no_10001@163.com"]);
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navi_bar.png"] forBarMetrics:UIBarMetricsDefault];
@@ -82,6 +90,44 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+//    NSLog(@"Nav Class: %@", NSStringFromClass([((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0] class]));
+//    
+//    NSLog(@"Top Controller: %@", NSStringFromClass([nav.topViewController class]));
+//    
+//    
+    for (id key in userInfo) {
+        NSLog(@"key: %@, value: %@ \n", key, [userInfo objectForKey:key]);
+    }
+    
+    if ([[userInfo objectForKey:@"type"] isEqualToString:@"0"]) {
+        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0];
+        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 0;
+        NPPushNotificationViewController *pushVC = (NPPushNotificationViewController *)nav.topViewController;
+        [pushVC handlePushNotification:userInfo];
+    } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"1"]) {
+        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];
+        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
+        NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
+        [settingVC didReceiveRequest:@"1" email:[userInfo objectForKey:@"sender"]];
+    } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"2"]) {
+        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];
+        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
+        NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
+        [settingVC didReceiveRequest:@"2" email:[userInfo objectForKey:@"sender"]];
+    }
+    
+    
+//    UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0];
+//    UIViewController *pushVC = nav.topViewController;
+//    [pushVC handlePushNotification:userInfo];
+//    for (UIViewController *v in ((UITabBarController *)application.keyWindow.rootViewController).viewControllers)
+//    {
+//        if ([v isKindOfClass:[UINavigationController class]] && [((UINavigationController *)v).topViewController isKindOfClass:[NPPushNotificationViewController class]])
+//        {
+//            NPPushNotificationViewController *pushVC = (NPPushNotificationViewController *)((UINavigationController *)v).topViewController;
+//            [pushVC handlePushNotification:userInfo];
+//        }
+//    }
 }
 
 @end

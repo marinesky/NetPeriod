@@ -12,4 +12,6 @@
     
 }
 
+- (void)didReceiveRequest:(NSString *)type email:(NSString *)email;
+
 @end
