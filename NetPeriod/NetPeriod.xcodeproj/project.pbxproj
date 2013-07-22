@@ -36,6 +36,12 @@
 		D81D53C5179D28E0001D9C98 /* np_notification_header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81D53C1179D28E0001D9C98 /* np_notification_header@2x.png */; };
 		D81D53C6179D28E0001D9C98 /* np_my_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = D81D53C2179D28E0001D9C98 /* np_my_banner.png */; };
 		D81D53C7179D28E0001D9C98 /* np_my_banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D81D53C3179D28E0001D9C98 /* np_my_banner@2x.png */; };
+		D5FF5CD7179D5570002194B5 /* loginclick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CD5179D5570002194B5 /* loginclick@2x.png */; };
+		D5FF5CD8179D5570002194B5 /* loginclick.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CD6179D5570002194B5 /* loginclick.png */; };
+		D5FF5CDD179D5620002194B5 /* registerclick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CD9179D561F002194B5 /* registerclick@2x.png */; };
+		D5FF5CDE179D5620002194B5 /* registerclick.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CDA179D5620002194B5 /* registerclick.png */; };
+		D5FF5CDF179D5620002194B5 /* register@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CDB179D5620002194B5 /* register@2x.png */; };
+		D5FF5CE0179D5620002194B5 /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = D5FF5CDC179D5620002194B5 /* register.png */; };
 		D897F90617926BE50077623D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90517926BE50077623D /* UIKit.framework */; };
 		D897F90817926BE50077623D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90717926BE50077623D /* Foundation.framework */; };
 		D897F90A17926BE50077623D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90917926BE50077623D /* CoreGraphics.framework */; };
@@ -244,6 +250,12 @@
 		D81D53C1179D28E0001D9C98 /* np_notification_header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "np_notification_header@2x.png"; sourceTree = "<group>"; };
 		D81D53C2179D28E0001D9C98 /* np_my_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = np_my_banner.png; sourceTree = "<group>"; };
 		D81D53C3179D28E0001D9C98 /* np_my_banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "np_my_banner@2x.png"; sourceTree = "<group>"; };
+		D5FF5CD5179D5570002194B5 /* loginclick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginclick@2x.png"; sourceTree = "<group>"; };
+		D5FF5CD6179D5570002194B5 /* loginclick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginclick.png; sourceTree = "<group>"; };
+		D5FF5CD9179D561F002194B5 /* registerclick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerclick@2x.png"; sourceTree = "<group>"; };
+		D5FF5CDA179D5620002194B5 /* registerclick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerclick.png; sourceTree = "<group>"; };
+		D5FF5CDB179D5620002194B5 /* register@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register@2x.png"; sourceTree = "<group>"; };
+		D5FF5CDC179D5620002194B5 /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
 		D897F90217926BE50077623D /* NetPeriod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetPeriod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D897F90517926BE50077623D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D897F90717926BE50077623D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -522,6 +534,12 @@
 		D5C8BC74179C0DB700FB1300 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D5FF5CD9179D561F002194B5 /* registerclick@2x.png */,
+				D5FF5CDA179D5620002194B5 /* registerclick.png */,
+				D5FF5CDB179D5620002194B5 /* register@2x.png */,
+				D5FF5CDC179D5620002194B5 /* register.png */,
+				D5FF5CD5179D5570002194B5 /* loginclick@2x.png */,
+				D5FF5CD6179D5570002194B5 /* loginclick.png */,
 				D5C8BC81179C104800FB1300 /* passwordclick@2x.png */,
 				D5C8BC82179C104800FB1300 /* passwordclick.png */,
 				D5C8BC83179C104800FB1300 /* password@2x.png */,
@@ -1184,6 +1202,12 @@
 				D81D53C5179D28E0001D9C98 /* np_notification_header@2x.png in Resources */,
 				D81D53C6179D28E0001D9C98 /* np_my_banner.png in Resources */,
 				D81D53C7179D28E0001D9C98 /* np_my_banner@2x.png in Resources */,
+				D5FF5CD7179D5570002194B5 /* loginclick@2x.png in Resources */,
+				D5FF5CD8179D5570002194B5 /* loginclick.png in Resources */,
+				D5FF5CDD179D5620002194B5 /* registerclick@2x.png in Resources */,
+				D5FF5CDE179D5620002194B5 /* registerclick.png in Resources */,
+				D5FF5CDF179D5620002194B5 /* register@2x.png in Resources */,
+				D5FF5CE0179D5620002194B5 /* register.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

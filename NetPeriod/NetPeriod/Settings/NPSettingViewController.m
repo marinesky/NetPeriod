@@ -135,7 +135,10 @@
         
         // Configure the cell...
         cell.textLabel.text = @"头像";
-        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.png"]];
+        NSString *gender = [[NSUserDefaults standardUserDefaults] valueForKey:@"gender"];
+        gender = [gender uppercaseString];
+        gender = gender?gender:@"M";
+        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", gender]]];
         cell.accessoryView = headerImageView;
         return cell;
     }
