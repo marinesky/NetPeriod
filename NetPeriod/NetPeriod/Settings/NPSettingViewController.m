@@ -53,6 +53,7 @@
     [super viewWillAppear:animated];
     [self.tableView reloadData]; // I think this is a very bad idea, but for time sake, I have to do this.
 }
+
 #pragma mark -
 #pragma mark IASKAppSettingsViewControllerDelegate protocol
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
