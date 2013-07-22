@@ -65,7 +65,6 @@
 //    NSLog(specifier.key);
 	if ([specifier.key isEqualToString:@"ToggleLoginAction"]) {
 //         NSLog([[NSUserDefaults standardUserDefaults] objectForKey:specifier.key]);
-         NSDictionary *defaults = [NSUserDefaults standardUserDefaults].dictionaryRepresentation;
         if (![[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"退出"]) {
         NSLog(@"Login button pressed!");
         NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
@@ -81,7 +80,6 @@
             [[NSUserDefaults standardUserDefaults] setBool:NO  forKey:@"loggedin"];
             [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
             [sender.tableView reloadData];
-            NSDictionary *defaults = [NSUserDefaults standardUserDefaults].dictionaryRepresentation;
         }
 		
 	} 
@@ -91,7 +89,7 @@
 #pragma mark customcell view delegate
 - (CGFloat)tableView:(UITableView*)tableView heightForSpecifier:(IASKSpecifier*)specifier {
     if ([specifier.key isEqualToString:@"headerPicture"]){
-        return 80;
+        return 85;
     }
     return 44;
 }
@@ -136,7 +134,7 @@
         
         // Configure the cell...
         cell.textLabel.text = @"头像";
-        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.bmp"]];
+        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.jpg"]];
         cell.accessoryView = headerImageView;
         return cell;
     }
@@ -161,14 +159,14 @@
             switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
                 case hasnolover:
                 case addinglover: {
-                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
-                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
-                    break;
+//                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
+//                    break;
                 }
                 case hasinvitation: {
-                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
-                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
-                    break;
+//                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
+//                    break;
                 }
                 case addedlover: {
                     NPLoverDetialViewController *loverDetialVC = [[NPLoverDetialViewController alloc] initWithNibName:@"NPLoverDetialViewController" bundle:Nil];
