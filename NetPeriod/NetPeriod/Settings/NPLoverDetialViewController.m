@@ -53,8 +53,8 @@
 //    loverHeaderPictureView.image = [UIImage imageNamed:[loverGender uppercaseString]];
 //    [selfDetailTableViewCell addSubview:selfHeaderPictureView];
 //    [loverDetailTableViewCell addSubview:loverHeaderPictureView];
-    selfDetailTableViewCell.imageView.image   = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", userGender]];
-    loverDetailTableViewCell.imageView.image  = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", loverGender]];
+    selfDetailTableViewCell.imageView.image   = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", userGender]];
+    loverDetailTableViewCell.imageView.image  = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", loverGender]];
     selfDetailTableViewCell.textLabel.text = selfNickname;
     loverDetailTableViewCell.textLabel.text = loverNickname;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"解除" style:UIBarButtonItemStylePlain

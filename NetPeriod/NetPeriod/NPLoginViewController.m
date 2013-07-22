@@ -176,6 +176,8 @@
             NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+            [message show];
         }];
         [operation start];
 

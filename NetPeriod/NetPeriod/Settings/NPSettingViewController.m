@@ -89,7 +89,7 @@
 #pragma mark customcell view delegate
 - (CGFloat)tableView:(UITableView*)tableView heightForSpecifier:(IASKSpecifier*)specifier {
     if ([specifier.key isEqualToString:@"headerPicture"]){
-        return 85;
+        return 65;
     }
     return 44;
 }
@@ -134,7 +134,7 @@
         
         // Configure the cell...
         cell.textLabel.text = @"头像";
-        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.jpg"]];
+        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.png"]];
         cell.accessoryView = headerImageView;
         return cell;
     }
@@ -159,14 +159,14 @@
             switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
                 case hasnolover:
                 case addinglover: {
-//                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
-//                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
-//                    break;
+                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
+                    break;
                 }
                 case hasinvitation: {
-//                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
-//                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
-//                    break;
+                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
+                    break;
                 }
                 case addedlover: {
                     NPLoverDetialViewController *loverDetialVC = [[NPLoverDetialViewController alloc] initWithNibName:@"NPLoverDetialViewController" bundle:Nil];

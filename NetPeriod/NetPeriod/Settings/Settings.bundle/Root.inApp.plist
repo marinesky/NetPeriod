@@ -16,7 +16,7 @@
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
-			<string>个人资料设置</string>
+			<string>个人资料</string>
 			<key>File</key>
 			<string>PersonalInfo</string>
 		</dict>
