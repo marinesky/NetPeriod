@@ -22,16 +22,16 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-//    NSLog(@"%@", [Md5 encode:@"no_10001@163.com"]);
+    //    NSLog(@"%@", [Md5 encode:@"no_10001@163.com"]);
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navi_bar.png"] forBarMetrics:UIBarMetricsDefault];
     UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar"]
                               resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITabBar appearance] setBackgroundImage:tabBackground];
-//    [[UITabBar appearance] setSelectionIndicatorImage:
-//     [UIImage imageNamed:@"tab_select_indicator"]];
-//    [[UITabBar appearance] setSelectionIndicatorImage:nil];
-//    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+    //    [[UITabBar appearance] setSelectionIndicatorImage:
+    //     [UIImage imageNamed:@"tab_select_indicator"]];
+    //    [[UITabBar appearance] setSelectionIndicatorImage:nil];
+    //    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:29.0/255.0 green:196.0/255.0 blue:135.0/255.0 alpha:1.0]];
     // ****************************************************************************
@@ -45,7 +45,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,7 +54,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -90,11 +90,11 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
-//    NSLog(@"Nav Class: %@", NSStringFromClass([((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0] class]));
-//    
-//    NSLog(@"Top Controller: %@", NSStringFromClass([nav.topViewController class]));
-//    
-//    
+    //    NSLog(@"Nav Class: %@", NSStringFromClass([((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0] class]));
+    //
+    //    NSLog(@"Top Controller: %@", NSStringFromClass([nav.topViewController class]));
+    //
+    //
     for (id key in userInfo) {
         NSLog(@"key: %@, value: %@ \n", key, [userInfo objectForKey:key]);
     }
@@ -117,17 +117,17 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
     
     
-//    UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0];
-//    UIViewController *pushVC = nav.topViewController;
-//    [pushVC handlePushNotification:userInfo];
-//    for (UIViewController *v in ((UITabBarController *)application.keyWindow.rootViewController).viewControllers)
-//    {
-//        if ([v isKindOfClass:[UINavigationController class]] && [((UINavigationController *)v).topViewController isKindOfClass:[NPPushNotificationViewController class]])
-//        {
-//            NPPushNotificationViewController *pushVC = (NPPushNotificationViewController *)((UINavigationController *)v).topViewController;
-//            [pushVC handlePushNotification:userInfo];
-//        }
-//    }
+    //    UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[0];
+    //    UIViewController *pushVC = nav.topViewController;
+    //    [pushVC handlePushNotification:userInfo];
+    //    for (UIViewController *v in ((UITabBarController *)application.keyWindow.rootViewController).viewControllers)
+    //    {
+    //        if ([v isKindOfClass:[UINavigationController class]] && [((UINavigationController *)v).topViewController isKindOfClass:[NPPushNotificationViewController class]])
+    //        {
+    //            NPPushNotificationViewController *pushVC = (NPPushNotificationViewController *)((UINavigationController *)v).topViewController;
+    //            [pushVC handlePushNotification:userInfo];
+    //        }
+    //    }
 }
 
 @end

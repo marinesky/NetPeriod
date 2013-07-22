@@ -339,6 +339,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeButton" destination="vhN-d3-uVh" id="Zwj-pM-cwq"/>
                         <outlet property="tableView" destination="Ckb-bC-ZOb" id="9sp-B7-Kty"/>
                     </connections>
                 </viewController>
@@ -499,20 +500,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar_liuliang.png" width="16" height="16"/>
-        <image name="calendar_xinqing.png" width="16" height="16"/>
-        <image name="calendar_yima_button.png" width="16" height="16"/>
-        <image name="calendar_yima_button_clicked.png" width="16" height="16"/>
-        <image name="calendar_zhengzhuang.png" width="16" height="16"/>
-        <image name="input.png" width="16" height="16"/>
-        <image name="liuliang.png" width="16" height="16"/>
-        <image name="np_calendar.png" width="16" height="16"/>
-        <image name="np_forum.png" width="16" height="16"/>
-        <image name="np_notification_header.png" width="16" height="16"/>
-        <image name="np_setting.png" width="16" height="16"/>
-        <image name="xinqing.png" width="16" height="16"/>
-        <image name="yima.png" width="16" height="16"/>
-        <image name="zhengzhuang.png" width="16" height="16"/>
+        <image name="calendar_liuliang.png" width="200" height="50"/>
+        <image name="calendar_xinqing.png" width="200" height="50"/>
+        <image name="calendar_yima_button.png" width="79" height="24"/>
+        <image name="calendar_yima_button_clicked.png" width="79" height="24"/>
+        <image name="calendar_zhengzhuang.png" width="200" height="100"/>
+        <image name="input.png" width="300" height="46"/>
+        <image name="liuliang.png" width="53" height="53"/>
+        <image name="np_calendar.png" width="80" height="45"/>
+        <image name="np_forum.png" width="80" height="45"/>
+        <image name="np_notification_header.png" width="320" height="120"/>
+        <image name="np_setting.png" width="80" height="45"/>
+        <image name="xinqing.png" width="53" height="53"/>
+        <image name="yima.png" width="53" height="53"/>
+        <image name="zhengzhuang.png" width="53" height="53"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

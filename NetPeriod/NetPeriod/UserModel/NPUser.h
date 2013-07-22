@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *gender;
 @property (nonatomic) BOOL     loggedIn;
-@property (nonatomic, copy) NSString *loverStatus;
+@property (nonatomic, assign) NSInteger loverStatus;
 @property (nonatomic, copy) NSString *birthday;
 @property (nonatomic, copy) NSString *startMenses;
 @property (nonatomic, copy) NSString *endMenses;

@@ -91,12 +91,12 @@
 #pragma mark - Actions
 
 - (IBAction)finishSettingButtonClicked:(id)sender {
-    [self sendUserBasicInfo];
-    
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    NSLog(@"User %@, %@", self.theUser.username, [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
-    currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
-    [currentInstallation saveInBackground];
+//    [self sendUserBasicInfo];
+//    
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    NSLog(@"User %@, %@", self.theUser.username, [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
+//    currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
+//    [currentInstallation saveInBackground];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -146,10 +146,10 @@
         self.theUser.totalPeriod = self.totalPeriodTextField.text;
     }
     
-    if ([self.mensesPeriodTextField.text intValue] < 4 || [self.mensesPeriodTextField.text intValue] > 8 || [self.totalPeriodTextField.text intValue] < 25 || [self.totalPeriodTextField.text intValue] > 30) {
-        [self showErrorInfo:@"周期不正常，谢谢！"];
-        return;
-    }
+//    if ([self.mensesPeriodTextField.text intValue] < 4 || [self.mensesPeriodTextField.text intValue] > 8 || [self.totalPeriodTextField.text intValue] < 25 || [self.totalPeriodTextField.text intValue] > 30) {
+//        [self showErrorInfo:@"周期不正常，谢谢！"];
+//        return;
+//    }
     
     self.theUser.endMenses = [self addDaysToDate:self.theUser.startMenses days:self.theUser.mensesPeriod];
     self.theUser.username = [NSString stringWithFormat:@"no_%d@163.com", anonymousCount];

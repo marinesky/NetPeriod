@@ -2,9 +2,13 @@
 #import "NPCalendarViewController.h"
 #import "NPCalendarView.h"
 #import "MBProgressHUD.h"
+#import "NPUser.h"
+#import "AFNetworking.h"
+#import "Md5.h"
 
 @interface NPCalendarViewController () <NPCalendarDelegate, MBProgressHUDDelegate> {
     MBProgressHUD *HUD;
+    NPUser *user;
 }
 
 @property (nonatomic, weak) NPCalendarView *calendarView;
@@ -51,9 +55,10 @@
 //                           [self.dateFormatter dateFromString:@"06/01/2013"],
 //                           [self.dateFormatter dateFromString:@"07/01/2013"]
 //                           ];
-    self.period = 28;
+    user = [[NPUser alloc] init];
+    self.period = [user.totalPeriod intValue];
     self.startDate = [self.dateFormatter dateFromString:@"15/07/2013"];
-    self.lastDays = 4;
+    self.lastDays = [user.mensesPeriod intValue];
     
     calendar.onlyShowCurrentMonth = NO;
     calendar.adaptHeightToNumberOfWeeksInMonth = YES;
@@ -74,6 +79,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"日历";
     [self disableAllButtons];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.period = [user.totalPeriod intValue];
+    self.startDate = [self.dateFormatter dateFromString:@"15/07/2013"];
+    self.lastDays = [user.mensesPeriod intValue];
+    [self.calendarView layoutSubviews];
 }
 
 - (void)viewDidUnload
@@ -151,7 +165,9 @@
 
 - (BOOL)calendar:(NPCalendarView *)calendar willSelectDate:(NSDate *)date {
     if (!calendar.selectedDate) {
-        [self enableAllButtons];
+        if ([user.gender isEqualToString:@"f"]) {
+            [self enableAllButtons];
+        }
     }
     return ![self dateIsDisabled:date];
 }
@@ -252,6 +268,8 @@
 
 - (IBAction)yimaCome:(id)sender {
     self.startDate = self.calendarView.selectedDate;
+    user.startMenses = [self.dateFormatter stringFromDate:self.startDate];
+    user.endMenses = [self addDaysToDate:user.startMenses days:user.mensesPeriod];
     [self.calendarView layoutSubviews];
 }
 
@@ -260,12 +278,14 @@
     if (intervalDays % self.period >= 0) {
         if (intervalDays % self.period <= 7 && intervalDays % self.period >= 3) {
             self.lastDays = intervalDays % self.period + 1;
+            user.mensesPeriod = [NSString stringWithFormat:@"%d", self.lastDays];
             [self.calendarView layoutSubviews];
         } else {
             [self showErrorInfo];
         }
     } else if (intervalDays % self.period + 28 < 7) {
         self.lastDays = intervalDays % self.period + 29;
+        user.mensesPeriod = [NSString stringWithFormat:@"%d", self.lastDays];
         [self.calendarView layoutSubviews];
     } else {
         [self showErrorInfo];
@@ -282,6 +302,49 @@
     [HUD hide:YES afterDelay:1];
 }
 
+- (NSString *)addDaysToDate:(NSString *)date days:(NSString *)days{
+    
+    
+    // Retrieve NSDate instance from stringified date presentation
+    NSDate *dateFromString = [self.dateFormatter dateFromString:date];
+    
+    // Create and initialize date component instance
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setDay:[days intValue]];
+    
+    // Retrieve date with increased days count
+    NSDate *newDate = [[NSCalendar currentCalendar]
+                       dateByAddingComponents:dateComponents
+                       toDate:dateFromString options:0];
+    
+    return [self.dateFormatter stringFromDate:newDate];
+}
+
+- (void)syncInfo
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.242.8.72:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"http://10.242.8.72:8080/np-web/sync"
+                                                      parameters:@{
+                                    @"email":user.username,
+                                    @"gender":user.gender,
+                                    @"birthday":@"",
+                                    @"starttime":user.startMenses,
+                                    @"endtime":user.endMenses,
+                                    @"period":user.totalPeriod,
+                                    @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:user.username]]}];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
+
+}
 #pragma mark -
 #pragma mark MBProgressHUDDelegate methods
 

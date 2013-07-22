@@ -15,6 +15,7 @@
 #import "JSONKit.h"
 #import "ODRefreshControl.h"
 #import "NPArticle.h"
+#import "NPUser.h"
 
 @interface NPMessageBoardViewController () <SVSegmentedControlDelegate>
 {
@@ -27,9 +28,11 @@
     NSString *articleType;
     
     BOOL isPullingUp;
+    NPUser *user;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *composeButton;
 
 @end
 
@@ -49,6 +52,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    user = [[NPUser alloc] init];
     articles = [NSMutableArray array];
     articleType = @"0";
     
@@ -66,7 +70,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];    
+    [super viewWillAppear:animated];
+    if (!user.loggedIn) {
+        self.composeButton.enabled = NO;
+    }
     navSC.hidden = NO;
 }
 
@@ -87,6 +94,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (!user.loggedIn && [articleType isEqualToString:@"1"]) {
+        return 2;
+    }
     return [articles count] + 2;
 }
 
@@ -106,6 +116,19 @@
         }
         
         [cell.contentView addSubview:imageView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (!user.loggedIn && [articleType isEqualToString:@"1"]) {
+        static NSString *CellIdentifier = @"NPNotLoginCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        cell.textLabel.text = @"您还未登录";
+        cell.textLabel.textColor = [UIColor grayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.row == [articles count] + 1) {
@@ -167,7 +190,11 @@
 {
     if (indexPath.row == 0) {
         return 150;
-    } if (indexPath.row == [articles count] + 1) {
+    }
+    if (!user.loggedIn && [articleType isEqualToString:@"1"]) {
+        return 44;
+    }
+    if (indexPath.row == [articles count] + 1) {
         return 44;
     }
     return 84;

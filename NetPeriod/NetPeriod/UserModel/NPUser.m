@@ -18,7 +18,8 @@
 @synthesize loggedIn;//bool value to detect user has logged in or not
 @synthesize mensesPeriod;//user's menses period
 @synthesize totalPeriod;//user's total period
-
+@synthesize startMenses;
+@synthesize endMenses;
 - (id)init {
     self = [super init];
     if (self) {
@@ -29,7 +30,7 @@
 }
 
 - (NSString *) gender {
-  return [defaults valueForKey:@"gender"];
+    return [defaults valueForKey:@"gender"];
 }
 
 - (void) setGender:(NSString *)genderValue {
@@ -41,7 +42,7 @@
 }
 
 - (void) setUsername:(NSString *)usernameValue {
-  [keychain setObject:usernameValue forKey:(id)CFBridgingRelease(kSecAttrAccount)];
+    [keychain setObject:usernameValue forKey:(id)CFBridgingRelease(kSecAttrAccount)];
 }
 
 - (NSString *) uid {
@@ -49,7 +50,7 @@
 }
 
 - (void) setUid:(NSString *)uidValue {
-   [keychain setObject:uidValue forKey:CFBridgingRelease(kSecValueData)];
+    [keychain setObject:uidValue forKey:CFBridgingRelease(kSecValueData)];
 }
 
 - (NSString *) nickname {
@@ -60,16 +61,16 @@
     [defaults setObject:nicknameValue forKey:@"nickname"];
 }
 
-- (NSString *) loverStatus {
-    return [defaults valueForKey:@"loverStatus"];
+- (NSInteger ) loverStatus {
+    return [defaults integerForKey:@"loverStatus"];
 }
 
-- (void) setLoverStatus:(NSString *)loverStatusValue {
-    [defaults setObject:loverStatusValue forKey:@"loverStatus"];
+- (void) setLoverStatus:(NSInteger )loverStatusValue {
+    [defaults setInteger:loverStatusValue forKey:@"loverStatus"];
 }
 
 - (BOOL) loggedIn {
-  return [defaults boolForKey:@"loggedin"];
+    return [defaults boolForKey:@"loggedin"];
 }
 
 - (void) setLoggedIn:(BOOL)loggedInValue {
@@ -77,7 +78,7 @@
 }
 
 - (NSString *) loverEmail {
-  return [defaults valueForKey:@"loverEmail"];
+    return [defaults valueForKey:@"loverEmail"];
 }
 
 - (void) setLoverEmail:(NSString *)loverEmailValue {
@@ -85,7 +86,7 @@
 }
 
 - (NSString *) mensesPeriod {
-  return [defaults valueForKey:@"mensesPeriod"];
+    return [defaults valueForKey:@"mensesPeriod"];
 }
 
 - (void) setMensesPeriod:(NSString *)mensesPeriodValue {
@@ -94,10 +95,26 @@
 
 
 - (NSString *) totalPeriod {
-  return [defaults valueForKey:@"totalPeriod"];
+    return [defaults valueForKey:@"totalPeriod"];
 }
 
-- (void) settotalPeriod:(NSString *)totalPeriodValue {
+- (void) setTotalPeriod:(NSString *)totalPeriodValue {
     [defaults setObject:totalPeriodValue forKey:@"totalPeriod"];
+}
+
+- (NSString *) startMenses {
+    return [defaults valueForKey:@"startMense"];
+}
+
+- (void) setStartMenses:(NSString *)startMensesValue {
+    [defaults setObject:startMensesValue forKey:@"startMense"];
+}
+
+- (NSString *) endMenses {
+    return [defaults valueForKey:@"endMense"];
+}
+
+- (void) setendMenses:(NSString *)endMensesValue {
+    [defaults setObject:endMensesValue forKey:@"endMense"];
 }
 @end

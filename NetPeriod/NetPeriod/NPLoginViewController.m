@@ -9,6 +9,8 @@
 #import "NPLoginViewController.h"
 #import "CommonData.h"
 #import "KeychainItemWrapper.h"
+#import <Parse/Parse.h>
+#import "Md5.h"
 @interface NPLoginViewController ()
 
 @end
@@ -103,6 +105,12 @@
             }
             KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
             NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);
+            
+            NSLog(@"User %@, %@", username, [NSString stringWithFormat:@"user%@", [Md5 encode:username]]);
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:username]]];
+            [currentInstallation saveInBackground];
+
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
@@ -174,6 +182,11 @@
             }
             KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"NetPeriod" accessGroup:nil];
             NSLog(@"Token:%@", (NSString*)[keychain  objectForKey:CFBridgingRelease(kSecValueData)]);
+            
+            NSLog(@"User %@, %@", username, [NSString stringWithFormat:@"user%@", [Md5 encode:username]]);
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:username]]];
+            [currentInstallation saveInBackground];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];

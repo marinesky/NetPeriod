@@ -10,11 +10,13 @@
 #import "NPMessageBoardCommentCell.h"
 #import "AFNetworking.h"
 #import "JSONKit.h"
+#import "NPUser.h"
 
 @interface NPMessageBoardDetailViewController () {
     UIView *containerView;
     NPGrowingTextView *textView;
     NSMutableArray *comments;
+    NPUser *user;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -23,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *articleTextView;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
-
 
 @end
 
@@ -42,6 +43,7 @@
 {
     [super viewDidLoad];
     
+    user = [[NPUser alloc] init];
     comments = [NSMutableArray array];
     [self initArticle];
     [self customSubviews];
@@ -50,8 +52,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    
 }
 
 - (void)dealloc
@@ -74,6 +74,9 @@
 
 - (void)customSubviews
 {
+    if (!user.loggedIn) {
+        containerView.hidden = YES;
+    }
     CGRect frame = self.articleTextView.frame;
     frame.size.height = self.articleTextView.contentSize.height;
     self.articleTextView.frame = frame;
@@ -90,6 +93,8 @@
     self.mainScrollView.contentSize = CGSizeMake(320, self.commentTableView.frame.origin.y + self.commentTableView.frame.size.height + 10);
     
     [self customComposeCommentView];
+    
+    
 }
 
 - (void)getCommentsWithTopicId:(NSString *)topicId

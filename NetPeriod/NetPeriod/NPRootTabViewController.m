@@ -48,16 +48,16 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if(![defaults objectForKey:@"firstRun"]){
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if(![defaults objectForKey:@"firstRun"]){
         NPChooseGenderViewController *chooseGenderVC = [[NPChooseGenderViewController alloc] initWithNibName:@"NPChooseGenderViewController" bundle:nil];
         UINavigationController *userGuideNav = [[UINavigationController alloc] initWithRootViewController:chooseGenderVC];
     //    [self.view addSubview:userGuideNav.view];
         [self presentViewController:userGuideNav animated:NO completion:^() {
-            [defaults setObject:[NSDate date] forKey:@"firstRun"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
+//            [defaults setObject:[NSDate date] forKey:@"firstRun"];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
         }];
-    }
+//    }
 }
 
 //-(void)viewDidAppear:(BOOL)animated{
