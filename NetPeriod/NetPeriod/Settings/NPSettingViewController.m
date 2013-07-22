@@ -9,6 +9,9 @@
 #import "NPSettingViewController.h"
 #import "NPLoginViewController.h"
 #import "NPaddLoversViewController.h"
+#import "NPInvitationRequestViewController.h"
+#import "CommonData.h"
+#import "NPLoverDetialViewController.h"
 
 @interface NPSettingViewController ()
 
@@ -46,7 +49,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData]; // I think this is a very bad idea, but for time sake, I have to do this.
+}
 #pragma mark -
 #pragma mark IASKAppSettingsViewControllerDelegate protocol
 - (void)settingsViewControllerDidEnd:(IASKAppSettingsViewController*)sender {
@@ -56,9 +62,11 @@
 }
 
 - (void)settingsViewController:(IASKAppSettingsViewController*)sender buttonTappedForSpecifier:(IASKSpecifier*)specifier {
+//    NSLog(specifier.key);
 	if ([specifier.key isEqualToString:@"ToggleLoginAction"]) {
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"登录注册"]) {
-        //NSLog(@"Login button pressed!");
+//         NSLog([[NSUserDefaults standardUserDefaults] objectForKey:specifier.key]);
+        if (![[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"退出"]) {
+        NSLog(@"Login button pressed!");
         NPLoginViewController *loginViewController = [[NPLoginViewController alloc] init];
             loginViewController.redirectType = LoginRedirectFromSetting;
         //[loginViewController.view addSubview:loginViewController.loginOnlyView];
@@ -70,19 +78,18 @@
             [message show];
             [[NSUserDefaults standardUserDefaults] setObject:@"登录注册" forKey:specifier.key];
             [[NSUserDefaults standardUserDefaults] setBool:NO  forKey:@"loggedin"];
+            [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
+            [sender.tableView reloadData];
         }
 		
-	} else if ([specifier.key isEqualToString:@"ButtonDemoAction2"]) {
-		NSString *newTitle = [[[NSUserDefaults standardUserDefaults] objectForKey:specifier.key] isEqualToString:@"Logout"] ? @"Login" : @"Logout";
-		[[NSUserDefaults standardUserDefaults] setObject:newTitle forKey:specifier.key];
-	}
+	} 
 }
 
 #pragma mark -
 #pragma mark customcell view delegate
 - (CGFloat)tableView:(UITableView*)tableView heightForSpecifier:(IASKSpecifier*)specifier {
     if ([specifier.key isEqualToString:@"headerPicture"]){
-        return 80;
+        return 85;
     }
     return 44;
 }
@@ -96,7 +103,25 @@
         }
         
         // Configure the cell...
-        cell.textLabel.text = @"伴侣";
+        switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
+            case hasnolover:
+                cell.textLabel.text = @"添加伴侣";
+                break;
+            case addinglover:
+                cell.textLabel.text = @"添加待确认";
+                break;
+            case addedlover:
+                cell.textLabel.text = @"伴侣详情";
+                break;
+            case hasinvitation:
+                cell.textLabel.text = @"伴侣邀请请求";
+                break;
+            default:
+                cell.textLabel.text = @"添加伴侣";
+                break;
+        };
+        
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
@@ -109,7 +134,7 @@
         
         // Configure the cell...
         cell.textLabel.text = @"头像";
-        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.bmp"]];
+        UIImageView *headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"M.jpg"]];
         cell.accessoryView = headerImageView;
         return cell;
     }
@@ -130,9 +155,30 @@
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"信息" message:@"您还未登录，请先登录或者注册再添加伴侣" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
             [message show];
         }
-        else if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hasLovers"]) { //user does not hava a lover
-            NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
-            [sender.navigationController pushViewController:addLoverViewController animated:YES];
+        else {
+            switch ([[NSUserDefaults standardUserDefaults] integerForKey:@"loverStatus"]) {
+                case hasnolover:
+                case addinglover: {
+//                    NPaddLoversViewController *addLoverViewController = [[NPaddLoversViewController alloc] initWithNibName:@"NPaddLoversViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:addLoverViewController animated:YES];
+//                    break;
+                }
+                case hasinvitation: {
+//                    NPInvitationRequestViewController *invitationReqVC = [[NPInvitationRequestViewController alloc] initWithNibName:@"NPInvitationRequestViewController" bundle:Nil];
+//                    [sender.navigationController pushViewController:invitationReqVC animated:YES];
+//                    break;
+                }
+                case addedlover: {
+                    NPLoverDetialViewController *loverDetialVC = [[NPLoverDetialViewController alloc] initWithNibName:@"NPLoverDetialViewController" bundle:Nil];
+                    [sender.navigationController pushViewController:loverDetialVC animated:YES];
+                    break;
+                }
+                default:
+                    break;
+            }
+            
+            
+            
         }
     }
 }

@@ -4,11 +4,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - 提醒-->
+        <!--Navigation Controller-->
         <scene sceneID="Wv3-Xq-CfQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="gMV-wE-tFo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="提醒" id="Bav-9p-Yv4"/>
+                    <tabBarItem key="tabBarItem" title="" id="Bav-9p-Yv4">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HZ1-NW-zrI">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -78,7 +80,9 @@
         <scene sceneID="hOL-TH-Bjo">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Stx-KH-urJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="日历" id="PVa-d2-BPm"/>
+                    <tabBarItem key="tabBarItem" title="日历" image="np_calendar.png" id="PVa-d2-BPm">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VYz-rn-Yzj">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -108,31 +112,42 @@
                                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="cRb-UG-GZR">
-                                        <rect key="frame" x="20" y="4" width="24" height="24"/>
+                                        <rect key="frame" x="7" y="8" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="月经期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vda-v0-iEr">
-                                        <rect key="frame" x="48" y="8" width="36" height="15"/>
+                                        <rect key="frame" x="31" y="8" width="36" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Tyn-B5-tqV">
-                                        <rect key="frame" x="128" y="4" width="24" height="24"/>
+                                        <rect key="frame" x="84" y="8" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.56862745100000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="排卵期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyh-KT-SME">
-                                        <rect key="frame" x="156" y="8" width="36" height="15"/>
+                                        <rect key="frame" x="108" y="8" width="36" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="np_pailuan.png" id="tGn-hg-Qx1">
+                                        <rect key="frame" x="162" y="8" width="16" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="排卵日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qwv-nZ-ibA">
+                                        <rect key="frame" x="186" y="8" width="36" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="yFw-O0-Wc3">
-                                        <rect key="frame" x="236" y="4" width="24" height="24"/>
+                                        <rect key="frame" x="240" y="8" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
@@ -143,12 +158,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JqF-QJ-zXX">
-                                        <rect key="frame" x="13" y="40" width="70" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JqF-QJ-zXX">
+                                        <rect key="frame" x="20" y="36" width="53" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="大姨妈">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="大姨妈" backgroundImage="yima.png">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.396078431372549" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -158,12 +173,12 @@
                                             <action selector="YimaClicked:" destination="Ytb-0S-EVn" eventType="touchUpInside" id="4kI-FU-zhb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FIl-st-YHT">
-                                        <rect key="frame" x="97" y="40" width="55" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FIl-st-YHT">
+                                        <rect key="frame" x="99" y="36" width="53" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="流量">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="流量" backgroundImage="liuliang.png">
+                                            <color key="titleColor" red="0.40000000000000002" green="0.66666666666666663" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -173,12 +188,12 @@
                                             <action selector="fluxClicked:" destination="Ytb-0S-EVn" eventType="touchUpInside" id="R6A-5q-8KD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xhI-qT-P2C">
-                                        <rect key="frame" x="174" y="40" width="55" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xhI-qT-P2C">
+                                        <rect key="frame" x="178" y="36" width="53" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="心情">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="心情" backgroundImage="xinqing.png">
+                                            <color key="titleColor" red="0.94117647058823528" green="0.47058823529411764" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -188,12 +203,12 @@
                                             <action selector="moodClicked:" destination="Ytb-0S-EVn" eventType="touchUpInside" id="GXO-Ew-pZc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7b-Jy-L9h">
-                                        <rect key="frame" x="245" y="40" width="55" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h7b-Jy-L9h">
+                                        <rect key="frame" x="256" y="36" width="53" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="症状">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="症状" backgroundImage="zhengzhuang.png">
+                                            <color key="titleColor" red="0.99215686274509807" green="0.76470588235294112" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -207,30 +222,30 @@
                                         <rect key="frame" x="0.0" y="90" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1OT-M1-HS2">
-                                                <rect key="frame" x="20" y="13" width="73" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1OT-M1-HS2">
+                                                <rect key="frame" x="20" y="13" width="73" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="来了">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="来了" backgroundImage="calendar_yima_button.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="highlighted">
+                                                <state key="highlighted" backgroundImage="calendar_yima_button_clicked.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="yimaCome:" destination="Ytb-0S-EVn" eventType="touchUpInside" id="1iF-Ap-6Gt"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RyT-Yo-8Mc">
-                                                <rect key="frame" x="204" y="13" width="73" height="44"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RyT-Yo-8Mc">
+                                                <rect key="frame" x="120" y="13" width="73" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="走了">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="走了" backgroundImage="calendar_yima_button.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="highlighted">
+                                                <state key="highlighted" backgroundImage="calendar_yima_button_clicked.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -244,13 +259,10 @@
                                         <rect key="frame" x="0.0" y="90" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="流量标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yXX-FH-k3d">
-                                                <rect key="frame" x="139" y="25" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_liuliang.png" id="l9c-Q4-6mk">
+                                                <rect key="frame" x="60" y="10" width="200" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -258,27 +270,21 @@
                                         <rect key="frame" x="0.0" y="90" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="心情标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u66-5G-GIt">
-                                                <rect key="frame" x="139" y="25" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_xinqing.png" id="AGb-w2-Bhp">
+                                                <rect key="frame" x="60" y="10" width="200" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="HYk-az-aUR">
-                                        <rect key="frame" x="0.0" y="90" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="90" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="症状标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PCF-LG-gIq">
-                                                <rect key="frame" x="20" y="20" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar_zhengzhuang.png" id="umC-vq-lIi">
+                                                <rect key="frame" x="60" y="10" width="200" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -307,11 +313,13 @@
             </objects>
             <point key="canvasLocation" x="1183" y="492"/>
         </scene>
-        <!--Navigation Controller - 动态-->
+        <!--Navigation Controller - 论坛-->
         <scene sceneID="rmX-D4-GO8">
             <objects>
                 <navigationController definesPresentationContext="YES" id="9eL-Zg-qSp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="动态" id="Ytv-Sg-gyY"/>
+                    <tabBarItem key="tabBarItem" title="论坛" image="np_forum.png" id="Ytv-Sg-gyY">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gwi-Th-Ocy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -334,7 +342,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ckb-bC-ZOb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="DdF-GV-5IE" id="vwR-On-ynr"/>
                                     <outlet property="delegate" destination="DdF-GV-5IE" id="WrH-bu-7i0"/>
@@ -350,6 +357,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Ckb-bC-ZOb" id="9sp-B7-Kty"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sr1-gQ-gxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -386,46 +396,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="正文：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vr1-mt-8dR">
-                                <rect key="frame" x="20" y="54" width="51" height="21"/>
+                                <rect key="frame" x="20" y="87" width="51" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="6UZ-5n-nzJ">
-                                <rect key="frame" x="79" y="16" width="221" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="16" background="input.png" id="6UZ-5n-nzJ">
+                                <rect key="frame" x="20" y="49" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2SK-vc-fFK">
-                                <rect key="frame" x="20" y="83" width="280" height="212"/>
+                                <rect key="frame" x="20" y="116" width="280" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGW-XY-lDf">
-                                <rect key="frame" x="227" y="303" width="73" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="发表">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonClicked:" destination="PRv-8j-sJP" eventType="touchUpInside" id="E28-3d-FLH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                         <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                         <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                         <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gZq-Be-Mov" appends="YES" id="5bB-H2-Yz7"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="q0D-bS-QTa">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qye-ck-2nA">
@@ -433,9 +431,23 @@
                                 <action selector="cancelEdit:" destination="PRv-8j-sJP" id="W7E-Dj-jOc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="发表" id="lT3-cO-fEf">
+                            <connections>
+                                <action selector="postButtonClicked:" destination="PRv-8j-sJP" id="CG4-IV-nvs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="2SK-vc-fFK" id="maw-bJ-1NT"/>
+                        <outlet property="titleTextfield" destination="6UZ-5n-nzJ" id="4i8-xA-eIq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rM-bt-lqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gZq-Be-Mov">
+                    <connections>
+                        <action selector="handleTap:" destination="PRv-8j-sJP" id="adP-Ay-SLk"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2243" y="1213"/>
         </scene>
@@ -469,7 +481,9 @@
         <scene sceneID="DKU-Nt-YWF">
             <objects>
                 <navigationController definesPresentationContext="YES" id="2mZ-sK-EHm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" id="LDk-uK-HS2"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="np_setting.png" id="LDk-uK-HS2">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xIG-Ba-y5I">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -503,6 +517,68 @@
             <point key="canvasLocation" x="-652" y="756"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar_liuliang.png" width="200" height="50"/>
+        <image name="calendar_xinqing.png" width="200" height="50"/>
+        <image name="calendar_yima_button.png" width="79" height="24"/>
+        <image name="calendar_yima_button_clicked.png" width="79" height="24"/>
+        <image name="calendar_zhengzhuang.png" width="200" height="100"/>
+        <image name="input.png" width="300" height="46"/>
+        <image name="liuliang.png" width="53" height="53"/>
+        <image name="np_calendar.png" width="80" height="45"/>
+        <image name="np_forum.png" width="80" height="45"/>
+        <image name="np_pailuan.png" width="12" height="12"/>
+        <image name="np_setting.png" width="80" height="45"/>
+        <image name="xinqing.png" width="53" height="53"/>
+        <image name="yima.png" width="53" height="53"/>
+        <image name="zhengzhuang.png" width="53" height="53"/>
+    </resources>
+    <classes>
+        <class className="IASKAppSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IASKAppSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="NPCalendarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bottomView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="fluxButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fluxView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="moodButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="moodView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="symptomView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="symptombutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yimaButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yimaComeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yimaLeaveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yimaView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="NPComposeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPComposeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contentTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleTextfield" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NPMessageBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPMessageBoardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NPPushNotificationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPPushNotificationViewController.h"/>
+        </class>
+        <class className="NPRootTabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPRootTabViewController.h"/>
+        </class>
+        <class className="NPSettingViewController" superclassName="IASKAppSettingsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NPSettingViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

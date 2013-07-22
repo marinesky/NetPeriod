@@ -27,6 +27,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITabBar *tabBar = self.tabBar;
+    UITabBarItem *item = [tabBar.items objectAtIndex:0];
+    [item setFinishedSelectedImage:[UIImage imageNamed:@"np_notification_clicked"] withFinishedUnselectedImage:[UIImage imageNamed:@"np_notification"]];
+    item.titlePositionAdjustment = UIOffsetMake(0, 25.0);
+    
+    item = [tabBar.items objectAtIndex:1];
+    [item setFinishedSelectedImage:[UIImage imageNamed:@"np_calendar_clicked"] withFinishedUnselectedImage:[UIImage imageNamed:@"np_calendar"]];
+    item.titlePositionAdjustment = UIOffsetMake(0, 25.0);
+    
+    item = [tabBar.items objectAtIndex:2];
+    [item setFinishedSelectedImage:[UIImage imageNamed:@"np_forum_clicked"] withFinishedUnselectedImage:[UIImage imageNamed:@"np_forum"]];
+    item.titlePositionAdjustment = UIOffsetMake(0, 25.0);
+    
+    item = [tabBar.items objectAtIndex:3];
+    [item setFinishedSelectedImage:[UIImage imageNamed:@"np_setting_clicked"] withFinishedUnselectedImage:[UIImage imageNamed:@"np_setting"]];
+    item.titlePositionAdjustment = UIOffsetMake(0, 25.0);
 }
 
 - (void)viewDidAppear:(BOOL)animated

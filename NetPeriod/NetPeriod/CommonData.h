@@ -7,3 +7,9 @@
 //
 
 #define BaseWebServerUrl @"http://10.242.8.72:8080/"
+typedef enum  loverStatus {
+    hasnolover,
+    addinglover,
+    addedlover,
+    hasinvitation
+} LoverStatus;

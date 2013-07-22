@@ -8,10 +8,13 @@
 
 #import "NPMessageBoardDetailViewController.h"
 #import "NPMessageBoardCommentCell.h"
+#import "AFNetworking.h"
+#import "JSONKit.h"
 
 @interface NPMessageBoardDetailViewController () {
     UIView *containerView;
     NPGrowingTextView *textView;
+    NSMutableArray *comments;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -38,10 +41,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    comments = [NSMutableArray array];
+    [self initArticle];
     [self customSubviews];
 	// Do any additional setup after loading the view.
+    [self getCommentsWithTopicId:self.article.topicId];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    
 }
 
 - (void)dealloc
@@ -53,6 +63,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initArticle
+{
+    self.titleLabel.text = self.article.title;
+    self.dateLabel.text = self.article.date;
+    self.articleTextView.text = self.article.content;
 }
 
 - (void)customSubviews
@@ -67,12 +84,42 @@
     
     frame = self.commentTableView.frame;
     frame.origin.y = self.commentLabel.frame.origin.y + self.commentLabel.frame.size.height + 10;
-    frame.size.height = 3 * 44;
+    frame.size.height = [comments count] * 32;
     self.commentTableView.frame = frame;
     
     self.mainScrollView.contentSize = CGSizeMake(320, self.commentTableView.frame.origin.y + self.commentTableView.frame.size.height + 10);
     
     [self customComposeCommentView];
+}
+
+- (void)getCommentsWithTopicId:(NSString *)topicId
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"http://10.240.34.43:8080/np-web/queryReplysByTopicId"
+                                                      parameters:@{
+                                    @"topicId":topicId,
+                                    @"email":@"aa@163.com",
+                                    @"uid":@"fdssfsfsdsad"
+                                    }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", str);
+        NSArray *arr = [dic objectForKey:@"topics"];
+        [comments setArray:arr];
+        [self.commentTableView reloadData];
+        [self customSubviews];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
 }
 
 - (void)customComposeCommentView
@@ -130,7 +177,7 @@
     doneBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     
     [doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[doneBtn addTarget:self action:@selector(resignTextView) forControlEvents:UIControlEventTouchUpInside];
+	[doneBtn addTarget:self action:@selector(postComment) forControlEvents:UIControlEventTouchUpInside];
     [doneBtn setBackgroundImage:sendBtnBackground forState:UIControlStateNormal];
     [doneBtn setBackgroundImage:selectedSendBtnBackground forState:UIControlStateSelected];
 	[containerView addSubview:doneBtn];
@@ -149,7 +196,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return [comments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -161,13 +208,15 @@
     }
     
     // Configure the cell...
+    NSDictionary *dic = [comments objectAtIndex:indexPath.row];
+    cell.commentLabel.text = [NSString stringWithFormat:@"%@：%@", [dic objectForKey:@"username"], [dic objectForKey:@"reply"]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 32;
 }
 /*
  // Override to support conditional editing of the table view.
@@ -296,4 +345,29 @@
     [self resignTextView];
 }
 
+- (void)postComment
+{
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"http://10.240.34.43:8080/np-web/addReply"
+                                                      parameters:@{
+                                    @"topicId":self.article.topicId,
+                                    @"email":@"aa@163.com",
+                                    @"reply":textView.text
+                                    }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        [textView resignFirstResponder];
+        [self getCommentsWithTopicId:self.article.topicId];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
+}
 @end

@@ -10,6 +10,8 @@
 
 @interface NPMessageBoardCommentCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+
 + (id)cellFromNib;
 
 @end

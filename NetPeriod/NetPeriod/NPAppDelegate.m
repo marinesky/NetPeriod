@@ -20,6 +20,8 @@
     [[UITabBar appearance] setBackgroundImage:tabBackground];
 //    [[UITabBar appearance] setSelectionIndicatorImage:
 //     [UIImage imageNamed:@"tab_select_indicator"]];
+//    [[UITabBar appearance] setSelectionIndicatorImage:nil];
+//    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
     
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:29.0/255.0 green:196.0/255.0 blue:135.0/255.0 alpha:1.0]];
     // ****************************************************************************
@@ -31,7 +33,6 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
     return YES;
 }
 							

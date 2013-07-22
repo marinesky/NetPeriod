@@ -135,12 +135,12 @@
 - (void)calendar:(NPCalendarView *)calendar configureDateItem:(NPDateItem *)dateItem forDate:(NSDate *)date {
     // TODO: play with the coloring if we want to...
     if ([self dateIsInMensesPeriod:date]) {
-        dateItem.backgroundColor = [UIColor redColor];
+        dateItem.backgroundColor = [UIColor colorWithRed:254.0/255.0 green:215.0/255.0 blue:211.0/255.0 alpha:1.0];
         dateItem.textColor = [UIColor whiteColor];
     }
     
     if ([self dateIsInOvulatePeriod:date]) {
-        dateItem.backgroundColor = [UIColor yellowColor];
+        dateItem.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:246.0/255.0 blue:216.0/255.0 alpha:1.0];
         dateItem.textColor = [UIColor blackColor];
     }
 //    if ([self dateIsDisabled:date]) {
@@ -177,7 +177,7 @@
 //    NSLog(@"calendar layout: %@", NSStringFromCGRect(frame));
     self.bottomView.frame = CGRectMake(0, frame.size.height + 14, 320, 160);
     UIScrollView *scrollView = (UIScrollView *)self.view;
-    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 172)];
+    [scrollView setContentSize:CGSizeMake(320, frame.size.height + 222)];
 }
 
 #pragma mark - Button Actions
