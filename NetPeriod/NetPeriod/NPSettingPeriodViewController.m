@@ -91,7 +91,7 @@
     [self sendUserBasicInfo];
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    NSLog(@"%@", [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
+    NSLog(@"User %@, %@", self.theUser.username, [NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]);
     currentInstallation.channels = @[[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]];
     [currentInstallation saveInBackground];
     

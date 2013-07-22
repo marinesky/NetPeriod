@@ -111,7 +111,7 @@
         NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
         NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSLog(@"%@", str);
-        NSArray *arr = [dic objectForKey:@"topics"];
+        NSArray *arr = [dic objectForKey:@"replies"];
         [comments setArray:arr];
         [self.commentTableView reloadData];
         [self customSubviews];
@@ -347,6 +347,9 @@
 
 - (void)postComment
 {
+    if ([textView.text isEqualToString:@""]) {
+        return;
+    }
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://10.240.34.43:8080/"]];
     [httpClient setParameterEncoding:AFFormURLParameterEncoding];
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"

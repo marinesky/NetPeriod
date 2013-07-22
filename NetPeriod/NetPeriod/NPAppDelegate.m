@@ -8,11 +8,13 @@
 
 #import "NPAppDelegate.h"
 #import <Parse/Parse.h>
+#import "Md5.h"
 
 @implementation NPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    NSLog(@"%@", [Md5 encode:@"no_10001@163.com"]);
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navi_bar.png"] forBarMetrics:UIBarMetricsDefault];
     UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar"]

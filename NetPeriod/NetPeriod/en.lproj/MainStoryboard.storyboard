@@ -124,23 +124,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Tyn-B5-tqV">
-                                        <rect key="frame" x="84" y="8" width="16" height="16"/>
+                                        <rect key="frame" x="130" y="8" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="排卵期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyh-KT-SME">
-                                        <rect key="frame" x="108" y="8" width="36" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="np_pailuan.png" id="tGn-hg-Qx1">
-                                        <rect key="frame" x="162" y="8" width="16" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="排卵日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qwv-nZ-ibA">
-                                        <rect key="frame" x="186" y="8" width="36" height="15"/>
+                                        <rect key="frame" x="154" y="8" width="36" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -527,7 +516,6 @@
         <image name="liuliang.png" width="53" height="53"/>
         <image name="np_calendar.png" width="80" height="45"/>
         <image name="np_forum.png" width="80" height="45"/>
-        <image name="np_pailuan.png" width="12" height="12"/>
         <image name="np_setting.png" width="80" height="45"/>
         <image name="xinqing.png" width="53" height="53"/>
         <image name="yima.png" width="53" height="53"/>
