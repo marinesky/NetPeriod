@@ -14,7 +14,6 @@
 #import "NPLoverDetialViewController.h"
 
 @interface NPSettingViewController ()
-
 @end
 
 @implementation NPSettingViewController
@@ -184,6 +183,17 @@
             
             
         }
+    }
+}
+
+- (void)didReceiveRequest:(NSString *)type email:(NSString *)email {
+    
+    if([type isEqualToString:@"1"]) {//invite
+        [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"invitatationEmail"];
+        [[NSUserDefaults standardUserDefaults] setInteger:hasinvitation forKey:@"loverStatus"];
+    } else if([type isEqualToString:@"2"] ){
+        [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"loverEmail"];
+        [[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
     }
 }
 @end
