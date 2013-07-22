@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D503A2CD179907570080B054 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = D503A2CC179907570080B054 /* public_key.der */; };
-		D51B7C08179C4637000B4AE1 /* M.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D51B7C06179C4637000B4AE1 /* M.jpg */; };
-		D51B7C09179C4637000B4AE1 /* F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D51B7C07179C4637000B4AE1 /* F.jpg */; };
 		D53D8E4F179952B800BA0361 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */; };
 		D546F1F21796483000E4EE5B /* NPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D546F1F01796483000E4EE5B /* NPLoginViewController.m */; };
 		D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D546F1F11796483000E4EE5B /* NPLoginViewController.xib */; };
@@ -32,8 +30,6 @@
 		D5D740DA179C1309005CA773 /* MYUiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D740D9179C1309005CA773 /* MYUiTextField.m */; };
 		D5DF3F911797DDCC00CC75EB /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DF3F901797DDCC00CC75EB /* RSA.m */; };
 		D5E24916179A72AE00B6B758 /* NPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E24915179A72AE00B6B758 /* NPSettingViewController.m */; };
-		D5E2491E179AA0B100B6B758 /* M.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D5E2491C179AA0B100B6B758 /* M.bmp */; };
-		D5E2491F179AA0B100B6B758 /* F.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D5E2491D179AA0B100B6B758 /* F.bmp */; };
 		D5E24923179AC6A100B6B758 /* NPaddLoversViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E24921179AC6A100B6B758 /* NPaddLoversViewController.m */; };
 		D5E24924179AC6A100B6B758 /* NPaddLoversViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E24922179AC6A100B6B758 /* NPaddLoversViewController.xib */; };
 		D897F90617926BE50077623D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D897F90517926BE50077623D /* UIKit.framework */; };
@@ -151,8 +147,6 @@
 
 /* Begin PBXFileReference section */
 		D503A2CC179907570080B054 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
-		D51B7C06179C4637000B4AE1 /* M.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = M.jpg; sourceTree = "<group>"; };
-		D51B7C07179C4637000B4AE1 /* F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = F.jpg; sourceTree = "<group>"; };
 		D53D8E4D179952B800BA0361 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		D53D8E4E179952B800BA0361 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		D546F1EF1796483000E4EE5B /* NPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPLoginViewController.h; sourceTree = "<group>"; };
@@ -182,8 +176,6 @@
 		D5DF3F901797DDCC00CC75EB /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		D5E24914179A72AE00B6B758 /* NPSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPSettingViewController.h; sourceTree = "<group>"; };
 		D5E24915179A72AE00B6B758 /* NPSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPSettingViewController.m; sourceTree = "<group>"; };
-		D5E2491C179AA0B100B6B758 /* M.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = M.bmp; sourceTree = "<group>"; };
-		D5E2491D179AA0B100B6B758 /* F.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = F.bmp; sourceTree = "<group>"; };
 		D5E24920179AC6A100B6B758 /* NPaddLoversViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPaddLoversViewController.h; sourceTree = "<group>"; };
 		D5E24921179AC6A100B6B758 /* NPaddLoversViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPaddLoversViewController.m; sourceTree = "<group>"; };
 		D5E24922179AC6A100B6B758 /* NPaddLoversViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NPaddLoversViewController.xib; sourceTree = "<group>"; };
@@ -432,12 +424,8 @@
 		D5E24917179A9F0400B6B758 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D51B7C06179C4637000B4AE1 /* M.jpg */,
-				D51B7C07179C4637000B4AE1 /* F.jpg */,
 				D5C8BC70179BEA1400FB1300 /* love@2x.png */,
 				D5C8BC71179BEA1400FB1300 /* love.png */,
-				D5E2491C179AA0B100B6B758 /* M.bmp */,
-				D5E2491D179AA0B100B6B758 /* F.bmp */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -912,8 +900,6 @@
 				D8CD0481179929D500814462 /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				D546F1F31796483000E4EE5B /* NPLoginViewController.xib in Resources */,
 				D503A2CD179907570080B054 /* public_key.der in Resources */,
-				D5E2491E179AA0B100B6B758 /* M.bmp in Resources */,
-				D5E2491F179AA0B100B6B758 /* F.bmp in Resources */,
 				D8B72DEA179A79EF0073AA9C /* NPChooseGenderViewController.xib in Resources */,
 				D8B72DEF179A7A2F0073AA9C /* NPSettingPeriodViewController.xib in Resources */,
 				D8B72DFE179B879D0073AA9C /* navi_bar.png in Resources */,
@@ -935,8 +921,6 @@
 				D5C8BC86179C104800FB1300 /* passwordclick.png in Resources */,
 				D5C8BC87179C104800FB1300 /* password@2x.png in Resources */,
 				D5C8BC88179C104800FB1300 /* password.png in Resources */,
-				D51B7C08179C4637000B4AE1 /* M.jpg in Resources */,
-				D51B7C09179C4637000B4AE1 /* F.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
