@@ -7,7 +7,8 @@
 //
 
 #import "NPUser.h"
-
+#import "AFNetworking.h"
+#import "Md5.h"
 
 @implementation NPUser
 @synthesize username;//the user's emailname
@@ -92,6 +93,8 @@
 
 - (void) setMensesPeriod:(NSString *)mensesPeriodValue {
     [defaults setObject:mensesPeriodValue forKey:@"mensesPeriod"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self syncUserInfo];
 }
 
 
@@ -101,6 +104,8 @@
 
 - (void) setTotalPeriod:(NSString *)totalPeriodValue {
     [defaults setObject:totalPeriodValue forKey:@"totalPeriod"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self syncUserInfo];
 }
 
 - (NSString *) startMenses {
@@ -109,6 +114,8 @@
 
 - (void) setStartMenses:(NSString *)startMensesValue {
     [defaults setObject:startMensesValue forKey:@"startMense"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self syncUserInfo];
 }
 
 - (NSString *) endMenses {
@@ -117,5 +124,34 @@
 
 - (void) setEndMenses:(NSString *)endMensesValue {
     [defaults setObject:endMensesValue forKey:@"endMense"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self syncUserInfo];
+}
+
+- (void)syncUserInfo
+{
+    NSLog(@"%@ - %@ - %@ - %@ - %@ - %@", self.username, self.gender, self.birthday, self.startMenses, self.endMenses, self.totalPeriod);
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
+    [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
+                                                            path:@"http://192.168.130.50:8080/np-web/sync"
+                                                      parameters:@{
+                                    @"email":self.username?self.username:@"",
+                                    @"gender":self.gender?self.gender:@"",
+                                    @"birthday":self.birthday?self.birthday:@"",
+                                    @"starttime":self.startMenses?self.startMenses:@"",
+                                    @"endtime":self.endMenses?self.endMenses:@"",
+                                    @"period":self.totalPeriod?self.totalPeriod:@"",
+                                    @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:self.username]]}];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [operation start];
+
 }
 @end

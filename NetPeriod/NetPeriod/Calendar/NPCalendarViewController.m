@@ -5,6 +5,7 @@
 #import "NPUser.h"
 #import "AFNetworking.h"
 #import "Md5.h"
+#import "JSONKit.h"
 
 @interface NPCalendarViewController () <NPCalendarDelegate, MBProgressHUDDelegate> {
     MBProgressHUD *HUD;
@@ -48,8 +49,8 @@
     calendar.delegate = self;
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    self.minimumDate = [self.dateFormatter dateFromString:@"20/09/2012"];
+    [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    self.minimumDate = [self.dateFormatter dateFromString:@"2012-09-11"];
 //    self.disabledDates = @[
 //                           [self.dateFormatter dateFromString:@"05/01/2013"],
 //                           [self.dateFormatter dateFromString:@"06/01/2013"],
@@ -57,7 +58,7 @@
 //                           ];
     user = [[NPUser alloc] init];
     self.period = [user.totalPeriod intValue];
-    self.startDate = [self.dateFormatter dateFromString:@"15/07/2013"];
+    self.startDate = [self.dateFormatter dateFromString:user.startMenses];
     self.lastDays = [user.mensesPeriod intValue];
     
     calendar.onlyShowCurrentMonth = NO;
@@ -84,8 +85,31 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if ([user.gender isEqualToString:@"m"]) {
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.130.50:8080/"]];
+        [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+        NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                                path:@"http://192.168.130.50:8080/np-web/getPeriod"
+                                                          parameters:@{
+                                        @"email":user.username,
+                                        @"uid":user.uid}];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // Print the response body in text
+            NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
+            NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+            user.startMenses = [dic objectForKey:@"startTime"];
+            user.mensesPeriod = [dic objectForKey:@"range"];
+            user.totalPeriod = [dic objectForKey:@"period"];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+        [operation start];
+
+    }
     self.period = [user.totalPeriod intValue];
-    self.startDate = [self.dateFormatter dateFromString:@"15/07/2013"];
+    self.startDate = [self.dateFormatter dateFromString:user.startMenses];
     self.lastDays = [user.mensesPeriod intValue];
     [self.calendarView layoutSubviews];
 }
@@ -327,12 +351,12 @@
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                             path:@"http://192.168.130.50:8080/np-web/sync"
                                                       parameters:@{
-                                    @"email":user.username,
-                                    @"gender":user.gender,
-                                    @"birthday":@"",
-                                    @"starttime":user.startMenses,
-                                    @"endtime":user.endMenses,
-                                    @"period":user.totalPeriod,
+                                    @"email":user.username?user.username:@"",
+                                    @"gender":user.gender?user.gender:@"",
+                                    @"birthday":user.birthday?user.birthday:@"",
+                                    @"starttime":user.startMenses?user.startMenses:@"",
+                                    @"endtime":user.endMenses?user.endMenses:@"",
+                                    @"period":user.totalPeriod?user.totalPeriod:@"",
                                     @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:user.username]]}];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];

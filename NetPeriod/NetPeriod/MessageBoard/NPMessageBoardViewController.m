@@ -73,6 +73,8 @@
     [super viewWillAppear:animated];
     if (!user.loggedIn) {
         self.composeButton.enabled = NO;
+    } else {
+        self.composeButton.enabled = YES;
     }
     navSC.hidden = NO;
 }

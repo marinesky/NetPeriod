@@ -132,8 +132,8 @@
                        dateByAddingComponents:dateComponents
                        toDate:dateFromString options:0];
     
-    NSLog(@"Original date: %@", [dateFormatter stringFromDate:dateFromString]);
-    NSLog(@"New date: %@", [dateFormatter stringFromDate:newDate]);
+//    NSLog(@"Original date: %@", [dateFormatter stringFromDate:dateFromString]);
+//    NSLog(@"New date: %@", [dateFormatter stringFromDate:newDate]);
     return [dateFormatter stringFromDate:newDate];
 }
 
@@ -170,13 +170,13 @@
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                             path:@"http://192.168.130.50:8080/np-web/sync"
                                                       parameters:@{
-                                                                @"email":self.theUser.username,
-                                                                @"gender":self.theUser.gender,
-                                                                @"birthday":self.theUser.birthday,
-                                                                @"starttime":self.theUser.startMenses,
-                                                                @"endtime":self.theUser.endMenses,
-                                                                @"period":self.theUser.totalPeriod,
-                                                                @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]}];
+                                    @"email":self.theUser.username?self.theUser.username:@"",
+                                    @"gender":self.theUser.gender?self.theUser.gender:@"",
+                                    @"birthday":self.theUser.birthday?self.theUser.birthday:@"",
+                                    @"starttime":self.theUser.startMenses?self.theUser.startMenses:@"",
+                                    @"endtime":self.theUser.endMenses?self.theUser.endMenses:@"",
+                                    @"period":self.theUser.totalPeriod?self.theUser.totalPeriod:@"",
+                                    @"channels":[NSString stringWithFormat:@"user%@", [Md5 encode:self.theUser.username]]}];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

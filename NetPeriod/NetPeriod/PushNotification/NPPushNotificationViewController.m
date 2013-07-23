@@ -89,7 +89,7 @@
     // Configure the cell...
     NSDictionary *dic = [notifications objectAtIndex:indexPath.row];
     cell.content.text = [dic objectForKey:@"content"];
-    cell.date.text = [dic objectForKey:@"date"];
+    cell.date.text = [dic objectForKey:@"pushtime"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
