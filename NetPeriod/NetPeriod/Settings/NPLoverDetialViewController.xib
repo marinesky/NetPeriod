@@ -78,7 +78,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrameSize">{280, 79}</string>
 								<reference key="NSSuperview" ref="187640616"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 								<reference key="IBUIBackgroundColor" ref="611994032"/>
 								<bool key="IBUIOpaque">NO</bool>

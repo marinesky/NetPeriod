@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 #import "KeychainItemWrapper.h"
 #import "MBProgressHUD.h"
-
+#import "NPUser.h"
 @interface NPLoverDetialViewController ()
 
 @end
@@ -38,11 +38,13 @@
     if (!userGender){
         userGender = @"m";
     }
+    NPUser *user = [[NPUser alloc] init];
     userGender = [userGender uppercaseString];
     NSString *loverGender = [userGender isEqualToString:@"M"]?@"F":@"M";
     NSString *selfNickname = [defaults valueForKey:@"nickname"];
-    selfNickname = selfNickname?selfNickname:@"ooxx";
-    NSString *loverNickname = @"xxoo";
+    selfNickname = selfNickname?selfNickname:[[user.username componentsSeparatedByString:@"@"] objectAtIndex:0];
+    NSString *loverNickname = [[user.loverEmail componentsSeparatedByString:@"@"] objectAtIndex:0];
+    loverNickname = loverNickname?loverNickname:@"ooxx";
 //    UIImageView *selfHeaderPictureView = [[UIImageView alloc]initWithFrame:
 //                                          CGRectMake(selfDetailTableViewCell.frame.origin.x + 20, selfDetailTableViewCell.frame.origin.y,
 //                                                     60, 75)];

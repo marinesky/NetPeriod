@@ -12,8 +12,9 @@
 #import "NPInvitationRequestViewController.h"
 #import "CommonData.h"
 #import "NPLoverDetialViewController.h"
+#import "NPUser.h"
 
-@interface NPSettingViewController ()
+@interface NPSettingViewController () 
 @end
 
 @implementation NPSettingViewController
@@ -193,13 +194,16 @@
 }
 
 - (void)didReceiveRequest:(NSString *)type email:(NSString *)email {
-    
+    NPUser *user = [[NPUser alloc] init];
     if([type isEqualToString:@"1"]) {//invite
         [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"invitationEmail"];
         [[NSUserDefaults standardUserDefaults] setInteger:hasinvitation forKey:@"loverStatus"];
-    } else if([type isEqualToString:@"2"] ){
+    } else if([type isEqualToString:@"2"] ){//accept
         [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"loverEmail"];
         [[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
+        if ([user.gender isEqualToString:@"M"]) {
+            [self enableCalendar];
+        }
     } else if([type isEqualToString:@"3"]) {//refuse
       [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
     } else if([type isEqualToString:@"4"]) {//untie

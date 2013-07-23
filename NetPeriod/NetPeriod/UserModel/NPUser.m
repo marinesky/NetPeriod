@@ -20,6 +20,7 @@
 @synthesize totalPeriod;//user's total period
 @synthesize startMenses;
 @synthesize endMenses;
+@synthesize loverEmail;
 - (id)init {
     self = [super init];
     if (self) {

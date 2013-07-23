@@ -85,6 +85,7 @@ NSString *invitationEmail;
                 [self showResponseInfo:@"确认成功"];
                 [[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
                 [[NSUserDefaults standardUserDefaults] setObject:invitationEmail forKey:@"loverEmail"];
+                ((UITabBarItem *)((UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController).tabBar.items[1]).enabled = YES;
                 [self.navigationController popViewControllerAnimated:YES];
             }
             else {

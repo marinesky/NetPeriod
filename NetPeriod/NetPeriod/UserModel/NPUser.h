@@ -26,6 +26,7 @@
 @property (nonatomic, copy) NSString *endMenses;
 @property (nonatomic, copy) NSString *mensesPeriod;
 @property (nonatomic, copy) NSString *totalPeriod;
+@property (nonatomic, copy) NSString *loverEmail;
 
 
 @end
