@@ -356,8 +356,8 @@
                                     @"startId":startId,
                                     @"endId":endId,
                                     @"type":type,
-                                    @"email":@"aa@163.com",
-                                    @"uid":@"fdssfsfsdsad"
+                                    @"email":user.username,
+                                    @"uid":user.uid
                                     }];
 
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];

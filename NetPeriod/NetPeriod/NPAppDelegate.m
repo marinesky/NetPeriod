@@ -121,6 +121,16 @@ void uncaughtExceptionHandler(NSException *exception) {
         ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
         NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
         [settingVC didReceiveRequest:@"2" email:[userInfo objectForKey:@"sender"]];
+    } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"3"]) {
+        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];
+        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
+        NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
+        [settingVC didReceiveRequest:@"3" email:[userInfo objectForKey:@"sender"]];
+    } else if ([[userInfo objectForKey:@"type"] isEqualToString:@"4"]) {
+        UINavigationController *nav = ((UITabBarController *)application.keyWindow.rootViewController).viewControllers[3];
+        ((UITabBarController *)application.keyWindow.rootViewController).selectedIndex = 3;
+        NPSettingViewController *settingVC = (NPSettingViewController *)nav.topViewController;
+        [settingVC didReceiveRequest:@"4" email:[userInfo objectForKey:@"sender"]];
     }
     
     

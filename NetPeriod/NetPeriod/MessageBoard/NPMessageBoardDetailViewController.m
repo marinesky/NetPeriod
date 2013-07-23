@@ -105,8 +105,8 @@
                                                             path:@"http://192.168.130.50:8080/np-web/queryReplysByTopicId"
                                                       parameters:@{
                                     @"topicId":topicId,
-                                    @"email":@"aa@163.com",
-                                    @"uid":@"fdssfsfsdsad"
+                                    @"email":user.username,
+                                    @"uid":user.uid
                                     }];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -217,7 +217,7 @@
     // Configure the cell...
     NSDictionary *dic = [comments objectAtIndex:indexPath.row];
     cell.commentLabel.text = [NSString stringWithFormat:@"%@：%@", [dic objectForKey:@"username"], [dic objectForKey:@"reply"]];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -275,8 +275,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    NPMessageBoardDetailViewController *detailViewController = [[NPMessageBoardDetailViewController alloc] initWithNibName:@"NPMessageBoardDetailViewController" bundle:nil];
-    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - NPGrowingTextView Delegate
@@ -363,7 +361,7 @@
                                                             path:@"http://192.168.130.50:8080/np-web/addReply"
                                                       parameters:@{
                                     @"topicId":self.article.topicId,
-                                    @"email":@"aa@163.com",
+                                    @"email":user.username,
                                     @"reply":textView.text
                                     }];
     

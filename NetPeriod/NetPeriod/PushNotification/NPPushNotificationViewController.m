@@ -10,9 +10,11 @@
 #import "NPPushNotificationCell.h"
 #import "NPLoginViewController.h"
 #import "JSONKit.h"
+#import "NPUser.h"
 
 @interface NPPushNotificationViewController () {
     NSMutableArray *notifications;
+    NPUser *user;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *pushTableView;
@@ -35,7 +37,13 @@
     [super viewDidLoad];
     self.title = @"提醒";
 	// Do any additional setup after loading the view.
+    user = [[NPUser alloc] init];
     notifications = [NSMutableArray array];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self updateViewHeight];
     [self getLastestNotifications];
 }
@@ -157,21 +165,29 @@
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
                                                             path:@"http://192.168.130.50:8080/np-web/getNotification"
                                                       parameters:@{
-                                    @"email":@"no_10000@163.com",
-                                    @"uid":@"dfdsfsdf"}];
+                                    @"email":user.username,
+                                    @"uid":user.uid}];
+    NSLog(@"User: %@ UID: %@", user.username, user.uid);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         // Print the response body in text
         NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", str);
-        if ([[[JSONDecoder decoder] objectWithData:responseObject] isKindOfClass:[NSArray class]]) {
-            NSArray *arr = [[JSONDecoder decoder] objectWithData:responseObject];
+//        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@", str);
+        NSDictionary *dic = [[JSONDecoder decoder] objectWithData:responseObject];
+        if ([[dic objectForKey:@"logs"] isKindOfClass:[NSArray class]]) {
+            NSArray *arr = [dic objectForKey:@"logs"];
             [notifications setArray:arr];
             [self.pushTableView reloadData];
             [self updateViewHeight];
         }
+//        if ([[[JSONDecoder decoder] objectWithData:responseObject] isKindOfClass:[NSArray class]]) {
+//            NSArray *arr = [[JSONDecoder decoder] objectWithData:responseObject];
+//            [notifications setArray:arr];
+//            [self.pushTableView reloadData];
+//            [self updateViewHeight];
+//        }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

@@ -195,11 +195,16 @@
 - (void)didReceiveRequest:(NSString *)type email:(NSString *)email {
     
     if([type isEqualToString:@"1"]) {//invite
-        [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"invitatationEmail"];
+        [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"invitationEmail"];
         [[NSUserDefaults standardUserDefaults] setInteger:hasinvitation forKey:@"loverStatus"];
     } else if([type isEqualToString:@"2"] ){
         [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"loverEmail"];
         [[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
+    } else if([type isEqualToString:@"3"]) {//refuse
+      [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
+    } else if([type isEqualToString:@"4"]) {//untie
+      [[NSUserDefaults standardUserDefaults] setInteger:hasnolover forKey:@"loverStatus"];
+      [[NSUserDefaults standardUserDefaults] setObject:Nil forKey:@"loverEmail"];
     }
 }
 @end

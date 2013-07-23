@@ -34,7 +34,7 @@ NSString *invitationEmail;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     invitationEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"invitationEmail"];
-    invitationEmail = invitationEmail?invitationEmail:@"aa@163.com";
+    invitationEmail = invitationEmail?invitationEmail:@"xiaoyan@163.com";
     NSString *infoText = [NSString stringWithFormat:@"用户%@向您发起了添加伴侣请求，请确认是否同意。", invitationEmail];
     invitationInfoText.numberOfLines = 0;
     invitationInfoText.text = infoText;
@@ -62,6 +62,7 @@ NSString *invitationEmail;
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                             path:@"/np-web/acceptpartner"
                                                       parameters:@{@"email":username, @"uid":uid, @"partneremail":invitationEmail, @"confirm":confirm}];
+    NSLog(@"Username: %@ uid: %@ partneremail: %@ confirm: %@", username, uid, invitationEmail, confirm);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

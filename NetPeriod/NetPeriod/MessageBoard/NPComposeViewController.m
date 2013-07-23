@@ -10,9 +10,11 @@
 #import "AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
+#import "NPUser.h"
 
 @interface NPComposeViewController () <MBProgressHUDDelegate>{
     MBProgressHUD *HUD;
+    NPUser *user;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextfield;
@@ -35,6 +37,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    user =  [[NPUser alloc] init];
     self.contentTextView.layer.borderWidth = 0.8;
     self.contentTextView.layer.borderColor = [UIColor colorWithRed:29.0/255.0 green:196.0/255.0 blue:135.0/255.0 alpha:0.5].CGColor;
 }
@@ -52,8 +56,8 @@
     NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
                                                             path:@"http://192.168.130.50:8080/np-web/newpost"
                                                       parameters:@{
-                                    @"email":@"aa@163.com",
-                                    @"uid":@"fdssfsfsdsad",
+                                    @"email":user.username,
+                                    @"uid":user.uid,
                                     @"title":self.titleTextfield.text,
                                     @"article":self.contentTextView.text
                                     }];
