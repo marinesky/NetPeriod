@@ -201,7 +201,7 @@
     } else if([type isEqualToString:@"2"] ){//accept
         [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"loverEmail"];
         [[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
-        if ([user.gender isEqualToString:@"M"]) {
+        if ([user.gender isEqualToString:@"m"]) {
             [self enableCalendar];
         }
     } else if([type isEqualToString:@"3"]) {//refuse

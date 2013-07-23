@@ -11,6 +11,8 @@
 #import "KeychainItemWrapper.h"
 #import <Parse/Parse.h>
 #import "Md5.h"
+#import "NPUser.h"
+
 @interface NPLoginViewController ()
 
 @end
@@ -163,6 +165,30 @@
                 [keychain setObject:payload[@"message"] forKey:CFBridgingRelease(kSecValueData)];
                 [[NSUserDefaults standardUserDefaults] setObject:@"退出" forKey:@"ToggleLoginAction"];
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedin"];
+                NSMutableURLRequest *queryLoverRequest = [httpClient requestWithMethod:@"GET"
+                                                                        path:@"/np-web/querypartner"
+                                                                  parameters:@{@"email":username, @"uid":payload[@"message"]}];
+                AFHTTPRequestOperation *queryOperation = [[AFHTTPRequestOperation alloc] initWithRequest:queryLoverRequest];
+                [queryOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    id payload = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];   
+                    if ([payload[@"status"] isEqualToString:@"Error"]){
+//                        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"错误" message:@"sync error!" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+//                        [message show];
+                    }
+                    else {//query ok
+                        NPUser *user = [[NPUser alloc] init];
+                        user.loverEmail = payload[@"partner"];
+                        user.loverStatus = addedlover;
+                        //[[NSUserDefaults standardUserDefaults] setInteger:addedlover forKey:@"loverStatus"];
+                    }
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error){
+                    NSLog(@"Error: %@", error);
+                    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"服务器错误" message:@"与服务器交互发生错误，请稍后再试。" delegate:Nil cancelButtonTitle:@"确定" otherButtonTitles:Nil];
+                    [message show];
+                }
+                ];
+                [queryOperation start];
                 if (self.redirectType == LoginRedirectFromSetting) {
                     if ([[UIApplication sharedApplication].keyWindow.rootViewController isKindOfClass:[UITabBarController class]] )
                     {
